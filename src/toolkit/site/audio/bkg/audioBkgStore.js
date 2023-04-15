@@ -12,14 +12,10 @@ function createBackgroundAudio() {
 
   return {
     subscribe,
-    // load: trackPath => update(prev => {
-    //   return {
-    //     ...prev,
-    //     trackPath: trackPath,
-    //   }
-    // }),
     load: trackPath => storeUpdate("trackPath", trackPath, update),
     play: ()=> storeUpdate("paused", false, update),
+    pause: ()=> storeUpdate("paused", true, update),
+    // togglePaused: ()=>
   }
 }
 
