@@ -1,26 +1,11 @@
-<div>
-  <h1>flow</h1>
-</div>
+<!-- SCRIPTS //////////////////////////////////////////// -->
+<script>
+  // IMPORTS -----------------------------------------------
+  import AudioBkg from "./toolkit/site/audio/bkg/AudioBkg.svelte";
+  import audioBkgStore from "./toolkit/site/audio/bkg/audioBkgStore";
+</script>
 
-<style>
-  div {
-    width: 100%;
-    height: 100vh;
-    border: 4px solid red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: black; */
-  }
-  h1 {
-    font-family: "Monoton";
-    border: 10px solid black;
-    width: 1200px;
-    height: 630px;
-    /* color: white; */
-    font-size: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
+<!-- MARKUP //////////////////////////////////////////////// -->
+<AudioBkg />
+
+<button type="button" on:click={()=> audioBkgStore.load("./assets/audio/bkg/opening-prompt.mp3")} >TEST</button>
