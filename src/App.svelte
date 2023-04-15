@@ -8,4 +8,4 @@
 <!-- MARKUP //////////////////////////////////////////////// -->
 <AudioBkg />
 
-<button type="button" on:click={()=> audioBkgStore.load("./assets/audio/bkg/opening-prompt.mp3")} >TEST</button>
+<button type="button" on:click={()=> audioBkgStore.play()} >TEST</button>

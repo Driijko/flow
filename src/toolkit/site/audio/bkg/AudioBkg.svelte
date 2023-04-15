@@ -8,5 +8,5 @@
 </script>
 
 <audio controls bind:this={audioBkgElement} id="audio-bkg"
-  src={$audioBkgStore.trackPath}
+  src={$audioBkgStore.trackPath} bind:paused={$audioBkgStore.paused}
 ></audio>
