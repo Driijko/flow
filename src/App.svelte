@@ -11,3 +11,4 @@
 
 <button type="button" on:click={()=> audioBkgStore.play()} >PLAY</button>
 <button type="button" on:click={()=> audioBkgStore.pause()} >PAUSE</button>
+<button type="button" on:click={()=> audioBkgStore.togglePaused()} >TOGGLE</button>

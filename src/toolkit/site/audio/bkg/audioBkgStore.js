@@ -15,7 +15,9 @@ function createBackgroundAudio() {
     load: trackPath => storeUpdate("trackPath", trackPath, update),
     play: ()=> storeUpdate("paused", false, update),
     pause: ()=> storeUpdate("paused", true, update),
-    // togglePaused: ()=>
+    togglePaused: ()=> storeUpdate(
+      "paused", prev => !(prev["paused"]), update, true
+    ),
   }
 }
 
