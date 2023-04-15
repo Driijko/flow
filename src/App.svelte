@@ -9,6 +9,4 @@
 <!-- MARKUP //////////////////////////////////////////////// -->
 <AudioBkg />
 
-<button type="button" on:click={()=> audioBkgStore.play()} >PLAY</button>
-<button type="button" on:click={()=> audioBkgStore.pause()} >PAUSE</button>
-<button type="button" on:click={()=> audioBkgStore.togglePaused()} >TOGGLE</button>
+<button type="button" on:click={()=> audioBkgStore.volume(0.5)} >Volume</button>
