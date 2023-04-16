@@ -25,8 +25,14 @@
         const tl = gsap.timeline();
         tl.to("#audio-bkg", {duration: duration, volume: 0},0);
         tl.call(audioBkgStore.pause,null,duration);
-        tl.call(audioBkgStore.load,[track],duration);
-        tl.call(handleLoad,[duration],duration);
+        if ($audioBkgStore.track.path === track.path) {
+          tl.call(()=> audioBkgElement.currentTime = 0,null,duration);
+          tl.call(fadeIn,[duration],duration);
+        } else {
+          tl.call(audioBkgStore.load,[track],duration);
+          tl.call(handleLoad,[duration],duration);
+        }
+
       }
       fadeOut(track,duration/2);
     }

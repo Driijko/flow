@@ -6,9 +6,6 @@
   // SETTINGS ---------------------------------------------
   const crossFadeDuration = 3;
 
-  // STATE --------------------------------------------
-  let selected = null;
-
   // DATA --------------------------------------------
   const tracks = [
     {path: "./assets/audio/bkg/opening-prompt.mp3",
@@ -19,11 +16,9 @@
 
   // EVENT HANDLERS ------------------------------------
   function handleClick(track, index) {
-    if (selected === null) {
+    if ($audioBkgStore.track.name === "") {
       audioBkgStore.load(track);
       audioBkgStore.play();
-    } else if (selected === index) {
-      audioBkgStore.restart();
     } else {
       audioBkgStore.crossFade(track, crossFadeDuration);
     }
