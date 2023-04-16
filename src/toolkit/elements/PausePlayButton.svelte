@@ -12,34 +12,32 @@
   onMount(()=> {
     animation = (state, duration) => {
       if (state === "pause") {
-        const tl = gsap.timeline();
-        tl.to("#pause-play-button path:nth-of-type(1)", {
+        gsap.to(".audio-bkg-pause-play-button path:nth-of-type(1)", {
           duration: duration,
           attr: {
             d: "M 25,20 L 45,20 L 45,80 L 25,80 Z",
           },
-        },0);
-        tl.to("#pause-play-button path:nth-of-type(2)", {
+        });
+        gsap.to(".audio-bkg-pause-play-button path:nth-of-type(2)", {
           duration: duration,
           attr: {
             d: "M 55,20 L 75,20 L 75,80 L 55,80 Z",
           }
-        },0);
+        });
       }
       else if (state === "play") {
-        const tl = gsap.timeline();
-        tl.to("#pause-play-button path:nth-of-type(1)", {
+        gsap.to(".audio-bkg-pause-play-button path:nth-of-type(1)", {
           duration: duration,
           attr: {
             d: "M 20,20 L 50,35 L 50,65 L 20,80 Z",
           },
-        },0);
-        tl.to("#pause-play-button path:nth-of-type(2)", {
+        });
+        gsap.to(".audio-bkg-pause-play-button path:nth-of-type(2)", {
           duration: duration,
           attr: {
             d: "M 50,35 L 80,50 L 80,50 L 50,65 Z",
           }
-        },0);
+        });
       }
     }
     
@@ -64,7 +62,7 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////////// -->
-<button id="pause-play-button" type="button" on:click={handleClick}>
+<button class="audio-bkg-pause-play-button" type="button" on:click={handleClick}>
   <svg viewBox="0 0 100 100">
     <path/>
     <path/>
