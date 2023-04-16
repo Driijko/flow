@@ -11,7 +11,7 @@
 
   onMount(()=> {
     // EVENT HANDLERS ---------------------------------------
-    crossFade = (trackPath, duration) => {
+    crossFade = (track, duration) => {
       const startingVolume = $audioBkgStore.volume;
       function fadeIn(duration) {
         const tl = gsap.timeline();
@@ -21,14 +21,14 @@
       function handleLoad(duration) {
         audioBkgElement.addEventListener("canplay", ()=> fadeIn(duration), {once:true});
       }
-      function fadeOut(trackPath, duration) {
+      function fadeOut(track, duration) {
         const tl = gsap.timeline();
         tl.to("#audio-bkg", {duration: duration, volume: 0},0);
-        tl.call(audioBkgStore.load,[trackPath],duration);
+        tl.call(audioBkgStore.load,[track],duration);
         tl.call(audioBkgStore.pause,null,duration);
         tl.call(handleLoad,[duration],duration);
       }
-      fadeOut(trackPath,duration/2);
+      fadeOut(track,duration/2);
     }
   });
 
@@ -43,6 +43,6 @@
 </script>
 
 <audio bind:this={audioBkgElement} id="audio-bkg"
-  src={$audioBkgStore.trackPath} bind:paused={$audioBkgStore.paused}
+  src={$audioBkgStore.track.path} bind:paused={$audioBkgStore.paused}
   bind:volume={$audioBkgStore.volume} loop={$audioBkgStore.loop}
 ></audio>
