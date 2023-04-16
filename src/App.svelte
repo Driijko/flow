@@ -2,10 +2,12 @@
 <script>
   // IMPORTS -----------------------------------------------
   import AudioBkg from "./toolkit/site/audio/bkg/AudioBkg.svelte";
-  import PausePlayButton from "./toolkit/elements/PausePlayButton.svelte";
+  import AudioBkgPausePlayButton from "./toolkit/elements/AudioBkgPausePlayButton.svelte";
+  import AudioBkgVolumeSlider from "./toolkit/elements/AudioBkgVolumeSlider.svelte";
 
 </script>
 
 <!-- MARKUP //////////////////////////////////////////////// -->
 <AudioBkg />
-<PausePlayButton />
+<AudioBkgPausePlayButton />
+<AudioBkgVolumeSlider />
