@@ -39,10 +39,10 @@
       $audioBkgStore.crossFade.duration
     );
     audioBkgStore.registerCrossFade();
-  }
+  };
 </script>
 
-<audio controls bind:this={audioBkgElement} id="audio-bkg"
+<audio bind:this={audioBkgElement} id="audio-bkg"
   src={$audioBkgStore.trackPath} bind:paused={$audioBkgStore.paused}
   bind:volume={$audioBkgStore.volume} loop={$audioBkgStore.loop}
 ></audio>

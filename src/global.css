@@ -66,6 +66,7 @@ button {
   font-size: inherit;
   font-family: inherit;
   color: inherit;
+  padding: 0;
 }
 
 input {

@@ -1,5 +1,4 @@
 import { writable } from "svelte/store";
-import { gsap } from "gsap";
 import storeUpdate from "../../../helpers/storeUpdate";
 
 function createBackgroundAudio() {
