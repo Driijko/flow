@@ -4,9 +4,10 @@ import storeUpdate from "../../../helpers/storeUpdate";
 function createBackgroundAudio() {
   const {subscribe, update, set} = writable({
     track: {
-      path: "./assets/audio/bkg/opening-prompt.mp3",
-      name: "Opening Prompt Loop",
+      path: "",
+      name: "",
     },
+    currentTime: 0,
     volume: 1,
     paused: true,
     loop: false,
@@ -28,6 +29,7 @@ function createBackgroundAudio() {
     ),
     volume: volume => storeUpdate("volume", volume, update),
     loop: boolean => storeUpdate("loop", boolean, update),
+    restart: () => storeUpdate("currentTime", 0, update),
     crossFade: (trackPath, duration) => storeUpdate(
       "crossFade", {
         registered: false, 

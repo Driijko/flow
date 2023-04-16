@@ -7,7 +7,7 @@
 
   // ANIMATION ------------------------------------
   const animationDuration = 1;
-  let animation;
+  let animation = ()=> null;
 
   onMount(()=> {
     animation = (state, duration) => {
@@ -40,7 +40,7 @@
         });
       }
     }
-    
+
     // REACTIVE --------------------------------------
     if ($audioBkgStore.paused) {
       animation("play", 0);
@@ -57,6 +57,13 @@
       animation("play", animationDuration);
     }
     audioBkgStore.togglePaused();
+  }
+
+  // REACTIVE --------------------------------------
+  $: if ($audioBkgStore.paused) {
+    animation("play", animationDuration);
+  } else {
+    animation("pause", animationDuration);
   }
 
 </script>

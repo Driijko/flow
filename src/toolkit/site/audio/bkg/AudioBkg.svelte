@@ -24,8 +24,8 @@
       function fadeOut(track, duration) {
         const tl = gsap.timeline();
         tl.to("#audio-bkg", {duration: duration, volume: 0},0);
-        tl.call(audioBkgStore.load,[track],duration);
         tl.call(audioBkgStore.pause,null,duration);
+        tl.call(audioBkgStore.load,[track],duration);
         tl.call(handleLoad,[duration],duration);
       }
       fadeOut(track,duration/2);
@@ -45,4 +45,5 @@
 <audio bind:this={audioBkgElement} id="audio-bkg"
   src={$audioBkgStore.track.path} bind:paused={$audioBkgStore.paused}
   bind:volume={$audioBkgStore.volume} loop={$audioBkgStore.loop}
+  currentTime={$audioBkgStore.currentTime}
 ></audio>
