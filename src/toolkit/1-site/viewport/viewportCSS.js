@@ -8,6 +8,7 @@ export default function layout() {
   const viewportRes = window.innerWidth/window.innerHeight;
 
   document.documentElement.style.setProperty("--viewport-height", `${window.innerHeight}px`);
+  document.documentElement.style.setProperty("--viewport-size", `${(window.innerHeight * window.innerWidth)/siteSettings.smallestViewport}`);
   document.documentElement.style.setProperty("--uarr1-aspect-ratio",
     `${uarr1Res[0]}/${uarr1Res[1]}`
   );
