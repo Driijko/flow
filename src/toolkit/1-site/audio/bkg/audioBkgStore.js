@@ -47,6 +47,6 @@ function createBackgroundAudio() {
   }
 }
 
-export const audioStore = createBackgroundAudio();
+export const audioBkgStore = createBackgroundAudio();
 
-export default audioStore;
+export default audioBkgStore;

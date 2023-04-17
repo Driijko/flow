@@ -2,6 +2,7 @@
 <script>
   // IMPORTS -----------------------------------------------
   import audioBkgStore from "./toolkit/1-site/audio/bkg/audioBkgStore";
+  import resizeStore from "./toolkit/1-site/viewport/resizeStore";
   import AudioBkg from "./toolkit/1-site/audio/bkg/AudioBkg.svelte";
   import AudioBkgPlayer from "./toolkit/5-structures/AudioBkgPlayer.svelte";
   import AudioBkgTrackList from "./toolkit/5-structures/AudioBkgTrackList.svelte";
@@ -10,4 +11,6 @@
 
 <!-- MARKUP //////////////////////////////////////////////// -->
 <AudioBkg />
-<AudioBkgPlaylist />
+{#key $resizeStore}
+  <AudioBkgPlaylist />
+{/key}

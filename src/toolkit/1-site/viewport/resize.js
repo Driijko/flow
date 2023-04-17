@@ -1,5 +1,6 @@
 import siteSettings from "../siteSettings";
 import viewportCSS from "./viewportCSS";
+import resizeStore from "./resizeStore";
 
 export default function resize() {
   let resizeReady = false;
@@ -8,7 +9,7 @@ export default function resize() {
       resizeReady = true;
       const timerId = setTimeout(()=> {
         viewportCSS();
-        // resetCount.updateResetCount();
+        resizeStore.updateResizeCount();
         clearTimeout(timerId);
         resizeReady = false;
       }, siteSettings.resizeDelay);
