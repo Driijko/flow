@@ -1,7 +1,7 @@
 <!-- SCRIPTS ///////////////////////////////////////// -->
 <script>
   // IMPORTS ----------------------------------------------------------
-  import AudioBkgPlaylist from "../../../5-structures/AudioBkgPlaylist.svelte";
+  import AudioBkgPlaylist from "../../../6-structures/AudioBkgPlaylist.svelte";
   import MonoUARR from "./MonoUARR.svelte";
 </script>
 
