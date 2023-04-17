@@ -3,35 +3,48 @@
   // IMPORTS --------------------------------------------
   import audioBkgStore from "../1-site/audio/bkg/audioBkgStore";
 
-  // SETTINGS ---------------------------------------------
-  const crossFadeDuration = 3;
-
-  // DATA --------------------------------------------
+  // PROPS ---------------------------------------------
+  // export let tracks = [];
+  // example-------
   const tracks = [
     {path: "./assets/audio/bkg/opening-prompt.mp3",
     name: "Opening Prompt Loop"},
     {path: "./assets/audio/bkg/test-music.mp3",
-    name: "Iroh 0"}
+    name: "Iroh 0"},
+    // {path: "./assets/audio/bkg/opening-prompt.mp3",
+    // name: "Opening Prompt Loop"},
+    // {path: "./assets/audio/bkg/test-music.mp3",
+    // name: "Iroh 0"},
+    // {path: "./assets/audio/bkg/opening-prompt.mp3",
+    // name: "Opening Prompt Loop"},
+    // {path: "./assets/audio/bkg/test-music.mp3",
+    // name: "Iroh 0"},
+    // {path: "./assets/audio/bkg/opening-prompt.mp3",
+    // name: "Opening Prompt Loop"},
+    // {path: "./assets/audio/bkg/test-music.mp3",
+    // name: "Iroh 0"},
   ];
 
+  // SETTINGS ---------------------------------------------
+  const crossFadeDuration = 3;
+
   // EVENT HANDLERS ------------------------------------
-  function handleClick(track, index) {
+  function handleClick(track) {
     if ($audioBkgStore.track.name === "") {
       audioBkgStore.load(track);
       audioBkgStore.play();
     } else {
       audioBkgStore.crossFade(track, crossFadeDuration);
     }
-    selected = index;
   }
 </script>
 
 <!-- MARKUP //////////////////////////////////////////////// -->
-<ul>
-  {#each tracks as track,index}
+<ul class="audio-bkg-track-list">
+  {#each tracks as track}
     <li>
       <button type="button" 
-        on:click={()=> handleClick(track,index)}
+        on:click={()=> handleClick(track)}
       >
         {track.name}
       </button>

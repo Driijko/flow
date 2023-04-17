@@ -1,47 +1,30 @@
 import siteSettings from "../siteSettings";
 
-export default function layout() {
-  // SETTINGS -------------------------------------------------
-  const uarr1Res = siteSettings.portraitUARR;
-  const uarr2Res = siteSettings.landscapeUARR;
-
+export default function viewportCSS() {
   const viewportRes = window.innerWidth/window.innerHeight;
+  const portraitRes1 = siteSettings.portraitUARR[0] / siteSettings.portraitUARR[1];
+  const portraitRes2 = siteSettings.portraitUARR[1] / siteSettings.portraitUARR[0];
+  const landscapeRes1 = siteSettings.landscapeUARR[0] / siteSettings.landscapeUARR[1];
+  const landscapeRes2 = siteSettings.landscapeUARR[1] / siteSettings.landscapeUARR[0];
 
   document.documentElement.style.setProperty("--viewport-height", `${window.innerHeight}px`);
   document.documentElement.style.setProperty("--viewport-size", `${(window.innerHeight * window.innerWidth)/siteSettings.smallestViewport}`);
-  document.documentElement.style.setProperty("--uarr1-aspect-ratio",
-    `${uarr1Res[0]}/${uarr1Res[1]}`
-  );
-  document.documentElement.style.setProperty("--uarr1-width", 
-    viewportRes > uarr1Res[0] / uarr1Res[1] ? "auto" : "100vw"
-  );
-  document.documentElement.style.setProperty("--uarr1-height",
-    viewportRes > uarr1Res[0] / uarr1Res[1] ? "var(--viewport-height)" : "auto"
-  );
-  document.documentElement.style.setProperty("--uarr2-aspect-ratio",
-    `${uarr2Res[0]}/${uarr2Res[1]}`
-  );
-  document.documentElement.style.setProperty("--uarr2-width", 
-    viewportRes < uarr2Res[0] / uarr2Res[1] ? "100vw" : "auto"
-  );
-  document.documentElement.style.setProperty("--uarr2-height",
-    viewportRes < uarr2Res[0] / uarr2Res[1] ? "auto" : "var(--viewport-height)"
-  );
-  if (viewportRes <= 1) {
-    if (viewportRes > (uarr1Res[0]/uarr1Res[1])) {
-      document.documentElement.style.setProperty("--uarr-width",
-        `${window.innerHeight * (uarr1Res[0]/uarr1Res[1])}px`
-      );
-    } else {
-      document.documentElement.style.setProperty("--uarr-width", "100vw");
-    }
+
+  // PORTRAIT UARR
+  if (viewportRes > portraitRes1) {
+    document.documentElement.style.setProperty("--uarr1-width", `${window.innerHeight * portraitRes1}px`);
+    document.documentElement.style.setProperty("--uarr1-height", `${window.innerHeight}px`);
   } else {
-    if (viewportRes > (uarr2Res[0]/uarr2Res[1])) {
-      document.documentElement.style.setProperty("--uarr-width",
-        `${window.innerHeight * (uarr2Res[0]/uarr2Res[1])}px`
-      );
-    } else {
-      document.documentElement.style.setProperty("--uarr-width", "100vw");
-    }
-  }
+    document.documentElement.style.setProperty("--uarr1-width", `${window.innerWidth}px`);
+    document.documentElement.style.setProperty("--uarr1-height", `${window.innerWidth * portraitRes2}px`);
+  };
+
+  // LANDSCAPE UARR
+  if (viewportRes > landscapeRes1) {
+    document.documentElement.style.setProperty("--uarr2-width", `${window.innerHeight * landscapeRes1}px`);
+    document.documentElement.style.setProperty("--uarr2-height", `${window.innerHeight}px`);
+  } else {
+    document.documentElement.style.setProperty("--uarr2-width", `${window.innerWidth}px`);
+    document.documentElement.style.setProperty("--uarr2-height", `${window.innerWidth * landscapeRes2}px`);
+  };
 }

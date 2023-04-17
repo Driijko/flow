@@ -8,8 +8,8 @@
   import AudioBkgPlayer from "./toolkit/5-structures/AudioBkgPlayer.svelte";
   import AudioBkgTrackList from "./toolkit/5-structures/AudioBkgTrackList.svelte";
   import AudioBkgPlaylist from "./toolkit/5-structures/AudioBkgPlaylist.svelte";
-  import AudioBkgPlaylistMonoUarr from "./toolkit/4-modules/AudioBkgPlaylistMonoUARR.svelte";
-  import MonoUARR from "./toolkit/4-modules/MonoUARR.svelte";
+  import AudioBkgPlaylistMonoUarr from "./toolkit/4-modules/uarr/mono-uarr/AudioBkgPlaylistMonoUARR.svelte";
+  import MonoUARR from "./toolkit/4-modules/uarr/mono-uarr/MonoUARR.svelte";
 
   // INITIAL SET UP -------------------------------------------------
   // This function only needs to be run if you are using
@@ -19,5 +19,26 @@
 
 <!-- MARKUP //////////////////////////////////////////////// -->
 <AudioBkg />
-<MonoUARR />
 <!-- <AudioBkgPlaylistMonoUarr /> -->
+<section class="uarr-container">
+  <div class="uarr1"></div>
+  <div class="uarr2"></div>
+  <div class="uarr"></div>
+</section>
+
+
+<!-- STYLE //////////////////////////////////////////////////////// -->
+<style>
+  div {
+    position: absolute;
+  }
+  .uarr1 {
+    border: 4px solid red;
+  }
+  .uarr2 {
+    border: 4px solid blue;
+  }
+  .uarr {
+    border: 4px solid green;
+  }
+</style>

@@ -1,6 +1,7 @@
 import siteSettings from "../siteSettings";
 import viewportCSS from "./viewportCSS";
 import resizeStore from "./resizeStore";
+import viewportOrientationStore from "./viewportOrientationStore";
 
 export default function resize() {
   let resizeReady = false;
@@ -10,8 +11,9 @@ export default function resize() {
       const timerId = setTimeout(()=> {
         viewportCSS();
         resizeStore.updateResizeCount();
-        clearTimeout(timerId);
+        viewportOrientationStore.update();
         resizeReady = false;
+        clearTimeout(timerId);
       }, siteSettings.resizeDelay);
     };
   });

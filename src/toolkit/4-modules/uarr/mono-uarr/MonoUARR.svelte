@@ -1,6 +1,6 @@
 <!-- SCRIPTS ////////////////////////////////////////////////////// -->
 <script>
-  import viewportOrientationStore from "../1-site/viewport/viewportOrientationStore";
+  import viewportOrientationStore from "../../../1-site/viewport/viewportOrientationStore";
 </script>
 
 <!-- MARKUP //////////////////////////////////////////////// -->
@@ -8,7 +8,9 @@
   {#if ($viewportOrientationStore === "landscape")}
     <div class="uarr2"></div>
   {/if}
-  <div class="uarr1"></div>
+  <div class="uarr1">
+    <slot name="content" />
+  </div>
 </div>
 
 <!-- STYLES //////////////////////////////////////////////////////// -->

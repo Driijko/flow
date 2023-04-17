@@ -174,26 +174,28 @@ svg {
 }
 
 @media screen and (orientation: portrait) {
+  :root {
+    --uarr-width: var(--uarr1-width);
+  }
   .uarr {
-    aspect-ratio: var(--uarr1-aspect-ratio);
     width: var(--uarr1-width);
     height: var(--uarr1-height);
   }
 }
 @media screen and (orientation: landscape) {
+  :root {
+    --uarr-width: var(--uarr2-width);
+  }
   .uarr {
-    aspect-ratio: var(--uarr2-aspect-ratio);
     width: var(--uarr2-width);
     height: var(--uarr2-height);
   }
 }
 .uarr1 {
-  aspect-ratio: var(--uarr1-aspect-ratio);
   width: var(--uarr1-width);
   height: var(--uarr1-height);
 }
 .uarr2 {
-  aspect-ratio: var(--uarr2-aspect-ratio);
   width: var(--uarr2-width);
   height: var(--uarr2-height);
 }
