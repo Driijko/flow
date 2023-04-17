@@ -32,7 +32,6 @@
           tl.call(audioBkgStore.load,[track],duration);
           tl.call(handleLoad,[duration],duration);
         }
-
       }
       fadeOut(track,duration/2);
     }

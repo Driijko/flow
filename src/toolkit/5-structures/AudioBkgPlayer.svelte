@@ -1,9 +1,9 @@
 <!-- SCRIPTS ////////////////////////////////////////// -->
 <script>
   // IMPORTS -------------------------------------------------
-  import audioBkgStore from "../site/audio/bkg/audioBkgStore";
-  import AudioBkgPausePlayButton from "../elements/AudioBkgPausePlayButton.svelte";
-  import AudioBkgVolumeSlider from "../elements/AudioBkgVolumeSlider.svelte";
+  import audioBkgStore from "../1-site/audio/bkg/audioBkgStore";
+  import AudioBkgPausePlayButton from "../6-elements/AudioBkgPausePlayButton.svelte";
+  import AudioBkgVolumeSlider from "../6-elements/AudioBkgVolumeSlider.svelte";
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////// -->

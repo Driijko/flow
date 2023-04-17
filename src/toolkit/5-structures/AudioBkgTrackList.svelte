@@ -1,7 +1,7 @@
 <!-- SCRIPTS ///////////////////////////////////////////// -->
 <script>
   // IMPORTS --------------------------------------------
-  import audioBkgStore from "../site/audio/bkg/audioBkgStore";
+  import audioBkgStore from "../1-site/audio/bkg/audioBkgStore";
 
   // SETTINGS ---------------------------------------------
   const crossFadeDuration = 3;
@@ -38,6 +38,3 @@
     </li>
   {/each}
 </ul>
-<p>
-  {$audioBkgStore.currentTime}
-</p>

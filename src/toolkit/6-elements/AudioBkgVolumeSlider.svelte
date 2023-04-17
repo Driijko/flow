@@ -1,6 +1,6 @@
 <!-- SCRIPTS //////////////////////////////////////////////// -->
 <script>
-  import audioBkgStore from "../site/audio/bkg/audioBkgStore";
+  import audioBkgStore from "../1-site/audio/bkg/audioBkgStore";
 </script>
 
 <!-- MARKUP ////////////////////////////////////////////// -->

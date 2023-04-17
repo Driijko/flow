@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import storeUpdate from "../../../helpers/storeUpdate";
+import storeUpdate from "../../../0-helpers/storeUpdate";
 
 function createBackgroundAudio() {
   const {subscribe, update, set} = writable({
