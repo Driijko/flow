@@ -195,7 +195,7 @@ svg {
 .uarr2 {
   aspect-ratio: var(--uarr2-aspect-ratio);
   width: var(--uarr2-width);
-  height: var(--uarr-height);
+  height: var(--uarr2-height);
 }
 
 /* COLORS ////////////////////////////////////////////////////// */
