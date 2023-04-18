@@ -16,8 +16,8 @@
 <!-- STYLES //////////////////////////////////////////////////////// -->
 <style>
   .uarr1 {
-    border: 4px solid red;
     position: absolute;
+    background-color: hsl(0, 0%, 95%);
   }
   .uarr2 {
     border: 4px solid blue;

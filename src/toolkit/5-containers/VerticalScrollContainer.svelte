@@ -84,5 +84,10 @@
 .vertical-scroll-container-content {
   flex: 1;
   overflow-y: scroll;
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+.vertical-scroll-container-content::-webkit-scrollbar {
+  display: none;
 }
 </style>

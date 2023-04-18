@@ -3,7 +3,7 @@
   // IMPORTS --------------------------------------
   import { gsap } from "gsap";
   import { onMount } from "svelte";
-  import audioBkgStore from "../1-site/audio/bkg/audioBkgStore";
+  import audioBkgStore from "../../1-site/audio/bkg/audioBkgStore";
 
   // ANIMATION ------------------------------------
   const animationDuration = 1;

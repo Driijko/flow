@@ -1,6 +1,6 @@
 <!-- SCRIPTS //////////////////////////////////////////////// -->
 <script>
-  import audioBkgStore from "../1-site/audio/bkg/audioBkgStore";
+  import audioBkgStore from "../../1-site/audio/bkg/audioBkgStore";
 </script>
 
 <!-- MARKUP ////////////////////////////////////////////// -->
@@ -13,7 +13,6 @@ input[type="range"] {
   width: 200px;
   height: 50px;
   padding: 10px;
-  border: 4px solid red;
 }
 input[type="range"]::-webkit-slider-runnable-track {
   background-color: transparent;
@@ -38,7 +37,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-width: 5px;
   border-radius: 50px;
   width: 15%;
-  height: 300%;
+  height: 200%;
   margin-top: -4.8%; 
 }
 input[type="range"]::-moz-range-thumb {
