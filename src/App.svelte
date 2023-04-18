@@ -7,9 +7,8 @@
   import AudioBkg from "./toolkit/1-site/audio/bkg/AudioBkg.svelte";
   import AudioBkgPlayer from "./toolkit/6-structures/AudioBkgPlayer.svelte";
   import AudioBkgTrackList from "./toolkit/6-structures/AudioBkgTrackList.svelte";
-  import AudioBkgPlaylist from "./toolkit/6-structures/AudioBkgPlaylist.svelte";
-  import AudioBkgPlaylistMonoUarr from "./toolkit/4-modules/uarr/mono-uarr/AudioBkgPlaylistMonoUARR.svelte";
-  import MonoUARR from "./toolkit/4-modules/uarr/mono-uarr/MonoUARR.svelte";
+  import AudioBkgPlaylistMonoUARR from "./toolkit/4-modules/uarr/mono/AudioBkgPlaylistMonoUARR.svelte";
+  import MonoUARR from "./toolkit/4-modules/uarr/mono/MonoUARR.svelte";
   import VerticalScrollContainer from "./toolkit/5-containers/VerticalScrollContainer.svelte";
 
   // INITIAL SET UP -------------------------------------------------
@@ -20,37 +19,9 @@
 
 <!-- MARKUP //////////////////////////////////////////////// -->
 <AudioBkg />
-<!-- <AudioBkgPlaylistMonoUarr /> -->
-<VerticalScrollContainer>
-  <ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-    <li>6</li>
-    <li>7</li>
-    <li>8</li>
-    <li>9</li>
-    <li>10</li>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-    <li>6</li>
-    <li>7</li>
-    <li>8</li>
-    <li>9</li>
-    <li>10</li>
-  </ul>
-</VerticalScrollContainer>
-
+<AudioBkgPlaylistMonoUARR />
 
 <!-- STYLE //////////////////////////////////////////////////////// -->
 <style>
-li {
-  border: 4px solid yellow;
-  height: 50px;
-}
+
 </style>

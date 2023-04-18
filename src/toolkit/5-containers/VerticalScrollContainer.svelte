@@ -1,7 +1,7 @@
 <!-- SCRIPTS ////////////////////////////////////////////// -->
 <script>
   // IMPORTS ---------------------------------------
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import UpArrow from "../7-elements/svg-icons/arrows/UpArrow.svelte";
   import DownArrow from "../7-elements/svg-icons/arrows/DownArrow.svelte";
 
@@ -37,6 +37,10 @@
     }
   });
 
+  onDestroy(()=> {
+    verticalScrollContainerContentElement.removeEventListener("scroll",handleScroll);
+  });
+
 
 </script>
 
@@ -66,14 +70,10 @@
 <!-- STYLES /////////////////////////////////////////////////// -->
 <style>
 .vertical-scroll-container {
-  width: 100vw;
-  height: 100vh;
-  border: 4px solid blue;
   display: flex;
   flex-direction: column;
 }
 .vertical-scroll-container-marker  {
-  border: 1px solid green;
   display: flex;
   justify-content: center;
   align-items: center;
