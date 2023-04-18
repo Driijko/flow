@@ -1,9 +1,9 @@
 import { writable } from "svelte/store";
 import siteSettings from "./siteSettings";
-import storeUpdate from "../0-helpers/storeUpdate";
+import storeUpdate from "./utils/storeUpdate";
 
 function createCurrentPageStore() {
-  const {subscribe, update, set} = writable({
+  const {subscribe, update} = writable({
     name: siteSettings.startingPageName,
   });
 
@@ -19,4 +19,8 @@ function createCurrentPageStore() {
       }, exitDuration);
     }
   }
-}
+};
+
+const currentPageStore = createCurrentPageStore();
+
+export default currentPageStore;
