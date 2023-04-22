@@ -31,9 +31,9 @@ input[type="range"]::-moz-range-track {
   border-radius: 50px;
 }
 input[type="range"]::-webkit-slider-thumb {
-  background-color: red; 
+  background-color: grey; 
   border-style: solid;
-  border-color: blue;
+  border-color: black;
   border-width: 5px;
   border-radius: 50px;
   width: 15%;
@@ -41,9 +41,9 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -4.8%; 
 }
 input[type="range"]::-moz-range-thumb {
-  background-color: red; 
+  background-color: grey;
   border-style: solid;
-  border-color: blue;
+  border-color: black;
   border-width: 5px;
   border-radius: 50px;
   width: 15%;

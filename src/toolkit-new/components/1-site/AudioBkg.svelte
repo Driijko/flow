@@ -52,7 +52,3 @@
   bind:volume={$audioBkgStore.volume} loop={$audioBkgStore.loop}
   currentTime={$audioBkgStore.currentTime}
 ></audio>
-
-<p>
-  {$audioBkgStore.track.path}
-</p>

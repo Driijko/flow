@@ -5,7 +5,7 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
-<input type="checkbox" on:click={audioBkgStore.togglePaused} checked={!($audioBkgStore.paused)} />
+<input id="audio-option" type="checkbox" on:click={audioBkgStore.togglePaused} checked={!($audioBkgStore.paused)} />
 
 <!-- STYLES ////////////////////////////////////////// -->
 <style>
