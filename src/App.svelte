@@ -10,6 +10,4 @@
 </script>
 
 <AudioBkg />
-<!-- <OpeningPromptPage /> -->
-<!-- <LoadingPage /> -->
-<Router />
+<OpeningPromptPage />

@@ -3,13 +3,7 @@ import siteSettings from "./siteSettings";
 import storeUpdate from "./utils/storeUpdate";
 
 function createCurrentPageStore() {
-  // const {subscribe, update} = writable({
-  //   name: siteSettings.startingPageName,
-  //   exit: {
-  //     exitMethod: null,
-  //     duration: 0,
-  //   }
-  // });
+
   const currentPage = writable({
     name: siteSettings.startingPageName,
     exit: {
@@ -36,25 +30,6 @@ function createCurrentPageStore() {
       },get(currentPage).exit.duration);
     }
   }
-
-  // return {
-  //   subscribe,
-  //   exit: (duration, exitMethod) => {
-  //     storeUpdate("exit", {
-  //       exitMethod: exitMethod,
-  //       duration: duration,
-  //     },update);
-  //   },
-  //   newPage: newPageName => update(prev => {
-  //     if (prev.exit.exitMethod) {
-  //       prev.exit.exitMethod();
-  //     }
-  //     const timerId = setTimeout(()=> {
-
-  //       clearTimeout(timerId);
-  //     },prev.exit.duration);
-  //   }),
-  // }
 };
 
 const currentPageStore = createCurrentPageStore();

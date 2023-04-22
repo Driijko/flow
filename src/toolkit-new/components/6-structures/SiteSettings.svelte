@@ -12,20 +12,25 @@
 <div class="site-settings">
   <div class="site-settings-option">
     <label for="fullscreen-option">Fullscreen</label>
-    <div>
-      <FullscreenCheckbox />
-    </div>
+    <FullscreenCheckbox />
   </div>
-  <div class="settings-option">
+  <div class="site-settings-option">
     <label for="audio-option">Audio</label>
-    <div>
-      <AudioBkgCheckbox />
-    </div>
+    <AudioBkgCheckbox />
   </div>
-  <div id="volume-adjust" class:visible={!($audioBkgStore.paused)}>
+  <div class="volume-adjust" class:visible={!($audioBkgStore.paused)}>
     <label for="volume">Adjust volume to your preference:</label>
     <AudioBkgVolumeSlider />
   </div>
 </div>
 
 <!-- STYLES ////////////////////////////////////////// -->
+<style>
+  .volume-adjust {
+    transform: scaleY(0);
+    transition: transform 1s ease-out;
+  }
+  .volume-adjust.visible {
+    transform: scaleY(1);
+  }
+</style>

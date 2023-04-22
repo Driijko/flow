@@ -31,10 +31,6 @@
   <div></div>
   <div></div>
   <p>Loading...</p>
-  <p>
-    {$currentPageStore.exit.exitMethod}
-    {$currentPageStore.exit.duration}
-  </p>
 </div>
 
 <!-- STYLES ///////////////////////////////////////////////////////// -->
