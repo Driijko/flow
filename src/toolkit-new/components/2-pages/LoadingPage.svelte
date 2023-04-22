@@ -2,7 +2,7 @@
 <script>
   // IMPORTS -----------------------------------------------
   import { onMount } from "svelte";
-    import currentPageStore from "../../scripts/currentPageStore";
+  import currentPageStore from "../../scripts/currentPageStore";
 
   // STATE ---------------------------------------
   let fade = false;
@@ -11,15 +11,16 @@
   function pageExit() {
     fade = true;
   }
+  currentPageStore.exit(2000, pageExit);
   
   // LOAD EVENT ----------------------------------
   onMount(()=> {
     window.addEventListener("load", ()=>{
-      currentPageStore.newPage("splash",2000,pageExit);
+      currentPageStore.newPage("splash");
     });
     return ()=> {
       window.removeEventListener("load", ()=> {
-        currentPageStore.newPage("splash",2000,pageExit);
+        currentPageStore.newPage("splash");
       });
     };
   });
@@ -30,6 +31,10 @@
   <div></div>
   <div></div>
   <p>Loading...</p>
+  <p>
+    {$currentPageStore.exit.exitMethod}
+    {$currentPageStore.exit.duration}
+  </p>
 </div>
 
 <!-- STYLES ///////////////////////////////////////////////////////// -->
