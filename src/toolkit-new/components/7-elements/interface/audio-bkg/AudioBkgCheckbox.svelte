@@ -1,39 +1,18 @@
-<!-- SCRIPTS ///////////////////////////////////////////////// -->
+<!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
   // IMPORTS -------------------------------------------------
-  import { onDestroy } from "svelte";
-  import fullscreen from "../../../../scripts/viewport/fullscreen";
-
-  // STATE ---------------------------------------------------
-  let fullscreenStatus;
-  function setFullscreenStatus() {
-    if (document.fullscreenElement) {
-      fullscreenStatus = true;
-    } else {
-      fullscreenStatus = false;
-    }
-  }
-  setFullscreenStatus();
-  document.addEventListener("fullscreenchange", setFullscreenStatus);
-  onDestroy(()=> {
-    document.removeEventListener("fullscreenchange", setFullscreenStatus);
-  });
-
-  // EVENT HANDLERS ---------------------------------------
-  function toggleFullscreen(e) {
-    fullscreen(e.target.checked);
-  }
+  import audioBkgStore from "../../../../scripts/audioBkgStore";
 </script>
 
-<!-- MARKUP ///////////////////////////////////////////// -->
-<input id="fullscreen-option" type="checkbox" on:click={toggleFullscreen}   checked={fullscreenStatus}
-/>
+<!-- MARKUP /////////////////////////////////////////// -->
+<input type="checkbox" on:click={audioBkgStore.togglePaused} checked={!($audioBkgStore.paused)} />
 
+<!-- STYLES ////////////////////////////////////////// -->
 <style>
   input {
     border: 4px solid black;
   }
   input:checked {
-    background-color: yellow;
+    background-color: grey;
   }
 </style>
