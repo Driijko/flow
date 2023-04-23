@@ -1,6 +1,5 @@
 <!-- SCRIPTS //////////////////////////// -->
 <script>
-  import audioBkgStore from "../../../scripts/audioBkgStore";
   import DualUARR from "../../4-modules/uarr/DualUARR.svelte";
   import OpeningPromptPortrait from "./OpeningPromptPortrait.svelte";
   import OpeningPromptLandscape from "./OpeningPromptLandscape.svelte";

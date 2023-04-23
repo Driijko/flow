@@ -1,11 +1,19 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
+  // IMPORTS -------------------------------------
   import SiteSettings from "../../6-structures/SiteSettings.svelte";
   import currentPageStore from "../../../scripts/currentPageStore";
   import audioBkgStore from "../../../scripts/audioBkgStore";
 
+  // Load and loop opening-prompt track.
   audioBkgStore.load("./assets/audio/bkg/opening-prompt.mp3");
   audioBkgStore.loop(true);
+
+  // EVENT HANDLERS ----------------------------
+  function handleClick() {
+    currentPageStore.newPage("splash");
+    audioBkgStore.crossFade("./assets/audio/bkg/test-music.mp3",3);
+  }
 </script>
 
 <!-- MARKUP //////////////////////////////////////////// -->
@@ -18,7 +26,7 @@
   <p>
     You can change these settings later in the menu.
   </p>
-  <a on:click|preventDefault={()=> currentPageStore.newPage("splash")} href="link">Ready</a>
+  <a on:click|preventDefault={handleClick} href="link">Ready</a>
 </main>
 
 <!-- STYLES /////////////////////////////////////////// -->
