@@ -78,8 +78,8 @@
 }
 #this :global(input[type="checkbox"]) {
   border: calc(var(--uarr-width)/200) solid white;
-  width: calc(var(--uarr-width)/50);
-  height: calc(var(--uarr-width)/50);
+  width: calc(var(--uarr-width)/30);
+  height: calc(var(--uarr-width)/30);
 }
 #this :global(.volume-adjust) {
   height: 30%;
@@ -103,25 +103,28 @@
   border-color: white;
 }
 #this :global(input[type="range"]::-webkit-slider-thumb) {
-  margin-top: -4%; 
+  margin-top: -3.5%; 
   border-width: calc(var(--uarr-width)/300);
   border-radius: calc(var(--uarr-width)/10);
   border-color: white;
   background-color: hsl(0, 0%, 20%);
   height: 270%;
-  width: 12.5%;    
+  width: 11%;    
 }
 #this :global(input[type="range"]::-moz-range-track) {
-  height: 30%;
+  height: 15%;
   border-radius: calc(var(--uarr-width)/10);
-  border-width: calc(var(--uarr-width)/100);
+  border-width: calc(var(--uarr-width)/400);
+  border-color: white;
 }
 #this :global(input[type="range"]::-moz-range-thumb) {
   margin-top: -4.5%; 
-  border-width: calc(var(--uarr-width)/100);
+  border-width: calc(var(--uarr-width)/300);
   border-radius: calc(var(--uarr-width)/10);
-  height: 60%;
-  width: 10%;   
+  border-color: white;
+  background-color: hsl(0, 0%, 20%);
+  height: 20%;
+  width: 9%;   
 }
 #this :global(.opening-prompt-content p:nth-of-type(3)) {
   width: 22%;
