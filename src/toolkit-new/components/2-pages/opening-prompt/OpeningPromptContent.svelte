@@ -1,6 +1,7 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
   import SiteSettings from "../../6-structures/SiteSettings.svelte";
+  import currentPageStore from "../../../scripts/currentPageStore";
   import audioBkgStore from "../../../scripts/audioBkgStore";
 
   audioBkgStore.load("./assets/audio/bkg/opening-prompt.mp3");
@@ -11,13 +12,13 @@
 <main class="foreground opening-prompt-content">
   <p>Welcome to FLOW</p>
   <p>
-    For the best experience the following settings are recommended:
+    For the best experience,<br class="landscape"/> the following settings are recommended:
   </p>
   <SiteSettings />
   <p>
     You can change these settings later in the menu.
   </p>
-  <a on:click|preventDefault href="link">Ready</a>
+  <a on:click|preventDefault={()=> currentPageStore.newPage("splash")} href="link">Ready</a>
 </main>
 
 <!-- STYLES /////////////////////////////////////////// -->

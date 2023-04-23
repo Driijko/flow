@@ -173,7 +173,11 @@ svg {
   position: relative;
 }
 
+/* PORTRAIT / LANDSCAPE ///////////////////////// */
 @media screen and (orientation: portrait) {
+  .landscape {
+    display: none;
+  }
   :root {
     --uarr-width: var(--uarr1-width);
   }
@@ -183,6 +187,9 @@ svg {
   }
 }
 @media screen and (orientation: landscape) {
+  .portrait {
+    display: none;
+  }
   :root {
     --uarr-width: var(--uarr2-width);
   }
@@ -202,13 +209,13 @@ svg {
 
 /* FOREGROUND / BACKGROUND//////// */
 .foreground {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
 }
 
 .background {
-  position: relative;
+  position: absolute;
   left: -0.1%;
   width: 100.2%;
   top: -0.1%;
@@ -231,16 +238,12 @@ svg {
 /* FONTS ///////////////////////////////////////////////////////// */
 :root {
   font-family: "Arial", sans-serif;
-  color: var(--color1);
+  color: black;
   font-weight: 400;
 }
 
 /* FOCUS HIGHLIGHTING /////////////////////////////////////////// */
 @media (hover: hover) {
-  .interface-style-1:hover, .interface-style-1:focus {
-    color: var(--color2);
-    background-color: var(--color1);
-  }
   a:focus-visible, input:focus-visible, button:focus-visible {
     transform: scale(1.2);
     outline: 10px solid hsla(0, 0%, 50%, 0.8);

@@ -1,10 +1,34 @@
 <!-- SCRIPTS //////////////////////////////// -->
 <script>
+  // IMPORTS -------------------------------------------------------
+  import { gsap } from "gsap";
+  import { onMount } from "svelte";
   import currentPageStore from "../../../scripts/currentPageStore";
   import OpeningPromptContent from "./OpeningPromptContent.svelte";
+
+  // ANIMATION -------------------------------------------------
+  onMount(()=> {
+    const tl1 = gsap.timeline();
+    tl1.from(".rect1", {duration: 0.5, attr:{width:0}},0);
+    tl1.from(".rect2", {duration: 0.5, attr:{x:900}},0);
+    tl1.from(".opening-prompt-content > *", {duration:2, opacity: 0,stagger:1},0.5);
+
+    function pageExit() {
+      const tl2 = gsap.timeline();
+      tl2.to(".opening-prompt-content",{duration: 1, opacity:0},0);
+      tl2.to(".rect1",{duration: 0.5, attr:{width:0}},1);
+      tl2.to(".rect2",{duration: 0.5, attr:{x:900}},1);
+    }
+
+    currentPageStore.exit(2000,pageExit);
+  });
 </script>
 
 <!-- MARKUP //////////////////////////////////// -->
+<svg class="background" viewBox="0 0 900 1600" >
+  <rect class="rect1" x="0" y="0" width="120" height="1600" fill="black" />
+  <rect class="rect2" x="780" y="0" width="120" height="1600" fill="black" />
+</svg>
 <div id="this">
   <OpeningPromptContent />
 </div>
@@ -35,6 +59,7 @@
   padding: 2%;
   border-top: calc(var(--uarr-width)/100) solid black;
   border-bottom: calc(var(--uarr-width)/100) solid black;
+  background-color: white;
   margin-bottom: 3%;
 }
 #this :global(input[type="checkbox"]) {
@@ -47,6 +72,7 @@
   font-size: calc(var(--uarr-width)/18);
   border-top: calc(var(--uarr-width)/100) solid black;
   border-bottom: calc(var(--uarr-width)/100) solid black;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
