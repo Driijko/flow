@@ -7,7 +7,7 @@
   import SiteMenuModalTabs from "../../6-structures/tabs/SiteMenuModalTabs.svelte";
 
   // STATE --------------------------------------------
-  let currentTab = 0;
+  let currentTab = 1;
 
   // EVENT HANDLERS -------------------------------------
   function updateCurrentTab(tab) {
