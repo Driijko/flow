@@ -42,17 +42,19 @@
     <ul>
       <li>
         <a href="light-ambient" on:click|preventDefault={()=> handleClick("light-ambient")}>
-          LIGHT AMBIENT MUSIC
+          LIGHT<br class="portrait"/> AMBIENT MUSIC
         </a>
       </li>
       <li>
         <a href="dark-ambient" on:click|preventDefault={()=> handleClick("dark-ambient")}>
-          DARK AMBIENT MUSIC
+          DARK<br class="portrait"/>AMBIENT MUSIC
         </a>
       </li>
+      <li>
+        <button class="nav-back-button" type="button" on:click={()=> updateNavLevel("")}>
+          <BackArrow />
+        </button>
+      </li>
     </ul>
-    <button type="button" on:click={()=> updateNavLevel("")}>
-      <BackArrow />
-    </button>
   {/if}
 </nav>

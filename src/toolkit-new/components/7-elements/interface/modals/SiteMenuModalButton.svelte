@@ -4,6 +4,7 @@
   import { gsap } from "gsap";
   import { onMount } from "svelte";
   import modalsStore from "../../../../scripts/modalsStore";
+  import currentPageStore from "../../../../scripts/currentPageStore";
 
   // ANIMATION --------------------------------------------
   let animation;
@@ -62,6 +63,9 @@
 <!-- MARKUP /////////////////////////////////////////// -->
 <button type="button" class="site-menu-modal-button" 
   on:click={()=>modalsStore.toggle("siteMenu")}
+  class:splash={$currentPageStore.name === "splash"}
+  class:open={$modalsStore.siteMenu}
+  class:closed={!($modalsStore.siteMenu)}
 >
   <svg viewBox="0 0 100 100">
     <line class="line1" />
@@ -73,8 +77,21 @@
 
 <!-- STYLES /////////////////////////////////////////// -->
 <style>
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  position: absolute;
+  transition-property: width, left, top;
+  transition-timing-function: ease-out;
+  transition-duration: 1s;
+}
+svg {
+  height: 100%;
+}
 line {
-  stroke: black;
+  stroke: white;
   stroke-linecap: round;
 }
 </style>

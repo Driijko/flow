@@ -1,6 +1,8 @@
 <!-- SCRIPTS ///////////////////////////////////// -->
 <script>
   // IMPORTS ------------------------------------
+  import { fly } from "svelte/transition";
+  import TabContent from "./TabContent.svelte";
   import CompassIcon from "../../7-elements/icons/CompassIcon.svelte";
   import GearIcon from "../../7-elements/icons/GearIcon.svelte";
   import SiteSettings from "../SiteSettings.svelte";
@@ -21,9 +23,13 @@
 
 <!-- MARKUP /////////////////////////////////// -->
 {#if currentTab === 0}
-  <Nav {navLevel} {updateNavLevel}  />
+  <TabContent>
+    <Nav {navLevel} {updateNavLevel} />
+  </TabContent>
 {:else if currentTab === 1}
-  <SiteSettings />
+  <TabContent>
+    <SiteSettings />
+  </TabContent>
 {/if}
 
 <ul class="site-menu-modal-tab-buttons">
@@ -47,15 +53,28 @@
 
 <!-- STYLES /////////////////////////////////// -->
 <style>
-  input {
-    display: none;
-  }
-  label {
-    height: 40px;
-    width: 40px;
-    display: block;
-  }
-  input:checked + label {
-    background-color: grey;
-  }
+input {
+  display: none;
+}
+label {
+  display: block;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(0, 0%, 15%);
+  border-radius: 0% 0% 50% 50%;
+}
+input:checked + label {
+  background-color: black;
+}
+input:checked + label :global(svg path) {
+  fill: white;
+}
+label :global(svg) {
+  height: 100%;
+}
+label :global(svg path) {
+  fill: grey;
+}
 </style>
