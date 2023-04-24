@@ -74,6 +74,7 @@
   background-color: hsl(0, 0%, 80%);
   border-bottom: none;
 }
+/* NAV ------------------- */
 #this :global(nav ul) {
   height: 100%;
   display: flex;
@@ -91,6 +92,67 @@
 }
 #this :global(.nav-back-button svg) {
   width: 4%;
+}
+/* SETTINGS ---------------- */
+#this :global(.site-settings) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: calc(var(--uarr-width)/100);
+}
+#this :global(.site-settings-option) {
+  border-top: calc(var(--uarr-width)/200) solid black;
+  border-bottom: calc(var(--uarr-width)/200) solid black;
+  font-size: calc(var(--uarr-width)/40);
+  background-color: hsl(0, 0%, 90%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 18%;
+  padding: 3% 35%;
+}
+#this :global(.site-settings input[type="checkbox"]) {
+  border: calc(var(--uarr-width)/200) solid black;
+  width: calc(var(--uarr-width)/20);
+  height: calc(var(--uarr-width)/20);
+}
+#this :global(.site-settings .volume-adjust) {
+  border-top: calc(var(--uarr-width)/200) solid black;
+  border-bottom: calc(var(--uarr-width)/200) solid black;
+  background-color: hsl(0, 0%, 90%);
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--uarr-width)/20);
+  font-size: calc(var(--uarr-width)/50);
+}
+#this :global(input[type="range"]) {
+  width: 25%;
+}
+#this :global(input[type="range"]::-webkit-slider-runnable-track) {
+  height: calc(var(--uarr-width)/50);
+  border-radius: calc(var(--uarr-width)/10);
+  border-width: calc(var(--uarr-width)/200);
+}
+#this :global(input[type="range"]::-webkit-slider-thumb) {
+  margin-top: -4.5%; 
+  border-width: calc(var(--uarr-width)/200);
+  border-radius: calc(var(--uarr-width)/10);
+  height: calc(var(--uarr-width)/30);
+  width: calc(var(--uarr-width)/30);    
+}
+#this :global(input[type="range"]::-moz-range-track) {
+  height: calc(var(--uarr-width)/80);
+  border-radius: calc(var(--uarr-width)/10);
+  border-width: calc(var(--uarr-width)/200);
+}
+#this :global(input[type="range"]::-moz-range-thumb) {
+  margin-top: -4.5%; 
+  border-width: calc(var(--uarr-width)/200);
+  border-radius: calc(var(--uarr-width)/10);
+  height: calc(var(--uarr-width)/40);
+  width: calc(var(--uarr-width)/40);   
 }
 /* TAB BUTTONS ------------------------------------ */
 #this :global(.site-menu-modal-tab-buttons) {
