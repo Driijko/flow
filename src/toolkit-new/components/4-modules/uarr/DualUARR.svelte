@@ -8,9 +8,9 @@
 <div class="uarr-container">
   <div class="uarr">
     {#if $viewportOrientationStore === "portrait"}
-      <slot name="portraitVersion" />
+      <slot name="portrait-version" />
     {:else}
-      <slot name="landscapeVersion" />
+      <slot name="landscape-version" />
     {/if}
   </div>
 </div>

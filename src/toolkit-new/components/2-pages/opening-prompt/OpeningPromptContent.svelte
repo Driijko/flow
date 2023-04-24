@@ -26,7 +26,7 @@
   <p>
     You can change these settings later in the menu.
   </p>
-  <a on:click|preventDefault={handleClick} href="link">Ready</a>
+  <a on:click|preventDefault={handleClick} href="splash">Ready</a>
 </main>
 
 <!-- STYLES /////////////////////////////////////////// -->

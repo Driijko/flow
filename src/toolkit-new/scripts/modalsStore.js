@@ -9,8 +9,9 @@ function createModalsStore() {
 
   return {
     ...modals,
-    open: modal => storeUpdate("modal",true,modals.update),
-    close: modal => storeUpdate("modal",false,modals.update),
+    open: modal => storeUpdate(modal,true,modals.update),
+    close: modal => storeUpdate(modal,false,modals.update),
+    toggle: modal => storeUpdate(modal, prev => !(prev[modal]), modals.update, true),
   }
 };
 

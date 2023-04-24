@@ -7,6 +7,6 @@
 
 <!-- MARKUP ////////////////////////////// -->
 <DualUARR>
-  <OpeningPromptPortrait slot="portraitVersion" />
-  <OpeningPromptLandscape slot="landscapeVersion" />
+  <OpeningPromptPortrait slot="portrait-version" />
+  <OpeningPromptLandscape slot="landscape-version" />
 </DualUARR>

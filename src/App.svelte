@@ -2,12 +2,16 @@
 <script>
   import setUp from "./toolkit-new/scripts/setUp";
   import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
-  import OpeningPromptPage from "./toolkit-new/components/2-pages/opening-prompt/OpeningPromptPage.svelte";
-  import LoadingPage from "./toolkit-new/components/2-pages/LoadingPage.svelte";
-  import Router from "./toolkit-new/components/1-site/Router.svelte";
+  import SplashPage from "./toolkit-new/components/2-pages/splash/SplashPage.svelte";
+  import SiteMenuModal from "./toolkit-new/components/3-layers/site-menu/SiteMenuModal.svelte";
+  import modalsStore from "./toolkit-new/scripts/modalsStore";
+  import SiteMenuModalButton from "./toolkit-new/components/7-elements/interface/modals/SiteMenuModalButton.svelte";
 
   setUp();
 </script>
 
 <AudioBkg />
-<OpeningPromptPage />
+<SiteMenuModalButton />
+<p>
+  {$modalsStore.siteMenu}
+</p>
