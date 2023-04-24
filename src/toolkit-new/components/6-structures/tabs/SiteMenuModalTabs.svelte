@@ -26,7 +26,7 @@
   <SiteSettings />
 {/if}
 
-<ul>
+<ul class="site-menu-modal-tab-buttons">
   <li>
     <input type="radio" name="tab" id="navigation" 
       checked={currentTab === 0} on:click={()=> updateCurrentTab(0)} 
