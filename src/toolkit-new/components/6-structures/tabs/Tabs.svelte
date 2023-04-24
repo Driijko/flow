@@ -2,13 +2,6 @@
 <script>
   // STATE --------------------------------------
   let currentTab = 0;
-
-  // EVENT HANDLERS --------------------------------
-  function handleClick(element, newTab) {
-    if (element.checked) {
-      currentTab = newTab;
-    }
-  };
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
@@ -22,31 +15,31 @@
 
 <ul>
   <li>
-    <label for="a">A</label>
     <input type="radio" name="tab" id="a" checked={currentTab === 0}
-      on:click={e => handleClick(e.target, 0)} 
+      on:click={()=> currentTab = 0)} 
     />
+    <label for="a">A</label>
   </li>
   <li>
-    <label for="b">B</label>
     <input type="radio" name="tab" id="b" checked={currentTab === 1}
-      on:click={e => handleClick(e.target, 1)} 
+      on:click={()=> currentTab = 1)} 
     />
+    <label for="b">B</label>
   </li>
   <li>
-    <label for="c">C</label>
     <input type="radio" name="tab" id="c" checked={currentTab === 2}
-      on:click={e => handleClick(e.target, 2)} 
+      on:click={()=> currentTab = 2)} 
     />
+    <label for="c">C</label>
   </li>
 </ul>
 
 <!-- STYLES /////////////////////////////////// -->
 <style>
   input {
-    border: 4px solid black;
+    display: none;
   }
-  input:checked {
+  input:checked + label {
     background-color: grey;
   }
 </style>
