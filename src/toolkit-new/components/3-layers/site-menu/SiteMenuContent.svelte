@@ -7,7 +7,7 @@
   import SiteMenuModalTabs from "../../6-structures/tabs/SiteMenuModalTabs.svelte";
 
   // STATE --------------------------------------------
-  let currentTab = 1;
+  let currentTab = 0;
 
   // EVENT HANDLERS -------------------------------------
   function updateCurrentTab(tab) {
@@ -35,6 +35,7 @@
 div {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 header {
   background-color: black;

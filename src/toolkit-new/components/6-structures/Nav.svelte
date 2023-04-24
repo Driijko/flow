@@ -52,14 +52,33 @@
       </li>
       <li>
         <a href="dark-ambient" on:click|preventDefault={()=> handleClick("dark-ambient")}>
-          DARK<br class="portrait"/>AMBIENT MUSIC
+          DARK<br class="portrait"/> AMBIENT MUSIC
         </a>
       </li>
       <li>
-        <button class="nav-back-button" type="button" on:click={()=> updateNavLevel("")}>
+        <button aria-label="back" class="nav-back-button" type="button" on:click={()=> updateNavLevel("")}>
           <BackArrow />
         </button>
       </li>
     </ul>
   {/if}
 </nav>
+
+<!-- STYLES /////////////////////////////// -->
+<style>
+@media (hover:hover) {
+a, button {
+  transition-property: transform, background-color, color;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+a:hover, button:hover {
+  transform: scale(1.1);
+  background-color: black;
+  color: white;
+}
+button:hover :global(path) {
+  fill: white;
+}
+}
+</style>

@@ -84,6 +84,17 @@
   text-align: center;
   line-height: 1.3;
 }
+#this :global(nav a), #this :global(nav button) {
+  width: 100%;
+  display: block;
+}
+#this :global(.nav-back-button) {
+  width: 100%;
+  padding-top: 2%;
+}
+#this :global(.nav-back-button svg) {
+  width: 10%;
+}
 /* SETTINGS ---------------- */
 #this :global(.site-settings) {
   display: flex;
@@ -167,12 +178,6 @@
 }
 #this :global(.site-menu-modal-tab-buttons svg) {
   width: 40%;
-}
-#this :global(.nav-back-button) {
-  width: 100%;
-}
-#this :global(.nav-back-button svg) {
-  width: 10%;
 }
 }
 

@@ -76,6 +76,7 @@
 }
 /* NAV ------------------- */
 #this :global(nav ul) {
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -86,9 +87,16 @@
 #this :global(nav li) {
   text-align: center;
   line-height: 1.3;
+  width: 100%;
+  word-spacing: calc(var(--uarr-width)/100);
+}
+#this :global(nav a), #this :global(nav button) {
+  width: 100%;
+  display: block;
 }
 #this :global(.nav-back-button) {
   width: 100%;
+  padding-top: 0.7%;
 }
 #this :global(.nav-back-button svg) {
   width: 4%;
@@ -136,7 +144,6 @@
   border-width: calc(var(--uarr-width)/200);
 }
 #this :global(input[type="range"]::-webkit-slider-thumb) {
-  margin-top: -4.5%; 
   border-width: calc(var(--uarr-width)/200);
   border-radius: calc(var(--uarr-width)/10);
   height: calc(var(--uarr-width)/30);
@@ -148,7 +155,6 @@
   border-width: calc(var(--uarr-width)/200);
 }
 #this :global(input[type="range"]::-moz-range-thumb) {
-  margin-top: -4.5%; 
   border-width: calc(var(--uarr-width)/200);
   border-radius: calc(var(--uarr-width)/10);
   height: calc(var(--uarr-width)/40);
