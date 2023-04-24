@@ -7,9 +7,10 @@
   import modalsStore from "./toolkit-new/scripts/modalsStore";
   import SiteMenuModalButton from "./toolkit-new/components/7-elements/interface/modals/SiteMenuModalButton.svelte";
   import SiteMenuModalTabs from "./toolkit-new/components/6-structures/tabs/SiteMenuModalTabs.svelte";
+  import Nav from "./toolkit-new/components/6-structures/Nav.svelte";
 
   setUp();
 </script>
 
 <AudioBkg />
-<SiteMenuModalTabs />
+<Nav />

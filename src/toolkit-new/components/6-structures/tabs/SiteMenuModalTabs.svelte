@@ -3,6 +3,7 @@
   // IMPORTS ------------------------------------
   import CompassIcon from "../../7-elements/icons/CompassIcon.svelte";
   import GearIcon from "../../7-elements/icons/GearIcon.svelte";
+  import SiteSettings from "../SiteSettings.svelte";
 
   // STATE --------------------------------------
   let currentTab = 0;
@@ -12,7 +13,7 @@
 {#if currentTab === 0}
   <p>Tab 0</p>
 {:else if currentTab === 1}
-  <p>Tab 1</p>
+  <SiteSettings />
 {/if}
 
 <ul>
