@@ -4,9 +4,10 @@
   import currentPageStore from "../../scripts/currentPageStore";
   import modalsStore from "../../scripts/modalsStore";
   import BackArrow from "../7-elements/icons/BackArrow.svelte";
-  
-  // STATE ---------------------------------------------
-  let selected = ""
+
+  // PROPS -------------------------------------------
+  export let navLevel = "";
+  export let updateNavLevel;
 
   // EVENT HANDLERS -----------------------------------
   function handleClick(page) {
@@ -17,10 +18,10 @@
 
 <nav>
   <!-- MAIN NAV ------------------- -->
-  {#if !(selected)}
+  {#if !(navLevel)}
     <ul>
       <li>
-        <a href="music" on:click|preventDefault={()=> selected = "music"}>
+        <a href="music" on:click|preventDefault={()=> updateNavLevel("music")}>
           MUSIC
         </a>
       </li>
@@ -37,7 +38,7 @@
     </ul>
 
   <!-- MUSIC NAV --------------------------------- -->
-  {:else if selected === "music"}
+  {:else if navLevel === "music"}
     <ul>
       <li>
         <a href="light-ambient" on:click|preventDefault={()=> handleClick("light-ambient")}>
@@ -50,7 +51,7 @@
         </a>
       </li>
     </ul>
-    <button type="button" on:click={()=> selected = ""}>
+    <button type="button" on:click={()=> updateNavLevel("")}>
       <BackArrow />
     </button>
   {/if}

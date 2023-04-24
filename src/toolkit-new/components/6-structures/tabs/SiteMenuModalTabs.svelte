@@ -4,14 +4,21 @@
   import CompassIcon from "../../7-elements/icons/CompassIcon.svelte";
   import GearIcon from "../../7-elements/icons/GearIcon.svelte";
   import SiteSettings from "../SiteSettings.svelte";
+  import Nav from "../Nav.svelte";
 
   // STATE --------------------------------------
   let currentTab = 0;
+  let navLevel = "";
+
+  // EVENT HANDLERS --------------------------------
+  function updateNavLevel(level) {
+    navLevel = level;
+  }
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
 {#if currentTab === 0}
-  <p>Tab 0</p>
+  <Nav {navLevel} {updateNavLevel}  />
 {:else if currentTab === 1}
   <SiteSettings />
 {/if}
