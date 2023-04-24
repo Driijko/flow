@@ -6,8 +6,11 @@
   import SiteSettings from "../SiteSettings.svelte";
   import Nav from "../Nav.svelte";
 
+  // PROPS --------------------------------------
+  export let currentTab = 0;
+  export let updateCurrentTab;
+
   // STATE --------------------------------------
-  let currentTab = 0;
   let navLevel = "";
 
   // EVENT HANDLERS --------------------------------
@@ -26,7 +29,7 @@
 <ul>
   <li>
     <input type="radio" name="tab" id="navigation" 
-      checked={currentTab === 0} on:click={()=> currentTab = 0} 
+      checked={currentTab === 0} on:click={()=> updateCurrentTab(0)} 
     />
     <label for="navigation">
       <CompassIcon />
@@ -34,7 +37,7 @@
   </li>
   <li>
     <input type="radio" name="tab" id="settings" 
-      checked={currentTab === 1} on:click={()=> currentTab = 1} 
+      checked={currentTab === 1} on:click={()=> updateCurrentTab(1)} 
     />
     <label for="settings">
       <GearIcon />

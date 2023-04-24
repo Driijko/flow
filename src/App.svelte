@@ -13,4 +13,4 @@
 </script>
 
 <AudioBkg />
-<SiteMenuModalTabs />
+<SiteMenuModal />
