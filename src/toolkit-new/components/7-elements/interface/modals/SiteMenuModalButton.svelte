@@ -83,12 +83,15 @@ button {
   align-items: center;
   background-color: black;
   position: absolute;
-  transition-property: width, left, top;
+  transition-property: width, height, left, top;
   transition-timing-function: ease-out;
   transition-duration: 1s;
 }
 svg {
   height: 100%;
+  transition-property: width;
+  transition-timing-function: ease-out;
+  transition-duration: 0.5s;
 }
 line {
   stroke: white;

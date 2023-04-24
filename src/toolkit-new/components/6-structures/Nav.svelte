@@ -1,6 +1,7 @@
 <!-- SCRIPTS ////////////////////////////////////////////// -->
 <script>
   // IMPORTS ------------------------------------------
+  import { fly } from "svelte/transition";
   import currentPageStore from "../../scripts/currentPageStore";
   import modalsStore from "../../scripts/modalsStore";
   import BackArrow from "../7-elements/icons/BackArrow.svelte";
@@ -19,7 +20,9 @@
 <nav>
   <!-- MAIN NAV ------------------- -->
   {#if !(navLevel)}
-    <ul>
+    <ul in:fly="{{x:400,duration:500,delay:500}}" 
+      out:fly="{{x:-400,duration:500}}" 
+    >
       <li>
         <a href="music" on:click|preventDefault={()=> updateNavLevel("music")}>
           MUSIC
@@ -39,7 +42,9 @@
 
   <!-- MUSIC NAV --------------------------------- -->
   {:else if navLevel === "music"}
-    <ul>
+    <ul in:fly="{{x:400,duration:500,delay:500}}" 
+      out:fly="{{x:-400,duration:500}}"
+    >
       <li>
         <a href="light-ambient" on:click|preventDefault={()=> handleClick("light-ambient")}>
           LIGHT<br class="portrait"/> AMBIENT MUSIC

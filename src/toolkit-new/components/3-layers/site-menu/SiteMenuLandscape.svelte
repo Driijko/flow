@@ -1,1 +1,119 @@
-<p>landscape</p>
+<!-- SCRIPTS //////////////////////////////////////////// -->
+<script>
+  import SiteMenuContent from "./SiteMenuContent.svelte";
+</script>
+
+<!-- MARKUP ///////////////////////////////////////////// -->
+<div id="this">
+  <SiteMenuContent />
+</div>
+
+<!-- STYLE //////////////////////////////////////// -->
+<style>
+@media screen and (orientation: landscape) {
+
+#this {
+  width: 100%;
+  height: 100%;
+}
+/* MENU BUTTON ---------------------------- */
+#this :global(.site-menu-modal-button) {
+  z-index: 1;
+}
+#this :global(.site-menu-modal-button.closed) {
+  width: 5%;
+  top: 0%;
+  left: 95%;
+  height: 8%;
+}
+#this :global(.site-menu-modal-button.closed svg) {
+  width: 35%;
+}
+#this :global(.site-menu-modal-button.open) {
+  width: 6%;
+  top: 0%;
+  left: 94%;
+  height: 10%;
+  border-left: calc(var(--uarr-width)/200) solid white;
+}
+#this :global(.site-menu-modal-button.open svg) {
+  width: 60%;
+}
+#this :global(.site-menu-modal-button.closed.splash) {
+  width: 13%;
+  height: 15%;
+  top: 60%;
+  left: 43.5%;
+}
+#this :global(.site-menu-modal-button.closed.splash svg) {
+  width: 40%;
+}
+/* HEADER ------------------------------------------ */
+#this :global(header) {
+  border: 1px solid black;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--uarr-width)/30);
+  padding-left: 1%;
+}
+#this :global(h1) {
+  font-size: calc(var(--uarr-width)/30);
+}
+#this :global(h2) {
+  font-size: calc(var(--uarr-width)/60);
+}
+/* TAB CONTENT ------------------------------------ */
+#this :global(.tab-content) {
+  height: 80%;
+}
+#this :global(nav), #this :global(.site-settings) {
+  height: 100%;
+  border-left: calc(var(--uarr-width)/200) solid black;
+  border-right: calc(var(--uarr-width)/200) solid black;
+  background-color: hsl(0, 0%, 80%);
+  border-bottom: none;
+}
+#this :global(nav ul) {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(var(--uarr-width)/30);
+  gap: 10%;
+}
+#this :global(nav li) {
+  text-align: center;
+  line-height: 1.3;
+}
+#this :global(.nav-back-button) {
+  width: 100%;
+}
+#this :global(.nav-back-button svg) {
+  width: 4%;
+}
+/* TAB BUTTONS ------------------------------------ */
+#this :global(.site-menu-modal-tab-buttons) {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--uarr-width)/10);
+  position: absolute;
+  top: 90%;
+  height: 10%;
+  width: 100%;
+  border-top: calc(var(--uarr-width)/200) solid black;
+}
+#this :global(.site-menu-modal-tab-buttons li) {
+  width: 20%;
+  height: 100%;
+  padding-bottom: 1%;
+}
+#this :global(.site-menu-modal-tab-buttons label) {
+  padding-bottom: 3%;
+  padding-top: 2%;
+}
+#this :global(.site-menu-modal-tab-buttons svg) {
+  width: 30%;
+}
+}
+</style>

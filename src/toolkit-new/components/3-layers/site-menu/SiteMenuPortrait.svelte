@@ -105,6 +105,12 @@
 #this :global(.site-menu-modal-tab-buttons svg) {
   width: 40%;
 }
+#this :global(.nav-back-button) {
+  width: 100%;
+}
+#this :global(.nav-back-button svg) {
+  width: 10%;
+}
 }
 
 /* H2 Responsive */
