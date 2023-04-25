@@ -11,10 +11,10 @@
 
 <!-- <AudioBkg />
 <SiteMenuModal /> -->
-<!-- <div>
+<div>
   <BranchingNav />
-</div> -->
-<SnapScroll />
+</div>
+
 
 <!-- STYLES //////////////////////////////// -->
 <style>

@@ -4,7 +4,7 @@
   import { onMount, onDestroy } from "svelte";
 
   // PROPS ---------------------------------------
-  export let direction = "horizontal";
+  export let direction = "vertical";
 
   // ELEMENT REFERENCES ------------------------
   let snapScroll;
@@ -19,6 +19,12 @@
   function down() {snapScroll.scrollBy(0,snapScroll.clientHeight);};
   function left() {snapScroll.scrollBy(-snapScroll.clientWidth,0);};
   function right() {snapScroll.scrollBy(snapScroll.clientWidth,0);};
+  export const scroll = direction => {
+    if (direction === "up") up();
+    else if (direction === "down") down();
+    else if (direction === "left") left();
+    else if (direction === "right") right();
+  }
 
   // EVENT HANDLERS ------------------------------
   function handleKeyUp(e) {
@@ -95,7 +101,6 @@
       if (touchStart > touchEnd + 5) right();
       else if (touchStart < touchEnd - 5) left();
     }
-
   }
 
   onMount(()=> {
@@ -115,31 +120,16 @@
 </script>
 
 <!-- MARKUP ////////////////////////////////// -->
-<div bind:this={snapScroll} 
+<div bind:this={snapScroll} class="snap-scroll" 
   class:vertical={direction === "vertical"} 
   class:horizontal={direction === "horizontal"}
 >
-  <section>1</section>
-  <section>2</section>
-  <section>3</section>
-  <section>4</section>
+  <slot />
 </div>
-
-<button type="button" on:click={up}>Up</button>
-<button type="button" on:click={down}>Down</button>
-<button type="button" on:click={left}>Left</button>
-<button type="button" on:click={right}>Right</button>
-
-<p>
-  Shift Key Down: {shiftKeyDown}
-</p>
 
 <!-- STYLES ////////////////////////////////////// -->
 <style>
   div {
-    border: 4px solid black;
-    width: 50%;
-    height: 50vh;
     scroll-behavior: smooth;
     scrollbar-width: none;  
   }
@@ -153,9 +143,8 @@
     display: flex;
     overflow-x: scroll;
   }
-  div > * {
+  div > :global(*) {
     min-width: 100%;
     min-height: 100%;
-    border: 4px solid green;
   }
 </style>
