@@ -7,9 +7,8 @@
   import SiteMenuModalTabs from "../../6-structures/tabs/SiteMenuModalTabs.svelte";
 
   // STATE --------------------------------------------
-  // let currentTab = 0;
   let menuTabs = {
-    current: 1,
+    current: 0,
     prev: 0,
     update: tab => {
       menuTabs.prev = menuTabs.current;
@@ -17,25 +16,19 @@
     },
   }
 
-  // EVENT HANDLERS -------------------------------------
-  // function updateCurrentTab(tab) {
-  //   currentTab = tab;
-  // }
-
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
 <SiteMenuModalButton />
 
 {#if $modalsStore.siteMenu}
-<div transition:shift="{{y:500,duration:1000}}">
+<div transition:shift="{{y:window.innerHeight,duration:1000}}">
   <header>
     <h1>FLOW</h1>
     <h2>A front-end web development framework</h2>
   </header>
 
   <SiteMenuModalTabs {menuTabs} />
-  <!-- <SiteMenuModalTabs {currentTab} {updateCurrentTab} /> -->
 </div>
 {/if}
 

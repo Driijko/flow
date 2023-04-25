@@ -43,8 +43,8 @@
 
   <!-- MUSIC NAV --------------------------------- -->
   {:else if navLevel === "music"}
-    <ul in:shift="{{x:window.innerWidth,duration:500, delay:500, easing: linear}}" 
-      out:shift="{{x:window.innerWidth,duration:500, easing: linear}}"
+    <ul in:shift="{{x:window.innerWidth,duration:500,delay:500,easing:linear}}" 
+      out:shift="{{x:window.innerWidth,duration:500,easing:linear}}"
     >
       <li>
         <a href="light-ambient" on:click|preventDefault={()=> handleClick("light-ambient")}>
