@@ -11,7 +11,6 @@
 <!-- STYLE //////////////////////////////////////// -->
 <style>
 @media screen and (orientation: portrait) {
-
 #this {
   width: 100%;
   height: 100%;
@@ -179,6 +178,13 @@
 #this :global(.site-menu-modal-tab-buttons svg) {
   width: 40%;
 }
+}
+
+/* Tab Button Label Hover Transitions */
+@media screen and (orientation: portrait) and (hover:hover) {
+  #this :global(.site-menu-modal-tab-buttons input:not(:checked) + label:hover) {
+    transform: scale(1.4, 1.1) translateY(calc(var(--uarr-width)/200));
+  }
 }
 
 /* H2 Responsive */

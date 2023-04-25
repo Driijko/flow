@@ -1,18 +1,26 @@
 <!-- SCRIPTS ////////////////////////////////////// -->
 <script>
   // IMPORTS -----------------------------------------
-  import { fly } from "svelte/transition";
+  import shift from "../../../scripts/transitions/shift";
   import modalsStore from "../../../scripts/modalsStore";
   import SiteMenuModalButton from "../../7-elements/interface/modals/SiteMenuModalButton.svelte";
   import SiteMenuModalTabs from "../../6-structures/tabs/SiteMenuModalTabs.svelte";
 
   // STATE --------------------------------------------
-  let currentTab = 0;
+  // let currentTab = 0;
+  let menuTabs = {
+    current: 1,
+    prev: 0,
+    update: tab => {
+      menuTabs.prev = menuTabs.current;
+      menuTabs.current = tab;
+    },
+  }
 
   // EVENT HANDLERS -------------------------------------
-  function updateCurrentTab(tab) {
-    currentTab = tab;
-  }
+  // function updateCurrentTab(tab) {
+  //   currentTab = tab;
+  // }
 
 </script>
 
@@ -20,13 +28,14 @@
 <SiteMenuModalButton />
 
 {#if $modalsStore.siteMenu}
-<div transition:fly="{{y:400,duration:1000}}">
+<div transition:shift="{{y:500,duration:1000}}">
   <header>
     <h1>FLOW</h1>
     <h2>A front-end web development framework</h2>
   </header>
 
-  <SiteMenuModalTabs {currentTab} {updateCurrentTab} />
+  <SiteMenuModalTabs {menuTabs} />
+  <!-- <SiteMenuModalTabs {currentTab} {updateCurrentTab} /> -->
 </div>
 {/if}
 

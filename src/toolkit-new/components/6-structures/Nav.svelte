@@ -1,7 +1,8 @@
 <!-- SCRIPTS ////////////////////////////////////////////// -->
 <script>
   // IMPORTS ------------------------------------------
-  import { fly } from "svelte/transition";
+  import shift from "../../scripts/transitions/shift";
+  import { linear } from "svelte/easing";
   import currentPageStore from "../../scripts/currentPageStore";
   import modalsStore from "../../scripts/modalsStore";
   import BackArrow from "../7-elements/icons/BackArrow.svelte";
@@ -20,8 +21,8 @@
 <nav>
   <!-- MAIN NAV ------------------- -->
   {#if !(navLevel)}
-    <ul in:fly="{{x:400,duration:500,delay:500}}" 
-      out:fly="{{x:-400,duration:500}}" 
+    <ul in:shift="{{x:-window.innerWidth,duration:500,delay:500, easing: linear}}" 
+      out:shift="{{x:-window.innerWidth,duration:500, easing: linear}}" 
     >
       <li>
         <a href="music" on:click|preventDefault={()=> updateNavLevel("music")}>
@@ -42,8 +43,8 @@
 
   <!-- MUSIC NAV --------------------------------- -->
   {:else if navLevel === "music"}
-    <ul in:fly="{{x:400,duration:500,delay:500}}" 
-      out:fly="{{x:-400,duration:500}}"
+    <ul in:shift="{{x:window.innerWidth,duration:500, delay:500, easing: linear}}" 
+      out:shift="{{x:window.innerWidth,duration:500, easing: linear}}"
     >
       <li>
         <a href="light-ambient" on:click|preventDefault={()=> handleClick("light-ambient")}>

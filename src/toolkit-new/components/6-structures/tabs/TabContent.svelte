@@ -1,13 +1,27 @@
 <!-- SCRIPTS ///////////////////////////////////// -->
 <script>
   // IMPORTS ----------------------------------
-  import { fly } from "svelte/transition"
+  import shift from "../../../scripts/transitions/shift";
+  import { linear } from "svelte/easing";
+
+  // PROPS -----------------------------------
+  export let menuTabs;
+
 </script>
 
 <!-- MARKUP ///////////////////////////////////-->
 <div class="tab-content" 
-  in:fly="{{x: 200, duration: 500, delay: 500}}"
-  out:fly="{{x: -200, duration: 500}}"
+  in:shift="{{
+    x: menuTabs.current > menuTabs.prev ? window.innerWidth : -window.innerWidth, 
+    duration: 500, 
+    delay: 500,
+    easing: linear,
+  }}"
+  out:shift="{{
+    x: menuTabs.current < menuTabs.prev ? window.innerWidth: -window.innerWidth, 
+    duration: 500,
+    easing: linear,
+  }}"
 >
   <slot />
 </div>

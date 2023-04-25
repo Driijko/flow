@@ -1,7 +1,6 @@
 <!-- SCRIPTS ///////////////////////////////////// -->
 <script>
   // IMPORTS ------------------------------------
-  import { fly } from "svelte/transition";
   import TabContent from "./TabContent.svelte";
   import CompassIcon from "../../7-elements/icons/CompassIcon.svelte";
   import GearIcon from "../../7-elements/icons/GearIcon.svelte";
@@ -9,8 +8,10 @@
   import Nav from "../Nav.svelte";
 
   // PROPS --------------------------------------
-  export let currentTab = 0;
-  export let updateCurrentTab;
+  // export let currentTab = 0;
+  // export let updateCurrentTab;
+  export let menuTabs;
+  console.log(menuTabs);
 
   // STATE --------------------------------------
   let navLevel = "";
@@ -22,12 +23,12 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
-{#if currentTab === 0}
-  <TabContent>
+{#if menuTabs.current === 0}
+  <TabContent {menuTabs}>
     <Nav {navLevel} {updateNavLevel} />
   </TabContent>
-{:else if currentTab === 1}
-  <TabContent>
+{:else if menuTabs.current === 1}
+  <TabContent {menuTabs}>
     <SiteSettings />
   </TabContent>
 {/if}
@@ -35,7 +36,9 @@
 <ul class="site-menu-modal-tab-buttons">
   <li>
     <input type="radio" name="tab" id="navigation" 
-      checked={currentTab === 0} on:click={()=> updateCurrentTab(0)} 
+      checked={menuTabs.current === 0} on:click={()=> {
+        menuTabs.update(0);
+      }} 
     />
     <label for="navigation">
       <CompassIcon />
@@ -43,7 +46,7 @@
   </li>
   <li>
     <input type="radio" name="tab" id="settings" 
-      checked={currentTab === 1} on:click={()=> updateCurrentTab(1)} 
+      checked={menuTabs.current === 1} on:click={()=> menuTabs.update(1)} 
     />
     <label for="settings">
       <GearIcon />
@@ -53,6 +56,9 @@
 
 <!-- STYLES /////////////////////////////////// -->
 <style>
+.site-menu-modal-tab-buttons {
+  background-color: white;
+}
 input {
   display: none;
 }
@@ -62,7 +68,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: hsl(0, 0%, 15%);
+  background-color: grey;
   border-radius: 0% 0% 50% 50%;
 }
 input:checked + label {
@@ -75,6 +81,13 @@ label :global(svg) {
   height: 100%;
 }
 label :global(svg path) {
-  fill: grey;
+  fill: hsl(0, 0%, 15%);
+}
+@media (hover:hover) {
+  input:not(:checked) + label {
+    transition-property: transform;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+  }
 }
 </style>

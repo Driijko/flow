@@ -184,4 +184,11 @@
   width: 30%;
 }
 }
+
+/* Tab Button Label Hover Transitions */
+@media screen and (orientation: landscape) and (hover:hover) {
+  #this :global(.site-menu-modal-tab-buttons input:not(:checked) + label:hover) {
+    transform: scale(1.3, 1.1) translateY(calc(var(--uarr-width)/460));
+  }
+}
 </style>
