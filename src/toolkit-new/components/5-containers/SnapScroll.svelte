@@ -10,7 +10,7 @@
   let snapScroll;
 
   // STATE ---------------------------------
-  let wheelScroll = false;
+  let scrolling = false;
   let shiftKeyDown = false;
   let touchStart;
 
@@ -41,7 +41,12 @@
       if (direction === "vertical") {
         if (e.key === "ArrowUp" || e.key ==="ArrowDown") {
           e.preventDefault();
-          if (e.repeat === false) {
+          if (e.repeat === false && scrolling === false) {
+            scrolling = true;
+            const timerId = setTimeout(()=> {
+              scrolling = false;
+              clearTimeout(timerId);
+            }, 500);
             if (e.key === "ArrowUp") up();
             else if (e.key === "ArrowDown") down();
           }
@@ -49,7 +54,12 @@
       } else if (direction === "horizontal") {
         if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
           e.preventDefault();
-          if (e.repeat === false) {
+          if (e.repeat === false && scrolling === false) {
+            scrolling = true;
+            const timerId = setTimeout(()=> {
+              scrolling = false;
+              clearTimeout(timerId);
+            }, 500);
             if (e.key === "ArrowRight") right();
             else if (e.key === "ArrowLeft") left();
           }
@@ -60,8 +70,8 @@
 
   function handleWheel(e) {
     e.preventDefault();
-    if (wheelScroll === false) {
-      wheelScroll = true;
+    if (scrolling === false) {
+      scrolling = true;
 
       if (direction === "vertical") {
         if (e.deltaY > 0) down();
@@ -73,7 +83,7 @@
       }
 
       const timerId = setTimeout(()=> {
-        wheelScroll = false;
+        scrolling = false;
         clearTimeout(timerId);
       }, 500);
     };

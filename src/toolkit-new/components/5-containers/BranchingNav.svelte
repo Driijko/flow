@@ -6,6 +6,35 @@
   // STATE ------------------------------------
   let breadcrumbs = [];
   let scroll;
+  
+  // DATA -------------------------------------
+  const lists = [
+    [{tag: "music", text: "Music"}, {tag: "painting", text: "Painting"}],
+    [
+      [{tag: "blues", text: "Blues"}, {tag: "punk", text: "Punk"}],
+      [{tag: "abstract-expressionism", text: "Abstract Expressionism"},
+      {tag: "fauvism", text: "Fauvism"}],
+    ],
+    [
+      [{tag: "muddy-waters", text: "Muddy Waters"},
+      {tag: "ma-rainey", text: "Ma Rainey"}],
+      [{tag: "the-stooges", text: "The Stooges"},
+      {tag: "bad-brains", text: "Bad Brains"}],
+      [{tag: "mark-rothko", text: "Mark Rothko"},
+      {tag: "jackson-pollock", text: "Jackson Pollock"}],
+      [{tag: "matisse", text: "Matisse"},
+      {tag: "andre-derain", text: "Andre Derain"}]
+    ]
+  ];
+
+  const map = {
+    music: 0, 
+    painting: 1,
+    blues: 0,
+    punk: 1,
+    "abstract-expressionism": 2,
+    fauvism: 3,
+  }
 
   // EVENT HANDLERS --------------------------
   function handleClick(level, name) {
@@ -46,6 +75,37 @@
   </div>
 
   <SnapScroll direction="horizontal" bind:scroll={scroll}>
+    {#each lists as list,listIndex}
+      {#if listIndex === 0}
+        <ul>
+            {#each list as link}
+              <li class:selected={breadcrumbs[listIndex] === link.tag}>
+                <a href={link.tag}
+                  on:click|preventDefault={()=> handleClick(listIndex + 1, link.tag)}
+                >{link.text}</a>
+              </li>
+            {/each}
+        </ul>
+
+      {:else if breadcrumbs[listIndex - 1] && typeof(map[breadcrumbs[listIndex - 1]]) === "number"}
+        <ul>
+          {#each list[map[breadcrumbs[listIndex - 1]]] as link}
+            <li class:selected={breadcrumbs[listIndex] === link.tag}>
+              <a href={link.tag}
+                on:click|preventDefault={()=> handleClick(listIndex + 1, link.tag)}
+              >{link.text}</a>
+            </li>
+          {/each}
+        </ul>
+      {/if}
+    {/each}
+  </SnapScroll>
+
+
+
+
+
+  <!-- <SnapScroll direction="horizontal" bind:scroll={scroll}>
 
     <ul>
       <li class:selected={breadcrumbs[0] === "music"}>
@@ -170,7 +230,7 @@
       </ul>
     {/if}
 
-  </SnapScroll>
+  </SnapScroll> -->
 
 </nav>
 
@@ -187,6 +247,12 @@ nav :global(.snap-scroll) {
 }
 .test {
   position: absolute;
+}
+p {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  pointer-events: none;
 }
 ul {
   border: 4px solid green;
