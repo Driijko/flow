@@ -1,20 +1,23 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
   import SiteMenuContent from "./SiteMenuContent.svelte";
+  import modalsStore from "../../../scripts/modalsStore";
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////// -->
-<div id="this">
+<div id="this" class:background={$modalsStore.siteMenu}>
   <SiteMenuContent />
 </div>
 
 <!-- STYLE //////////////////////////////////////// -->
 <style>
 @media screen and (orientation: landscape) {
-
 #this {
   width: 100%;
   height: 100%;
+}
+#this.background {
+  background-color: black;
 }
 /* MENU BUTTON ---------------------------- */
 #this :global(.site-menu-modal-button) {
