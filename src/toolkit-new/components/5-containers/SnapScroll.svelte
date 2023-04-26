@@ -25,6 +25,13 @@
     else if (direction === "left") left();
     else if (direction === "right") right();
   }
+  function debounceScroll() {
+    scrolling = true;
+    const timerId = setTimeout(()=> {
+      scrolling = false;
+      clearTimeout(timerId);
+    }, 700);
+  }
 
   // EVENT HANDLERS ------------------------------
   function handleKeyUp(e) {
@@ -42,11 +49,7 @@
         if (e.key === "ArrowUp" || e.key ==="ArrowDown") {
           e.preventDefault();
           if (e.repeat === false && scrolling === false) {
-            scrolling = true;
-            const timerId = setTimeout(()=> {
-              scrolling = false;
-              clearTimeout(timerId);
-            }, 500);
+            debounceScroll();
             if (e.key === "ArrowUp") up();
             else if (e.key === "ArrowDown") down();
           }
@@ -55,11 +58,7 @@
         if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
           e.preventDefault();
           if (e.repeat === false && scrolling === false) {
-            scrolling = true;
-            const timerId = setTimeout(()=> {
-              scrolling = false;
-              clearTimeout(timerId);
-            }, 500);
+            debounceScroll();
             if (e.key === "ArrowRight") right();
             else if (e.key === "ArrowLeft") left();
           }
@@ -71,8 +70,7 @@
   function handleWheel(e) {
     e.preventDefault();
     if (scrolling === false) {
-      scrolling = true;
-
+      debounceScroll();
       if (direction === "vertical") {
         if (e.deltaY > 0) down();
         else if (e.deltaY < 0) up();
@@ -81,11 +79,6 @@
         if (e.deltaY > 0) left();
         else if (e.deltaY < 0) right();
       }
-
-      const timerId = setTimeout(()=> {
-        scrolling = false;
-        clearTimeout(timerId);
-      }, 500);
     };
   };
 
@@ -115,8 +108,8 @@
 
   onMount(()=> {
     // EVENT LISTENERS -------------------------
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("keyup", handleKeyUp);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
     snapScroll.addEventListener("wheel",handleWheel);
     snapScroll.addEventListener("touchstart",handleTouchStart,{passive:false});
     snapScroll.addEventListener("touchmove", handleTouchMove, {passive:false});
@@ -124,7 +117,8 @@
   });
 
   onDestroy(()=> {
-
+    window.removeEventListener("keydown", handleKeyDown);
+    window.removeEventListener("keyup", handleKeyUp);
   });
 
 </script>

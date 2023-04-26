@@ -90,16 +90,11 @@
   width: 100%;
   word-spacing: calc(var(--uarr-width)/100);
 }
-#this :global(nav a), #this :global(nav button) {
+#this :global(nav a) {
   width: 100%;
-  display: block;
 }
-#this :global(.nav-back-button) {
-  width: 100%;
-  padding-top: 0.7%;
-}
-#this :global(.nav-back-button svg) {
-  width: 4%;
+#this :global(nav li.selected) {
+  font-size: calc(var(--uarr-width)/25);
 }
 /* SETTINGS ---------------- */
 #this :global(.site-settings) {
@@ -176,7 +171,7 @@
   height: 100%;
   padding-bottom: 1%;
 }
-#this :global(.site-menu-modal-tab-buttons label) {
+#this :global(.site-menu-modal-tab-buttons button) {
   padding-bottom: 3%;
   padding-top: 2%;
 }

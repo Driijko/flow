@@ -1,10 +1,11 @@
 <!-- SCRIPTS ////////////////////////////////// -->
 <script>
   import SiteMenuContent from "./SiteMenuContent.svelte";
+  import modalsStore from "../../../scripts/modalsStore";
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
-<div id="this">
+<div id="this" class:background={$modalsStore.siteMenu}>
   <SiteMenuContent />
 </div>
 
@@ -14,6 +15,9 @@
 #this {
   width: 100%;
   height: 100%;
+}
+#this.background {
+  background-color: black;
 }
 /* MENU BUTTON ---------------------------- */
 #this :global(.site-menu-modal-button) {
@@ -76,23 +80,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: calc(var(--uarr-width)/10);
+  font-size: calc(var(--uarr-width)/13);
   gap: 10%;
 }
 #this :global(nav li) {
   text-align: center;
   line-height: 1.3;
 }
-#this :global(nav a), #this :global(nav button) {
+#this :global(nav a) {
   width: 100%;
-  display: block;
 }
-#this :global(.nav-back-button) {
-  width: 100%;
-  padding-top: 2%;
-}
-#this :global(.nav-back-button svg) {
-  width: 10%;
+#this :global(nav li.selected) {
+  font-size: calc(var(--uarr-width)/10);
 }
 /* SETTINGS ---------------- */
 #this :global(.site-settings) {
@@ -172,8 +171,9 @@
   height: 100%;
   padding-bottom: 2%;
 }
-#this :global(.site-menu-modal-tab-buttons label) {
+#this :global(.site-menu-modal-tab-buttons button) {
   padding-bottom: 5%;
+  min-height: 0;
 }
 #this :global(.site-menu-modal-tab-buttons svg) {
   width: 40%;

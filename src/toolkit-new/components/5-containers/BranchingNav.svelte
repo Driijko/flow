@@ -2,6 +2,8 @@
 <script>
   // IMPORTS ----------------------------------
   import SnapScroll from "./SnapScroll.svelte";
+  import NavArrowIcon from "../7-elements/icons/NavArrowIcon.svelte";
+  import viewportOrientationStore from "../../scripts/viewport/viewportOrientationStore";
 
   // STATE ------------------------------------
   let breadcrumbs = [];
@@ -67,170 +69,32 @@
 <!-- MARKUP //////////////////////////////////////// -->
 <nav>
 
-  <div class="test">
-    {breadcrumbs[0]}<br/>
-    {breadcrumbs[1]}<br/>
-    {breadcrumbs[2]}<br/>
-    {breadcrumbs.length}
-  </div>
-
   <SnapScroll direction="horizontal" bind:scroll={scroll}>
     {#each lists as list,listIndex}
       {#if listIndex === 0}
-        <ul>
+        <ul id="nav0">
             {#each list as link}
               <li class:selected={breadcrumbs[listIndex] === link.tag}>
-                <a href={link.tag}
+                <a href={link.tag} class:column={$viewportOrientationStore === "portrait"}
                   on:click|preventDefault={()=> handleClick(listIndex + 1, link.tag)}
-                >{link.text}</a>
+                >{link.text}<br class="portrait"/> <NavArrowIcon /> </a>
               </li>
             {/each}
         </ul>
 
       {:else if breadcrumbs[listIndex - 1] && typeof(map[breadcrumbs[listIndex - 1]]) === "number"}
-        <ul>
-          {#each list[map[breadcrumbs[listIndex - 1]]] as link}
+        <ul id="nav{listIndex}">
+          {#each list[map[breadcrumbs[listIndex - 1]]] as link,linkIndex}
             <li class:selected={breadcrumbs[listIndex] === link.tag}>
-              <a href={link.tag}
+              <a href={link.tag} class:column={$viewportOrientationStore === "portrait"}
                 on:click|preventDefault={()=> handleClick(listIndex + 1, link.tag)}
-              >{link.text}</a>
+              >{link.text}<NavArrowIcon /> </a>
             </li>
           {/each}
         </ul>
       {/if}
     {/each}
   </SnapScroll>
-
-
-
-
-
-  <!-- <SnapScroll direction="horizontal" bind:scroll={scroll}>
-
-    <ul>
-      <li class:selected={breadcrumbs[0] === "music"}>
-        <a href="music" 
-          on:click|preventDefault={()=> handleClick(1,"music")}
-        >
-          <h2>MUSIC</h2>
-        </a>
-      </li>
-      <li class:selected={breadcrumbs[0] === "painting"}>
-        <a href="painting" 
-          on:click|preventDefault={()=> handleClick(1,"painting")}
-        >
-          <h2>PAINTING</h2>
-        </a>
-      </li>
-    </ul>
-  
-    {#if breadcrumbs[0] === "music"}
-      <ul>
-        <li>
-          <a href="music/blues"
-            on:click|preventDefault={()=> handleClick(2,"blues")}
-          >
-            <h3>BLUES</h3>
-          </a>
-        </li>
-        <li>
-          <a href="music/punk"
-            on:click|preventDefault={()=> handleClick(2,"punk")}
-          >
-            <h3>PUNK</h3>
-          </a>
-        </li>
-      </ul>
-    {:else if breadcrumbs[0] === "painting"}
-      <ul>
-        <li>
-          <a href="painting/abstract-expressionism"
-            on:click|preventDefault={()=> handleClick(2,"abstract-expressionism")}
-          >
-            <h3>Abstract Expressionism</h3>
-          </a>
-        </li>
-        <li>
-          <a href="painting/fauvism"
-            on:click|preventDefault={()=> handleClick(2,"fauvism")}
-          >
-            <h3>Fauvism</h3>
-          </a>
-        </li>
-      </ul>
-    {/if}
-
-    {#if breadcrumbs[1] === "blues"}
-      <ul>
-        <li>
-          <a href="music/blues/muddy-waters"
-            on:click|preventDefault={()=> handleClick(3,"muddy-waters")}
-          >
-            <h4>Muddy Waters</h4>
-          </a>
-        </li>
-        <li>
-          <a href="music/blues/ma-rainey"
-            on:click|preventDefault={()=> handleClick(3,"ma-rainey")}
-          >
-            <h4>Ma Rainey</h4>
-          </a>
-        </li>
-      </ul>
-    {:else if breadcrumbs[1] === "punk"}
-      <ul>
-        <li>
-          <a href="music/blues/the-stooges"
-            on:click|preventDefault={()=> handleClick(3,"the-stooges")}
-          >
-            <h4>The Stooges</h4>
-          </a>
-        </li>
-        <li>
-          <a href="music/blues/bad-brains"
-            on:click|preventDefault={()=> handleClick(3,"bad-brains")}
-          >
-            <h4>Bad Brains</h4>
-          </a>
-        </li>
-      </ul>
-    {:else if breadcrumbs[1] === "abstract-expressionism"}
-      <ul>
-        <li>
-          <a href="painting/abstract-expressionism/mark-rothko"
-            on:click|preventDefault={()=> handleClick(3,"mark-rothko")}
-          >
-            <h4>Mark Rothko</h4>
-          </a>
-        </li>
-        <li>
-          <a href="painting/abstract-expressionism/jackson-pollock"
-            on:click|preventDefault={()=> handleClick(3,"jackson-pollock")}
-          >
-            <h4>Jackson Pollock</h4>
-          </a>
-        </li>
-      </ul>
-    {:else if breadcrumbs[1] === "fauvism"}
-      <ul>
-        <li>
-          <a href="painting/fauvism/Matisse"
-            on:click|preventDefault={()=> handleClick(3,"matisse")}
-          >
-            <h4>Matisse</h4>
-          </a>
-        </li>
-        <li>
-          <a href="painting/fauvism/andre-derain"
-            on:click|preventDefault={()=> handleClick(3,"andre-derain")}
-          >
-            <h4>Andre Derain</h4>
-          </a>
-        </li>
-      </ul>
-    {/if}
-
-  </SnapScroll> -->
 
 </nav>
 
@@ -239,30 +103,41 @@
 nav {
   width: 100%;
   height: 100%;
-  border: 4px solid magenta;
 }
 nav :global(.snap-scroll) {
   width: 100%;
   height: 100%;
 }
-.test {
-  position: absolute;
-}
-p {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  pointer-events: none;
-}
 ul {
-  border: 4px solid green;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-li.selected {
-  background-color: black;
-  color: white;
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+}
+a.column {
+  flex-direction: column;
+}
+li :global(svg) {
+  display: block;
+  width: 0;
+}
+li.selected :global(svg) {
+  width: 0.9em;
+}
+@media (hover:hover) {
+  a:focus-visible {
+    background-color: hsl(0, 0%, 70%);
+    outline: none !important;
+    transform: none;
+  }
+  a:hover {
+    background-color: hsl(50, 0%, 70%);
+  }
 }
 </style>
