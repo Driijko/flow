@@ -64,9 +64,25 @@
 #this :global(h2) {
   font-size: calc(var(--uarr-width)/24);
 }
+/* BREADCRUMBS ---------------------------------- */
+#this :global(.site-menu-breadcrumbs) {
+  padding-left: 1%;
+  background-color: hsl(0, 0%, 20%);
+  color: white;
+  height: 3%;
+  font-size: calc(var(--uarr-width)/19);
+  display: flex;
+  gap: calc(var(--uarr-width)/100);
+  overflow-x: scroll;
+  scrollbar-width: 0;
+}
+#this :global(.site-menu-breadcrumbs li) {
+  white-space: nowrap;
+}
 /* TAB CONTENT ------------------------------------ */
 #this :global(.tab-content) {
   height: 82%;
+  /* display: none; */
 }
 /* NAV ---------------- */
 #this :global(nav), #this :global(.site-settings) {

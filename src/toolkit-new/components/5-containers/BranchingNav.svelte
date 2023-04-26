@@ -5,6 +5,9 @@
   import NavArrowIcon from "../7-elements/icons/NavArrowIcon.svelte";
   import viewportOrientationStore from "../../scripts/viewport/viewportOrientationStore";
 
+  // PROPS ------------------------------------
+  export let updateBreadcrumbs;
+
   // STATE ------------------------------------
   let breadcrumbs = [];
   let scroll;
@@ -46,6 +49,9 @@
         scroll("right");
         clearTimeout(timerId);
       },1);
+      updateBreadcrumbs(breadcrumbs.map((value,index) => {
+        return {text: value, href: `#nav${index + 1}`};
+      }));
     }
     if (level > breadcrumbs.length) {
       expand(level, name);
@@ -53,11 +59,12 @@
     else if (level <= breadcrumbs.length 
       && name !== breadcrumbs[level -1]
     ) {
-      breadcrumbs = breadcrumbs.map((crumb,index) => {
-        if (index < level - 1) {
-          return crumb;
-        }
-      });
+      // breadcrumbs = breadcrumbs.map((crumb,index) => {
+      //   if (index < level - 1) {
+      //     return crumb;
+      //   }
+      // });
+      breadcrumbs = breadcrumbs.slice(0, level - 1);
       expand(level, name);
     } else {
       scroll("right");
