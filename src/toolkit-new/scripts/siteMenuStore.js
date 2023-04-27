@@ -8,6 +8,10 @@ function createSiteMenuStore() {
     navigation: {
       open: [],
       current: "navigation",
+    },
+    settings: {
+      open: [],
+      current: "settings",
     }
   });
 

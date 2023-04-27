@@ -8,7 +8,7 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////////// -->
-<ul class="site-menu-breadcrumbs hor-free-scroll">
+<ul class="site-menu-breadcrumbs">
   <li>
     <a href="#{$siteMenuStore.tab}0">
       {$siteMenuStore.tab}/

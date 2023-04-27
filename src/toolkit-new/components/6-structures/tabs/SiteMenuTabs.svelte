@@ -7,40 +7,41 @@
   import SiteSettings from "../SiteSettings.svelte";
   import BranchingNav from "../../5-containers/BranchingNav.svelte";
   import SiteMenuBreadcrumbs from "../SiteMenuBreadcrumbs.svelte";
+  import siteMenuStore from "../../../scripts/siteMenuStore";
 
   // PROPS --------------------------------------
-  export let menuTabs;
+  // export let menuTabs;
 
   // STATE -----------------------------------
-  let breadcrumbs = [];
+  // let breadcrumbs = [];
 
-  function updateBreadcrumbs(array) { 
-    if (menuTabs.current === 0) {
-      breadcrumbs = [{text: "navigation", href: "#nav0"}];
-    } else if (menuTabs.current === 1) {
-      breadcrumbs = [{text: "settings", href: "settings"}];
-    };
-    if (array) {
-      array.forEach((value,index)=> {
-        breadcrumbs[index + 1] = value;
-      });       
-    }
-  }
+  // function updateBreadcrumbs(array) { 
+  //   if (menuTabs.current === 0) {
+  //     breadcrumbs = [{text: "navigation", href: "#nav0"}];
+  //   } else if (menuTabs.current === 1) {
+  //     breadcrumbs = [{text: "settings", href: "settings"}];
+  //   };
+  //   if (array) {
+  //     array.forEach((value,index)=> {
+  //       breadcrumbs[index + 1] = value;
+  //     });       
+  //   }
+  // }
 
-  updateBreadcrumbs();
+  // updateBreadcrumbs();
 
   // EVENT HANDLERS ----------------------------
-  function handleClick(tab) {
-    menuTabs.update(tab);
-    updateBreadcrumbs();
-  }
+  // function handleClick(tab) {
+  //   menuTabs.update(tab);
+  //   updateBreadcrumbs();
+  // }
 
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
-<SiteMenuBreadcrumbs {breadcrumbs} />
+<SiteMenuBreadcrumbs />
 
-{#if menuTabs.current === 0}
+<!-- {#if menuTabs.current === 0}
   <TabTransition {menuTabs}>
     <BranchingNav {updateBreadcrumbs} />
   </TabTransition>
@@ -48,9 +49,9 @@
   <TabTransition {menuTabs}>
     <SiteSettings />
   </TabTransition>
-{/if}
+{/if} -->
 
-<ul class="site-menu-modal-tab-buttons">
+<!-- <ul class="site-menu-modal-tab-buttons">
   <li>
     <button class:selected={menuTabs.current === 0} 
       on:click={()=> handleClick(0)}>
@@ -60,6 +61,23 @@
   <li>
     <button class:selected={menuTabs.current === 1} 
       on:click={()=> handleClick(1)}>
+      <GearIcon />
+    </button>
+  </li>
+</ul> -->
+
+<ul class="site-menu-modal-tab-buttons">
+  <li>
+    <button class:selected={$siteMenuStore.tab === "navigation"} 
+      on:click={()=> siteMenuStore.tab("navigation")}
+    >
+      <CompassIcon />
+    </button>
+  </li>
+  <li>
+    <button class:selected={$siteMenuStore.tab === "settings"} 
+      on:click={()=> siteMenuStore.tab("settings")}
+    >
       <GearIcon />
     </button>
   </li>

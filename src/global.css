@@ -181,11 +181,11 @@ svg {
   white-space: nowrap;
 }
 
-.hor-free-scroll::-webkit-scrollbar {
+.horizontal-free-scroll::-webkit-scrollbar {
   display: none;
 }
 
-.hor-free-scroll > * {
+.horizontal-free-scroll > * {
   display: inline-block;
 }
 

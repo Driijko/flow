@@ -4,7 +4,7 @@
   import shift from "../../../scripts/transitions/shift";
   import modalsStore from "../../../scripts/modalsStore";
   import SiteMenuModalButton from "../../7-elements/interface/modals/SiteMenuModalButton.svelte";
-  import SiteMenuModalTabs from "../../6-structures/tabs/SiteMenuModalTabs.svelte";
+  import SiteMenuModalTabs from "../../6-structures/tabs/SiteMenuTabs.svelte";
 
   // STATE --------------------------------------------
   let menuTabs = {
