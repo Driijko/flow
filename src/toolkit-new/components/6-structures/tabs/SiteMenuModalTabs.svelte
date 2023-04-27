@@ -1,7 +1,7 @@
 <!-- SCRIPTS ///////////////////////////////////// -->
 <script>
   // IMPORTS ------------------------------------
-  import TabContent from "./TabContent.svelte";
+  import TabTransition from "./TabTransition.svelte";
   import CompassIcon from "../../7-elements/icons/CompassIcon.svelte";
   import GearIcon from "../../7-elements/icons/GearIcon.svelte";
   import SiteSettings from "../SiteSettings.svelte";
@@ -41,13 +41,13 @@
 <SiteMenuBreadcrumbs {breadcrumbs} />
 
 {#if menuTabs.current === 0}
-  <TabContent {menuTabs}>
+  <TabTransition {menuTabs}>
     <BranchingNav {updateBreadcrumbs} />
-  </TabContent>
+  </TabTransition>
 {:else if menuTabs.current === 1}
-  <TabContent {menuTabs}>
+  <TabTransition {menuTabs}>
     <SiteSettings />
-  </TabContent>
+  </TabTransition>
 {/if}
 
 <ul class="site-menu-modal-tab-buttons">

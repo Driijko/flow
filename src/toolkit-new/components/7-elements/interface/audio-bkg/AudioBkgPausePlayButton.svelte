@@ -78,12 +78,6 @@
 
 <!-- STYLES ///////////////////////////////////////////////////// -->
 <style>
-button {
-  border: 2px solid black;
-  border-radius: 4px;
-  width: 40px;
-  height: 40px;
-}
 svg {
   width: 100%; 
   height: 100%;

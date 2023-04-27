@@ -30,9 +30,6 @@
 />
 
 <style>
-  input {
-    border: 4px solid black;
-  }
   input:checked {
     background-color: grey;
   }
