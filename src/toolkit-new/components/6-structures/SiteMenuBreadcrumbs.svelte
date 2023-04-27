@@ -8,15 +8,16 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////////// -->
-<ul class="site-menu-breadcrumbs">
+<ul class="site-menu-breadcrumbs hor-free-scroll">
   <li>
     <a href="#{$siteMenuStore.tab}0">
-      {$siteMenuStore.tab} /
+      {$siteMenuStore.tab}/
     </a>
   </li>
   {#each $siteMenuStore[$siteMenuStore.tab].open as level,index}
     <li>
-      <a href="#{$siteMenuStore.tab}{index}" >{level} /</a>
+      <a href="#{$siteMenuStore.tab}{index + 1}" >{level}/ 
+      </a>
     </li>
   {/each}
 </ul>
