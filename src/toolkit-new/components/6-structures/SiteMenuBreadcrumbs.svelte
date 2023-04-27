@@ -1,15 +1,22 @@
 <!-- SCRIPTS //////////////////////////////////// -->
 <script>
+  // IMPORTS -------------------------------
+  import siteMenuStore from "../../scripts/siteMenuStore";
   // PROPS -------------------------------
-  export let breadcrumbs = [];
+  // export let breadcrumbs = [];
 
 </script>
 
 <!-- MARKUP ///////////////////////////////////////// -->
 <ul class="site-menu-breadcrumbs">
-  {#each breadcrumbs as crumb}
+  <li>
+    <a href="#{$siteMenuStore.tab}0">
+      {$siteMenuStore.tab} /
+    </a>
+  </li>
+  {#each $siteMenuStore[$siteMenuStore.tab].open as level,index}
     <li>
-      <a href="{crumb.href}" >{crumb.text} /</a>
+      <a href="#{$siteMenuStore.tab}{index}" >{level} /</a>
     </li>
   {/each}
 </ul>

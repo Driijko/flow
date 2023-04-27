@@ -82,7 +82,6 @@
 /* TAB CONTENT ------------------------------------ */
 #this :global(.tab-content) {
   height: 82%;
-  /* display: none; */
 }
 /* NAV ---------------- */
 #this :global(nav), #this :global(.site-settings) {
