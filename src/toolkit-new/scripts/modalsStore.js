@@ -5,6 +5,7 @@ function createModalsStore() {
 
   const modals = writable({
     siteMenu: false,
+    audioVolume: false
   });
 
   return {

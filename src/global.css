@@ -45,7 +45,8 @@ table {
 dialog {
   margin: 0;
   padding: 0;
-  left: initial;
+  left: 0;
+  top: 0;
   border: none;
   background-color: transparent;
 }

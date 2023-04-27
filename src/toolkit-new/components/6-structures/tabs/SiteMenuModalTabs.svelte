@@ -2,8 +2,8 @@
 <script>
   // IMPORTS ------------------------------------
   import TabTransition from "./TabTransition.svelte";
-  import CompassIcon from "../../7-elements/icons/CompassIcon.svelte";
-  import GearIcon from "../../7-elements/icons/GearIcon.svelte";
+  import CompassIcon from "../../7-elements/icons/menu/CompassIcon.svelte";
+  import GearIcon from "../../7-elements/icons/menu/GearIcon.svelte";
   import SiteSettings from "../SiteSettings.svelte";
   import BranchingNav from "../../5-containers/BranchingNav.svelte";
   import SiteMenuBreadcrumbs from "../SiteMenuBreadcrumbs.svelte";

@@ -4,8 +4,8 @@ import storeUpdate from "./utils/storeUpdate";
 function createBackgroundAudio() {
   const {subscribe, update, set} = writable({
     track: {
-      path: "",
-      name: "",
+      path: "./assets/audio/bkg/opening-prompt.mp3",
+      name: "Opening Prompt Theme",
     },
     currentTime: 0,
     volume: 0,
