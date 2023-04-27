@@ -8,6 +8,7 @@ function createBackgroundAudio() {
       name: "Opening Prompt Theme",
     },
     currentTime: 0,
+    totalTime: 0,
     volume: 0,
     paused: true,
     loop: false,

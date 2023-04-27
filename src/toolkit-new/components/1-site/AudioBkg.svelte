@@ -50,5 +50,5 @@
 <audio bind:this={audioBkgElement} id="audio-bkg"
   src={$audioBkgStore.track.path} bind:paused={$audioBkgStore.paused}
   bind:volume={$audioBkgStore.volume} loop={$audioBkgStore.loop}
-  currentTime={$audioBkgStore.currentTime}
+  bind:currentTime={$audioBkgStore.currentTime} bind:duration={$audioBkgStore.totalTime}
 ></audio>
