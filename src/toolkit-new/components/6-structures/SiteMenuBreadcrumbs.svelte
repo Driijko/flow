@@ -10,13 +10,13 @@
 <!-- MARKUP ///////////////////////////////////////// -->
 <ul class="site-menu-breadcrumbs">
   <li>
-    <a href="#{$siteMenuStore.tab}0">
-      {$siteMenuStore.tab}/
+    <a href="#{$siteMenuStore.tab.current}0">
+      {$siteMenuStore.tab.current}/
     </a>
   </li>
-  {#each $siteMenuStore[$siteMenuStore.tab].open as level,index}
+  {#each $siteMenuStore[$siteMenuStore.tab.current].open as level,index}
     <li>
-      <a href="#{$siteMenuStore.tab}{index + 1}" >{level}/ 
+      <a href="#{$siteMenuStore.tab.current}{index + 1}" >{level}/ 
       </a>
     </li>
   {/each}

@@ -3,25 +3,31 @@
   // IMPORTS ----------------------------------
   import shift from "../../../scripts/transitions/shift";
   import { linear } from "svelte/easing";
+  import siteMenuStore from "../../../scripts/siteMenuStore";
 
   // PROPS -----------------------------------
-  export let menuTabs;
+  // export let menuTabs;
 
 </script>
 
 <!-- MARKUP ///////////////////////////////////-->
+
 <div class="tab-content" 
   in:shift="{{
-    x: menuTabs.current > menuTabs.prev ? window.innerWidth : -window.innerWidth, 
+    x: $siteMenuStore[$siteMenuStore.tab.current].tabPosition 
+    > $siteMenuStore[$siteMenuStore.tab.prev].tabPosition ? window.innerWidth : -window.innerWidth, 
     duration: 500, 
     delay: 500,
     easing: linear,
   }}"
   out:shift="{{
-    x: menuTabs.current < menuTabs.prev ? window.innerWidth: -window.innerWidth, 
+    x: $siteMenuStore[$siteMenuStore.tab.current].tabPosition 
+    < $siteMenuStore[$siteMenuStore.tab.prev].tabPosition ? window.innerWidth: -window.innerWidth, 
     duration: 500,
     easing: linear,
   }}"
 >
   <slot />
 </div>
+
+<p>{$siteMenuStore.tab.current}</p>

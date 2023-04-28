@@ -1,17 +1,9 @@
-<!-- SCRIPTS /////////////////////////////////////////// -->
+<!-- SCRIPTS /////////////////////////////////////// -->
 <script>
-  // IMPORTS ----------------------------------
-  import SnapScroll from "./SnapScroll.svelte";
-  import NavArrowIcon from "../7-elements/icons/arrows/NavArrowIcon.svelte";
+  import siteMenuStore from "../../scripts/siteMenuStore";
   import viewportOrientationStore from "../../scripts/viewport/viewportOrientationStore";
+  import SnapScroll from "./SnapScroll.svelte";
 
-  // PROPS ------------------------------------
-  export let updateBreadcrumbs;
-
-  // STATE ------------------------------------
-  let breadcrumbs = [];
-  let scroll;
-  
   // DATA -------------------------------------
   const lists = [
     [{tag: "music", text: "Music"}, {tag: "painting", text: "Painting"}],
@@ -41,75 +33,74 @@
     fauvism: 3,
   }
 
-  // EVENT HANDLERS --------------------------
-  function handleClick(level, name) {
-    function expand(level,name) {
-      breadcrumbs[level - 1] = name;
-      const timerId = setTimeout(()=> {
-        scroll("right");
-        clearTimeout(timerId);
-      },1);
-      updateBreadcrumbs(breadcrumbs.map((value,index) => {
-        return {text: value, href: `#nav${index + 1}`};
-      }));
-    }
-    if (level > breadcrumbs.length) {
-      expand(level, name);
-    } 
-    else if (level <= breadcrumbs.length 
-      && name !== breadcrumbs[level -1]
-    ) {
-      breadcrumbs = breadcrumbs.slice(0, level - 1);
-      expand(level, name);
-    } else {
+  // EVENT HANDLERS --------------------------------------
+  let scroll;
+  function waitAndScroll() {
+    const timerId = setTimeout(()=> {
       scroll("right");
-    }
+      clearTimeout(timerId);
+    },200);
   }
-
+  function handleClick(levelName, levelNum) {
+    if (levelNum > $siteMenuStore.navigation.open.length) {
+      siteMenuStore.expandNav(levelName);
+    } else if (levelNum <= $siteMenuStore.navigation.open.length
+    && $siteMenuStore.navigation.open[levelNum - 1] !== levelName) {
+      siteMenuStore.collapseNav(levelName, levelNum - 1);
+    }
+    waitAndScroll();
+  };
 </script>
 
-<!-- MARKUP //////////////////////////////////////// -->
+<!-- MARKUP ////////////////////////////////////////// -->
 <nav>
+<SnapScroll direction="horizontal" bind:scroll={scroll}>
+  {#each lists as list,listIndex} 
 
-  <SnapScroll direction="horizontal" bind:scroll={scroll}>
-    {#each lists as list,listIndex}
-      {#if listIndex === 0}
-        <ul id="nav0">
-            {#each list as link}
-              <li class:selected={breadcrumbs[listIndex] === link.tag}>
-                <a href={link.tag} class:column={$viewportOrientationStore === "portrait"}
-                  on:click|preventDefault={()=> handleClick(listIndex + 1, link.tag)}
-                >{link.text}<br class="portrait"/> <NavArrowIcon /> </a>
-              </li>
-            {/each}
-        </ul>
-
-      {:else if breadcrumbs[listIndex - 1] && typeof(map[breadcrumbs[listIndex - 1]]) === "number"}
-        <ul id="nav{listIndex}">
-          {#each list[map[breadcrumbs[listIndex - 1]]] as link,linkIndex}
-            <li class:selected={breadcrumbs[listIndex] === link.tag}>
-              <a href={link.tag} class:column={$viewportOrientationStore === "portrait"}
-                on:click|preventDefault={()=> handleClick(listIndex + 1, link.tag)}
-              >{link.text}<NavArrowIcon /> </a>
-            </li>
-          {/each}
-        </ul>
-      {/if}
-    {/each}
-  </SnapScroll>
-
+  {#if listIndex === 0}
+    <ul id="navigation0">
+      {#each list as link}
+        <li 
+          class:selected={$siteMenuStore.navigation.open[listIndex] === link.tag}
+        >
+          <a href={link.tag}
+            class:column={$viewportOrientationStore === "portrait"}
+            on:click|preventDefault={()=> handleClick(link.tag, listIndex + 1)}
+          >
+            {link.text}
+          </a>
+        </li>
+      {/each}
+    </ul>
+  
+  {:else if $siteMenuStore.navigation.open[listIndex - 1]
+  && typeof(map[$siteMenuStore.navigation.open[listIndex - 1]]) === "number"}
+    <ul id="navigation{listIndex}">
+      {#each list[map[$siteMenuStore.navigation.open[listIndex - 1]]] as link}
+        <li
+          class:selected={$siteMenuStore.navigation.open[listIndex] === link.tag}
+        >
+          <a href={link.tag}
+            class:column={$viewportOrientationStore === "portrait"}
+            on:click|preventDefault={()=> handleClick(link.tag, listIndex + 1)}
+          >
+            {link.text}
+          </a>
+        </li>
+      {/each}
+    </ul>
+    
+  {/if}
+{/each}
+</SnapScroll>
 </nav>
 
-<!-- STYLES /////////////////////////////////// -->
 <style>
-nav {
-  width: 100%;
-  height: 100%;
-}
-nav :global(.snap-scroll) {
-  width: 100%;
-  height: 100%;
-}
+  :global(.snap-scroll) {
+    border: 4px solid blue;
+    width: 400px;
+    height: 400px;
+  }
 ul {
   display: flex;
   flex-direction: column;
@@ -129,6 +120,10 @@ li :global(svg) {
   display: block;
   width: 0;
 }
+li.selected {
+  background-color: black;
+  color: white;
+}
 li.selected :global(svg) {
   width: 0.9em;
 }
@@ -143,3 +138,4 @@ li.selected :global(svg) {
   }
 }
 </style>
+

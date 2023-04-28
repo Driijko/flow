@@ -5,7 +5,7 @@
   import CompassIcon from "../../7-elements/icons/menu/CompassIcon.svelte";
   import GearIcon from "../../7-elements/icons/menu/GearIcon.svelte";
   import SiteSettings from "../SiteSettings.svelte";
-  import BranchingNav from "../../5-containers/BranchingNav.svelte";
+  import BranchingNav from "../../5-containers/BranchingNavOG.svelte";
   import SiteMenuBreadcrumbs from "../SiteMenuBreadcrumbs.svelte";
   import siteMenuStore from "../../../scripts/siteMenuStore";
 
@@ -51,31 +51,26 @@
   </TabTransition>
 {/if} -->
 
-<!-- <ul class="site-menu-modal-tab-buttons">
-  <li>
-    <button class:selected={menuTabs.current === 0} 
-      on:click={()=> handleClick(0)}>
-      <CompassIcon />
-    </button>
-  </li>
-  <li>
-    <button class:selected={menuTabs.current === 1} 
-      on:click={()=> handleClick(1)}>
-      <GearIcon />
-    </button>
-  </li>
-</ul> -->
+{#if $siteMenuStore.tab.current === "navigation"}
+  <TabTransition>
+    <BranchingNav />
+  </TabTransition>
+{:else if $siteMenuStore.tab.current === "settings"}
+  <TabTransition>
+    <SiteSettings />
+  </TabTransition>
+{/if}
 
 <ul class="site-menu-modal-tab-buttons">
   <li>
-    <button class:selected={$siteMenuStore.tab === "navigation"} 
+    <button class:selected={$siteMenuStore.tab.current === "navigation"} 
       on:click={()=> siteMenuStore.tab("navigation")}
     >
       <CompassIcon />
     </button>
   </li>
   <li>
-    <button class:selected={$siteMenuStore.tab === "settings"} 
+    <button class:selected={$siteMenuStore.tab.current === "settings"} 
       on:click={()=> siteMenuStore.tab("settings")}
     >
       <GearIcon />
