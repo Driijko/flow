@@ -8,9 +8,9 @@ export const audioVolumeModal = writable(false);
 const map = {
   siteMenu: siteMenuModal,
   audioVolume: audioVolumeModal,
-}
+};
 
-// METHODS ---------------------------------
+// FUNCTIONS ---------------------------------
 export const modals = {
   open(modal) {map[modal].set(true)},
   close(modal) {map[modal].set(false)},

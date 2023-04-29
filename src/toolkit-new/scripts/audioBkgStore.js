@@ -11,7 +11,7 @@ export const audioBkgVolume = tweened(1, {easing: linear});
 export const audioBkgPlayAfterLoad = writable(false);
 export const audioBkgLoop = writable(false);
 
-// METHODS ------------------------------------
+// FUNCTIONS ------------------------------------
 export function audioBkgLoad(name, path) {
   audioBkgTrack.set({name: name, path: path});
   audioBkgPlayAfterLoad.set(false);

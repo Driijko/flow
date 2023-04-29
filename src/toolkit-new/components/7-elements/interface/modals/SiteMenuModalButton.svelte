@@ -3,7 +3,8 @@
   // IMPORTS ----------------------------------------------------
   import { gsap } from "gsap";
   import { onMount } from "svelte";
-  import modalsStore from "../../../../scripts/modalsStore";
+  // import modalsStore from "../../../../scripts/modalsStore";
+  import { siteMenuModal, modals } from "../../../../scripts/modalsStore";
   import currentPageStore from "../../../../scripts/currentPageStore";
 
   // ANIMATION --------------------------------------------
@@ -52,7 +53,7 @@
 
   // REACTIVITY -------------------------------------
   $: if (animation) {
-    if ($modalsStore.siteMenu) {
+    if ($siteMenuModal) {
       animation.close();
     } else {
       animation.open();
@@ -62,10 +63,10 @@
 
 <!-- MARKUP /////////////////////////////////////////// -->
 <button type="button" class="site-menu-modal-button" 
-  on:click={()=>modalsStore.toggle("siteMenu")}
+  on:click={()=>modals.toggle("siteMenu")}
   class:splash={$currentPageStore.name === "splash"}
-  class:open={$modalsStore.siteMenu}
-  class:closed={!($modalsStore.siteMenu)}
+  class:open={$siteMenuModal}
+  class:closed={!($siteMenuModal)}
 >
   <svg viewBox="0 0 100 100">
     <line class="line1" />
