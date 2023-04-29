@@ -1,7 +1,8 @@
 <!-- SCRIPTS ///////////////////////////////////////////// -->
 <script>
   // IMPORTS --------------------------------------------
-  import audioBkgStore from "../../../scripts/audioBkgStoreOG";
+  import { audioBkgTrack, audioBkgRestart, audioBkgLoadPlay, audioBkgFadeLoadPlay
+  } from "../../../scripts/audioBkgStore";
 
   // PROPS ---------------------------------------------
   // export let tracks = [];
@@ -42,19 +43,18 @@
   ];
 
   // SETTINGS ---------------------------------------------
-  const crossFadeDuration = 3;
+  const fadeDuration = 1500;
 
   // EVENT HANDLERS ------------------------------------
   function handleClick(track) {
-    if ($audioBkgStore.track.name === track.name) {
-
+    if ($audioBkgTrack.name === track.name) {
+      audioBkgRestart();
     } 
     else {
-      if ($audioBkgStore.track.name === "") {
-        audioBkgStore.load(track.path, track.name);
-        audioBkgStore.play();
+      if ($audioBkgTrack.name === "") {
+        audioBkgLoadPlay(track.name, track.path);
       } else {
-        audioBkgStore.crossFade(track, crossFadeDuration);
+        audioBkgFadeLoadPlay(track.name, track.path, fadeDuration);
       }
     }
   }
