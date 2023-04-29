@@ -2,14 +2,17 @@
 <script>
   import setUp from "./toolkit-new/scripts/setUp";
   import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
-  import AudioBkgCheckbox from "./toolkit-new/components/7-elements/interface/audio-bkg/AudioBkgCheckbox.svelte";
+  import AudioBkgPausePlayButton from "./toolkit-new/components/7-elements/interface/audio-bkg/AudioBkgPausePlayButton.svelte";
+  import { audioBkgPaused } from "./toolkit-new/scripts/audioBkgStore";
 
   setUp();
 </script>
 
 <AudioBkg />
-<AudioBkgCheckbox />
-
+<AudioBkgPausePlayButton />
+<p>
+  {$audioBkgPaused}
+</p>
 
 
 

@@ -3,11 +3,12 @@
   // IMPORTS --------------------------------------
   import { gsap } from "gsap";
   import { onMount } from "svelte";
-  import audioBkgStore from "../../../../scripts/audioBkgStoreOG";
+  import { audioBkgTogglePausePlay, audioBkgPaused 
+  } from "../../../../scripts/audioBkgStore";
 
   // ANIMATION ------------------------------------
   const animationDuration = 1;
-  let animation = ()=> null;
+  let animation;
 
   onMount(()=> {
     animation = (state, duration) => {
@@ -42,7 +43,7 @@
     }
 
     // REACTIVE ON MOUNT --------------------------------------
-    if ($audioBkgStore.paused) {
+    if ($audioBkgPaused) {
       animation("play", 0);
     } else {
       animation("pause", 0);
@@ -51,20 +52,21 @@
 
   // EVENT HANDLERS ------------------------------------
   function handleClick() {
-    if ($audioBkgStore.paused) {
+    if ($audioBkgPaused) {
       animation("pause", animationDuration);
     } else {
       animation("play", animationDuration);
     }
-    audioBkgStore.togglePaused();
+    audioBkgTogglePausePlay();
   }
 
   // REACTIVE --------------------------------------
-  $: if ($audioBkgStore.paused) {
-    animation("play", animationDuration);
-  } else {
-    animation("pause", animationDuration);
-  }
+  $: if (animation) {
+    if ($audioBkgPaused) {
+      animation("play", animationDuration);
+    } else {
+      animation("pause", animationDuration);
+  }}; 
 
 </script>
 
@@ -75,6 +77,7 @@
     <path/>
   </svg>
 </button>
+
 
 <!-- STYLES ///////////////////////////////////////////////////// -->
 <style>
