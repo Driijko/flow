@@ -2,33 +2,33 @@
 <script>
   import setUp from "./toolkit-new/scripts/setUp";
   import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
-  import { currentPage, newPage, setPageExit } from "./toolkit-new/scripts/currentPageStore";
-  import AudioVolumeModalButton from "./toolkit-new/components/7-elements/interface/modals/AudioVolumeModalButton.svelte";
-  import AudioBkgVolumeSlider from "./toolkit-new/components/7-elements/interface/audio-bkg/AudioBkgVolumeSlider.svelte";
+  import { siteMenuTab, newTab, navigationLevels, navigationExpand,
+    navigationCollapse
+  } from "./toolkit-new/scripts/siteMenuStore";
 
   setUp();
 </script>
 
 <AudioBkg />
-<AudioVolumeModalButton />
-<br/>
-<AudioBkgVolumeSlider />
 <br/>
 <br/>
 <br/>
 <br/>
-<p>
-  {$currentPage}
-</p>
-<!-- <p>
-  {$audioVolumeModal}
-</p> -->
+<br/>
+{#each $navigationLevels as level}
+  <p>
+    {level}
+  </p>
+{/each}
 
-<button type="button" on:click={()=> setPageExit(()=> console.log("hi"))}>
-  Set Page Exit
+<button type="button" on:click={()=> navigationExpand("music")}>
+  Music
 </button><br/>
-<button type="button" on:click={()=> newPage("opening-prompt")}>
-  Opening Prompt
+<button type="button" on:click={()=> navigationExpand("blues")}>
+  Blues
+</button><br/>
+<button type="button" on:click={()=> navigationCollapse("blues", 2)}>
+  Collapse
 </button>
 
 

@@ -6,6 +6,8 @@
 
   // STATE ---------------------------------------------------
   let fullscreenStatus;
+
+  // STATE FUNCTIONS ---------------------------------------
   function setFullscreenStatus() {
     if (document.fullscreenElement) {
       fullscreenStatus = true;
@@ -13,7 +15,11 @@
       fullscreenStatus = false;
     }
   }
+
+  // RUN ON INITIALIZATION ----------------------------------
   setFullscreenStatus();
+
+  // EVENT LISTENERS ---------------------------------------
   document.addEventListener("fullscreenchange", setFullscreenStatus);
   onDestroy(()=> {
     document.removeEventListener("fullscreenchange", setFullscreenStatus);
