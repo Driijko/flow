@@ -124,6 +124,6 @@ bind:paused={$audioBkgStore.paused} bind:volume={$audioBkgStore.volume}
 loop={$audioBkgStore.loop} bind:duration={$audioBkgStore.totalTime} 
 ></audio> -->
 
-<audio bind:this={audioBkgElement} src={$audioBkgTrack.path} 
+<audio controls bind:this={audioBkgElement} src={$audioBkgTrack.path} 
   bind:paused={$audioBkgPaused} loop={$audioBkgLoop}
 ></audio>

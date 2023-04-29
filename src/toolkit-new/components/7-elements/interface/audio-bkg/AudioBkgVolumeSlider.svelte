@@ -1,11 +1,15 @@
 <!-- SCRIPTS //////////////////////////////////////////////// -->
 <script>
-  import audioBkgStore from "../../../../scripts/audioBkgStoreOG";
+  import { audioBkgAdjustVolume } from "../../../../scripts/audioBkgStore";
+
+  function handleInput(e) {
+    audioBkgAdjustVolume(e.target.value);
+  }
 </script>
 
 <!-- MARKUP ////////////////////////////////////////////// -->
 <input type="range" min="0.0" max="1.0" step="0.01" 
-bind:value={$audioBkgStore.volume} />
+ on:input={handleInput} />
 
 <!-- STYLES //////////////////////////////////////////// -->
 <style>
