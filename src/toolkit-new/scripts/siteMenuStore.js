@@ -39,10 +39,5 @@ export function setCurrentNavigationLevel(levelNum) {
   navigationCurrentLevel.set(levelNum);
 };
 export function getSiteMenuData(tabName,tabProperty) {
-  const data = map[tabName][tabProperty];
-  if (data.subscribe) {
-    return get(data);
-  } else {
-    return data;
-  };
+  return map[tabName][tabProperty];
 };

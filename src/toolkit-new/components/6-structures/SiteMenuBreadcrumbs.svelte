@@ -2,33 +2,36 @@
 <script>
   // IMPORTS -------------------------------
   // import siteMenuStore from "../../scripts/siteMenuStore";
-  import { siteMenuTab } from "../../scripts/siteMenuStore";
+  import { siteMenuTab, getSiteMenuData } from "../../scripts/siteMenuStore";
 
+  // REACTIVE ------------------------------
+  $: tabCurrentLevel = getSiteMenuData($siteMenuTab.current, "currentLevel");
+  $: tabLevels = getSiteMenuData($siteMenuTab.current, "levels");
 
 </script>
 
 <!-- MARKUP ///////////////////////////////////////// -->
-<ul class="site-menu-breadcrubms horizontal-free-scroll">
-  <li class:current={$siteMenuTab}>
-
-  </li>
-</ul>
-<!-- <ul class="site-menu-breadcrumbs horizontal-free-scroll">
-  <li class:current={$siteMenuStore.navigation.current === 0}>
-    <a href="#{$siteMenuStore.tab.current}0">
-      {$siteMenuStore.tab.current}/
+<ul class="site-menu-breadcrumbs horizontal-free-scroll">
+  <li class:current={$tabCurrentLevel === 0}>
+    <a href="#{$siteMenuTab.current}0">
+      {$siteMenuTab.current}/
     </a>
   </li>
-  {#each $siteMenuStore[$siteMenuStore.tab.current].open as level,index}
-    <li class:current={$siteMenuStore.navigation.current === index + 1}>
-      <a href="#{$siteMenuStore.tab.current}{index + 1}" >{level}/ 
+  {#each $tabLevels as level, index}
+    <li class:current={$tabCurrentLevel === index + 1}>
+      <a href="#{$siteMenuTab.current}{index + 1}">
+        {level}/
       </a>
     </li>
   {/each}
-</ul> -->
+</ul>
+
 
 <!-- STYLE ////////////////////////////////////////// -->
 <style>
+  ul {
+    background-color: black;
+  }
   li {
     color: hsl(0, 0%, 70%);
   }

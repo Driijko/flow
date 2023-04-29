@@ -3,14 +3,16 @@
   import setUp from "./toolkit-new/scripts/setUp";
   import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
   import { siteMenuTab, newTab, navigationLevels, navigationExpand,
-    navigationCollapse, getSiteMenuData
+    navigationCollapse, getSiteMenuData, setCurrentNavigationLevel
   } from "./toolkit-new/scripts/siteMenuStore";
+  import SiteMenuBreadcrumbs from "./toolkit-new/components/6-structures/SiteMenuBreadcrumbs.svelte";
 
 
   setUp();
 </script>
 
 <AudioBkg />
+<SiteMenuBreadcrumbs />
 <br/>
 <br/>
 <br/>
@@ -31,9 +33,18 @@
 <button type="button" on:click={()=> navigationCollapse("blues", 2)}>
   Collapse
 </button><br/>
-<button type="button" on:click={()=> tests = getSiteMenuData("navigation", "levels")}>
-  Get Levels
-</button>
+<button type="button" on:click={()=> newTab("settings")}>
+  Settings
+</button><br/>
+<button type="button" on:click={()=> newTab("navigation")}>
+  Navigation
+</button><br/>
+<button type="button" on:click={()=> setCurrentNavigationLevel(1)}>
+  Nav 1
+</button><br/>
+<button type="button" on:click={()=> setCurrentNavigationLevel(2)}>
+  Nav 2
+</button><br/>
 
 
 
