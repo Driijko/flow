@@ -1,8 +1,8 @@
 <!-- SCRIPTS ////////////////////////////////////////// -->
 <script>
   // IMPORTS -----------------------------------------
-  import modalsStore from "../../../../scripts/modalsStore";
-  import audioBkgStore from "../../../../scripts/audioBkgStoreOG";
+  import { modals } from "../../../../scripts/modalsStore";
+  import { audioBkgVolume } from "../../../../scripts/audioBkgStore";
   import AudioVolumeOffIcon from "../../icons/audio/AudioVolumeOffIcon.svelte";
   import AudioVolumeLowIcon from "../../icons/audio/AudioVolumeLowIcon.svelte";
   import AudioVolumeHighIcon from "../../icons/audio/AudioVolumeHighIcon.svelte";
@@ -11,16 +11,16 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
-<button type="button" on:click={()=> modalsStore.toggle("audioVolume")}
-  class:volume-off={$audioBkgStore.volume < 0.03}
-  class:volume-low={$audioBkgStore.volume >= 0.03 && $audioBkgStore.volume < 0.5}
-  class:volume-high={$audioBkgStore.volume >= 0.5}
+<button type="button" on:click={()=> modals.toggle("audioVolume")}
+  class:volume-off={$audioBkgVolume < 0.03}
+  class:volume-low={$audioBkgVolume >= 0.03 && $audioBkgVolume < 0.5}
+  class:volume-high={$audioBkgVolume >= 0.5}
 >
-  {#if $audioBkgStore.volume < 0.03}
+  {#if $audioBkgVolume < 0.03}
     <AudioVolumeOffIcon title="adjust volume" />
-  {:else if $audioBkgStore.volume >= 0.03 && $audioBkgStore.volume < 0.5}
+  {:else if $audioBkgVolume >= 0.03 && $audioBkgVolume < 0.5}
     <AudioVolumeLowIcon title="adjust volume" />
-  {:else if $audioBkgStore.volume >= 0.5}
+  {:else if $audioBkgVolume >= 0.5}
     <AudioVolumeHighIcon title="adjust volume" />
   {/if}
 </button>
