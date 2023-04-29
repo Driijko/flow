@@ -1,11 +1,14 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
   // IMPORTS -------------------------------------------------
-  import audioBkgStore from "../../../../scripts/audioBkgStoreOG";
+  import { audioBkgTogglePausePlay, audioBkgPaused 
+  } from "../../../../scripts/audioBkgStore";
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
-<input id="audio-option" type="checkbox" on:click={audioBkgStore.togglePaused} checked={!($audioBkgStore.paused)} />
+<input id="audio-option" type="checkbox" 
+  on:click={audioBkgTogglePausePlay} checked={!($audioBkgPaused)} 
+/>
 
 <!-- STYLES ////////////////////////////////////////// -->
 <style>
