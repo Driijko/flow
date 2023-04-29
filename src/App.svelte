@@ -6,13 +6,14 @@
     navigationCollapse, getSiteMenuData, setCurrentNavigationLevel
   } from "./toolkit-new/scripts/siteMenuStore";
   import SiteMenuBreadcrumbs from "./toolkit-new/components/6-structures/SiteMenuBreadcrumbs.svelte";
+  import BranchingNav from "./toolkit-new/components/5-containers/BranchingNav.svelte";
 
 
   setUp();
 </script>
 
 <AudioBkg />
-<SiteMenuBreadcrumbs />
+<BranchingNav />
 <br/>
 <br/>
 <br/>

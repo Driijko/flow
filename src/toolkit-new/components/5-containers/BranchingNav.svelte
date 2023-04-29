@@ -1,7 +1,9 @@
 <!-- SCRIPTS /////////////////////////////////////// -->
 <script>
-  import { onMount, onDestroy } from "svelte";
-  import siteMenuStore from "../../scripts/siteMenuStore";
+  import { onMount } from "svelte";
+  import { navigationLevels, navigationExpand, navigationCollapse,
+    navigationCurrentLevel, setCurrentNavigationLevel
+  } from "../../scripts/siteMenuStore";
   import viewportOrientationStore from "../../scripts/viewport/viewportOrientationStore";
   import SnapScroll from "./SnapScroll.svelte";
 
@@ -48,82 +50,75 @@
       clearTimeout(timerId);
     },200);
   }
+
   function handleClick(levelName, levelNum) {
-    if (levelNum > $siteMenuStore.navigation.open.length) {
-      siteMenuStore.expandNav(levelName);
-    } else if (levelNum <= $siteMenuStore.navigation.open.length
-    && $siteMenuStore.navigation.open[levelNum - 1] !== levelName) {
-      siteMenuStore.collapseNav(levelName, levelNum - 1);
+    if (levelNum > $navigationLevels.length) {
+      navigationExpand(levelName);
+    } else if (levelNum <= $navigationLevels.length
+    && $navigationLevels[levelNum - 1] !== levelName) {
+      navigationCollapse(levelName, levelNum - 1);
     }
     waitAndScroll();
   };
 
   // ONMOUNT ----------------------------------
   onMount(()=> {
-    if ($siteMenuStore.navigation.current >= 0) {
-    scroll("right", $siteMenuStore.navigation.current);
-    scrollUpdateReady = true;
-  }
+    if ($navigationCurrentLevel >= 0) {
+      scroll("right", $navigationCurrentLevel);
+      scrollUpdateReady = true;
+    }
   });
 
-  $: if ($siteMenuStore.navigation.current !== position && scrollUpdateReady) {
-    siteMenuStore.currentNav(position);
+  $: if ($navigationCurrentLevel !== position && scrollUpdateReady) {
+    setCurrentNavigationLevel(position);
   }
 </script>
 
 <!-- MARKUP ////////////////////////////////////////// -->
-<p class="test">
-  {$siteMenuStore.navigation.current}
-  {position}
-</p>
 <nav>
-<SnapScroll direction="horizontal" bind:scroll={scroll} bind:position={position}>
-  {#each lists as list,listIndex} 
-
-  {#if listIndex === 0}
-    <ul id="navigation0">
-      {#each list as link}
-        <li 
-          class:selected={$siteMenuStore.navigation.open[listIndex] === link.tag}
-        >
-          <a href={link.tag}
-            class:column={$viewportOrientationStore === "portrait"}
-            on:click|preventDefault={()=> handleClick(link.tag, listIndex + 1)}
-          >
-            {link.text}
-          </a>
-        </li>
-      {/each}
-    </ul>
+  <SnapScroll direction="horizontal" bind:scroll={scroll} bind:position={position}>
+    {#each lists as list,listIndex} 
   
-  {:else if $siteMenuStore.navigation.open[listIndex - 1]
-  && typeof(map[$siteMenuStore.navigation.open[listIndex - 1]]) === "number"}
-    <ul id="navigation{listIndex}">
-      {#each list[map[$siteMenuStore.navigation.open[listIndex - 1]]] as link}
-        <li
-          class:selected={$siteMenuStore.navigation.open[listIndex] === link.tag}
-        >
-          <a href={link.tag}
-            class:column={$viewportOrientationStore === "portrait"}
-            on:click|preventDefault={()=> handleClick(link.tag, listIndex + 1)}
+    {#if listIndex === 0}
+      <ul id="navigation0">
+        {#each list as link}
+          <li 
+            class:selected={$navigationLevels[listIndex] === link.tag}
           >
-            {link.text}
-          </a>
-        </li>
-      {/each}
-    </ul>
+            <a href={link.tag}
+              class:column={$viewportOrientationStore === "portrait"}
+              on:click|preventDefault={()=> handleClick(link.tag, listIndex + 1)}
+            >
+              {link.text}
+            </a>
+          </li>
+        {/each}
+      </ul>
     
-  {/if}
-{/each}
-</SnapScroll>
+    {:else if $navigationLevels[listIndex - 1]
+    && typeof(map[$navigationLevels[listIndex - 1]]) === "number"}
+      <ul id="navigation{listIndex}">
+        {#each list[map[$navigationLevels[listIndex - 1]]] as link}
+          <li
+            class:selected={$navigationLevels[listIndex] === link.tag}
+          >
+            <a href={link.tag}
+              class:column={$viewportOrientationStore === "portrait"}
+              on:click|preventDefault={()=> handleClick(link.tag, listIndex + 1)}
+            >
+              {link.text}
+            </a>
+          </li>
+        {/each}
+      </ul>
+      
+    {/if}
+  {/each}
+  </SnapScroll>
 </nav>
 
 <style>
-.test {
-  position: absolute;
-  left: 4%;
-  top: 20%;
-}
+
 nav {
   width: 100%;
   height: 100%;
