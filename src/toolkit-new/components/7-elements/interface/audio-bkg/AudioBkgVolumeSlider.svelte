@@ -1,15 +1,16 @@
 <!-- SCRIPTS //////////////////////////////////////////////// -->
 <script>
+  // IMPORTS ----------------------------
   import { audioBkgAdjustVolume } from "../../../../scripts/audioBkgStore";
 
-  function handleInput(e) {
-    audioBkgAdjustVolume(e.target.value);
-  }
+  // EVENT HANDLERS ------------------------
+  function handleInput(e) { audioBkgAdjustVolume(e.target.value); };
 </script>
 
 <!-- MARKUP ////////////////////////////////////////////// -->
 <input type="range" min="0.0" max="1.0" step="0.01" 
- on:input={handleInput} />
+  on:input={handleInput} 
+/>
 
 <!-- STYLES //////////////////////////////////////////// -->
 <style>

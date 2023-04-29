@@ -2,14 +2,14 @@
 <script>
   import setUp from "./toolkit-new/scripts/setUp";
   import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
-  import AudioBkgVolumeSlider from "./toolkit-new/components/7-elements/interface/audio-bkg/AudioBkgVolumeSlider.svelte";
+  import AudioBkgTimer from "./toolkit-new/components/6-structures/audio-bkg/AudioBkgTimer.svelte";
   import { audioBkgPaused } from "./toolkit-new/scripts/audioBkgStore";
 
   setUp();
 </script>
 
 <AudioBkg />
-<AudioBkgVolumeSlider />
+<AudioBkgTimer />
 <p>
   {$audioBkgPaused}
 </p>

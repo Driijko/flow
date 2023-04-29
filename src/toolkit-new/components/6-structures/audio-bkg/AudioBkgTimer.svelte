@@ -1,20 +1,20 @@
 <!-- SCRIPTS ////////////////////////////////////// -->
 <script>
   // IMPORTS -----------------------------------
-  import audioBkgStore from "../../../scripts/audioBkgStoreOG";
+  import { audioBkgCurrentTime, audioBkgTotalTime} from "../../../scripts/audioBkgStore"
 </script>
 
 <!-- MARKUP //////////////////////////////////// -->
 <span>
   <span>
-    {Math.floor($audioBkgStore.currentTime / 60)}:{
-    Math.floor($audioBkgStore.currentTime % 60) < 10 ? 
-    `0${Math.floor($audioBkgStore.currentTime % 60)}`
-    : Math.floor($audioBkgStore.currentTime % 60)}
+    {Math.floor($audioBkgCurrentTime / 60)}:{
+    Math.floor($audioBkgCurrentTime % 60) < 10 ? 
+    `0${Math.floor($audioBkgCurrentTime % 60)}`
+    : Math.floor($audioBkgCurrentTime % 60)}
   </span>
   <span> / </span>
   <span>
-    {Math.floor($audioBkgStore.totalTime / 60)}:{
-    Math.floor($audioBkgStore.totalTime % 60)}
+    {Math.floor($audioBkgTotalTime / 60)}:{
+    Math.floor($audioBkgTotalTime % 60)}
   </span>
 </span>
