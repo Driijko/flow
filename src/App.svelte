@@ -2,27 +2,31 @@
 <script>
   import setUp from "./toolkit-new/scripts/setUp";
   import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
-  import { siteMenuModal, audioVolumeModal, modals } from "./toolkit-new/scripts/modalsStore";
-  import SiteMenuModalButton from "./toolkit-new/components/7-elements/interface/modals/SiteMenuModalButton.svelte";
+  import { currentPage, newPage, setPageExit } from "./toolkit-new/scripts/currentPageStore";
 
   setUp();
 </script>
 
 <AudioBkg />
-<SiteMenuModalButton />
 <br/>
 <br/>
 <br/>
 <br/>
 <p>
-  {$siteMenuModal}
+  {$currentPage}
 </p>
-<p>
+<!-- <p>
   {$audioVolumeModal}
-</p>
+</p> -->
 
-<button type="button" on:click={()=> modals.close("siteMenu")}
->siteMenu</button>
+<button type="button" on:click={()=> setPageExit(()=> console.log("hi"))}>
+  Set Page Exit
+</button><br/>
+<button type="button" on:click={()=> newPage("opening-prompt")}>
+  Opening Prompt
+</button>
+
+
 
 
 

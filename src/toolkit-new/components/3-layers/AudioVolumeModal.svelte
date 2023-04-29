@@ -1,9 +1,10 @@
 <!-- SCRIPTS ///////////////////////////////////// -->
 <script>
-  import modalsStore from "../../scripts/modalsStore";
+  // IMPORTS ------------------------------
+  import { audioVolumeModal } from "../../scripts/modalsStore";
 </script>
 
 <!-- MARKUP ////////////////////////////////// -->
-<dialog open={$modalsStore.audioVolume}>
+<dialog open={$audioVolumeModal}>
   Audio Volume Modal
 </dialog>
