@@ -3,9 +3,7 @@ import { tweened } from "svelte/motion";
 import { linear } from "svelte/easing";
 
 // STATE ----------------------------------
-export const audioBkgTrack = writable({ name: "", 
-path: "./assets/audio/bkg/opening-prompt.mp3" });
-// export const audioBkgTrack = writable({ name: "", path: "" });
+export const audioBkgTrack = writable({ name: "", path: "" });
 export const audioBkgPaused = writable(true);
 export const audioBkgCurrentTime = writable(0);
 export const audioBkgTotalTime = writable(0);

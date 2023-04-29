@@ -1,21 +1,18 @@
-import { writable } from "svelte/store";
-import storeUpdate from "./utils/storeUpdate";
+import { writable, get } from "svelte/store";
 
-function createModalsStore() {
+// STATE ---------------------------------
+export const siteMenuModal = writable(false);
+export const audioVolumeModal = writable(false);
 
-  const modals = writable({
-    siteMenu: false,
-    audioVolume: false
-  });
+// MAP ------------------------------------
+const map = {
+  siteMenu: siteMenuModal,
+  audioVolume: audioVolumeModal,
+}
 
-  return {
-    ...modals,
-    open: modal => storeUpdate(modal,true,modals.update),
-    close: modal => storeUpdate(modal,false,modals.update),
-    toggle: modal => storeUpdate(modal, prev => !(prev[modal]), modals.update, true),
-  }
+// METHODS ---------------------------------
+export const modals = {
+  open(modal) {map[modal].set(true)},
+  close(modal) {map[modal].set(false)},
+  toggle(modal) {map[modal].set(!(get(map[modal])))},
 };
-
-const modalsStore = createModalsStore();
-
-export default modalsStore;
