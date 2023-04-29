@@ -3,7 +3,7 @@
   // IMPORTS -------------------------------------
   import SiteSettings from "../../6-structures/SiteSettings.svelte";
   import currentPageStore from "../../../scripts/currentPageStore";
-  import audioBkgStore from "../../../scripts/audioBkgStore";
+  import audioBkgStore from "../../../scripts/audioBkgStoreOG";
 
   // Load and loop opening-prompt track.
   audioBkgStore.load("./assets/audio/bkg/opening-prompt.mp3");

@@ -1,7 +1,7 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
   // IMPORTS -------------------------------------------------
-  import audioBkgStore from "../../../../scripts/audioBkgStore";
+  import audioBkgStore from "../../../../scripts/audioBkgStoreOG";
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->

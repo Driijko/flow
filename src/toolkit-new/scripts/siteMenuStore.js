@@ -10,7 +10,7 @@ function createSiteMenuStore() {
     },
     navigation: {
       open: [],
-      current: "navigation",
+      current: 0,
       tabPosition: 0,
     },
     settings: {
@@ -28,24 +28,20 @@ function createSiteMenuStore() {
         prev: get(siteMenu).tab.current}
       , siteMenu.update);
     },
-    currentNav: navLevel => storeUpdate("navigation", {...get(siteMenu).navigation, current: navLevel}, siteMenu.update),
+    currentNav: navLevel => storeUpdate(
+      "navigation", 
+      {...get(siteMenu).navigation, current: navLevel}, 
+    siteMenu.update),
     expandNav(navLevel) {
-      const data = get(siteMenu);
-      data.navigation.open.push(navLevel);
-      storeUpdate("navigation", {
-        open: data.navigation.open,
-        current: data.navigation.current,
-      },siteMenu.update);     
+      const copy = get(siteMenu);
+      copy.navigation.open.push(navLevel);
+      storeUpdate("navigation", copy.navigation, siteMenu.update);     
     },
     collapseNav(navLevelName, navLevelNum) {
-      const data = get(siteMenu);
-      data.navigation.open = data.navigation.open.filter((value,index) => index < navLevelNum);
-      // data.navigation.open = data.navigation.open.splice(0,navLevelNum);
-      data.navigation.open.push(navLevelName);
-      storeUpdate("navigation", {
-        open: data.navigation.open,
-        current: data.navigation.current,
-      },siteMenu.update);
+      const copy = get(siteMenu);
+      copy.navigation.open = copy.navigation.open.filter((value,index) => index < navLevelNum);
+      copy.navigation.open.push(navLevelName);
+      storeUpdate("navigation", copy.navigation, siteMenu.update);
     },
   }
 };

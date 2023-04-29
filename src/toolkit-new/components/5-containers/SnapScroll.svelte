@@ -13,17 +13,30 @@
   let scrolling = false;
   let shiftKeyDown = false;
   let touchStart;
+  export let position = 0;
 
   // SCROLL FUNCTIONS ----------------------------
-  function up() {snapScroll.scrollBy(0, -snapScroll.clientHeight);};
-  function down() {snapScroll.scrollBy(0,snapScroll.clientHeight);};
-  function left() {snapScroll.scrollBy(-snapScroll.clientWidth,0);};
-  function right() {snapScroll.scrollBy(snapScroll.clientWidth,0);};
-  export const scroll = direction => {
-    if (direction === "up") up();
-    else if (direction === "down") down();
-    else if (direction === "left") left();
-    else if (direction === "right") right();
+  function up ( multiplier=0 ) {
+    snapScroll.scrollBy(
+      0, -snapScroll.clientHeight - (snapScroll.clientHeight * multiplier)
+  );};
+  function down ( multiplier=0 ) {
+    snapScroll.scrollBy(
+      0, snapScroll.clientHeight + (snapScroll.clientHeight * multiplier)
+  );};
+  function left ( multiplier=0 ) {
+    snapScroll.scrollBy(
+      -snapScroll.clientWidth - (snapScroll.clientWidth * multiplier), 0
+  );};
+  function right ( multiplier=0 ) { 
+    snapScroll.scrollBy(
+      snapScroll.clientWidth + (snapScroll.clientWidth * multiplier), 0
+  );};
+  export const scroll = (direction, multiplier) => {
+    if (direction === "up") up(multiplier);
+    else if (direction === "down") down(multiplier);
+    else if (direction === "left") left(multiplier);
+    else if (direction === "right") right(multiplier);
   }
   function debounceScroll() {
     scrolling = true;
@@ -50,8 +63,8 @@
           e.preventDefault();
           if (e.repeat === false && scrolling === false) {
             debounceScroll();
-            if (e.key === "ArrowUp") up();
-            else if (e.key === "ArrowDown") down();
+            if (e.key === "ArrowUp") scroll("up");
+            else if (e.key === "ArrowDown") scroll("down");
           }
         }
       } else if (direction === "horizontal") {
@@ -59,8 +72,8 @@
           e.preventDefault();
           if (e.repeat === false && scrolling === false) {
             debounceScroll();
-            if (e.key === "ArrowRight") right();
-            else if (e.key === "ArrowLeft") left();
+            if (e.key === "ArrowRight") scroll("right");
+            else if (e.key === "ArrowLeft") scroll("left");
           }
         }
       }
@@ -72,12 +85,12 @@
     if (scrolling === false) {
       debounceScroll();
       if (direction === "vertical") {
-        if (e.deltaY > 0) down();
-        else if (e.deltaY < 0) up();
+        if (e.deltaY > 0) scroll("down");
+        else if (e.deltaY < 0) scroll("up");
       }
       else if (direction === "horizontal" && shiftKeyDown) {
-        if (e.deltaY > 0) left();
-        else if (e.deltaY < 0) right();
+        if (e.deltaY > 0) scroll("left");
+        else if (e.deltaY < 0) scroll("right");
       }
     };
   };
@@ -97,12 +110,26 @@
   function handleTouchEnd(e) {
     if (direction === "vertical") {
       const touchEnd = e.changedTouches[0].clientY;
-      if (touchStart > touchEnd + 5) down();
-      else if (touchStart < touchEnd - 5) up();
+      if (touchStart > touchEnd + 5) scroll("down");
+      else if (touchStart < touchEnd - 5) scroll("up");
     } else if (direction === "horizontal") {
       const touchEnd = e.changedTouches[0].clientX;
-      if (touchStart > touchEnd + 5) right();
-      else if (touchStart < touchEnd - 5) left();
+      if (touchStart > touchEnd + 5) scroll("right");
+      else if (touchStart < touchEnd - 5) scroll("left");
+    }
+  }
+
+  function handleScroll(e) {
+    if (scrolling === false) {
+      debounceScroll();
+      const timerId = setTimeout(()=> {
+        if (direction === "horizontal") {
+          position = Math.round(snapScroll.scrollLeft / snapScroll.clientWidth);
+        } else {
+          position = Math.round(snapScroll.scrollTop / snapScroll.clientHeight);
+        };
+        clearTimeout(timerId);
+      },500);
     }
   }
 
@@ -114,6 +141,7 @@
     snapScroll.addEventListener("touchstart",handleTouchStart,{passive:false});
     snapScroll.addEventListener("touchmove", handleTouchMove, {passive:false});
     snapScroll.addEventListener("touchend", handleTouchEnd,{passive:false});
+    snapScroll.addEventListener("scroll", handleScroll);
   });
 
   onDestroy(()=> {
@@ -134,6 +162,8 @@
 <!-- STYLES ////////////////////////////////////// -->
 <style>
   div {
+    width: 100%;
+    height: 100%;
     scroll-behavior: smooth;
     scrollbar-width: none;  
   }

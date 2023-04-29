@@ -1,15 +1,23 @@
 <!-- SCRIPTS /////////////////////////////////////// -->
 <script>
+  import { onMount, onDestroy } from "svelte";
   import siteMenuStore from "../../scripts/siteMenuStore";
   import viewportOrientationStore from "../../scripts/viewport/viewportOrientationStore";
   import SnapScroll from "./SnapScroll.svelte";
+
+  // UP PROPS ------------------------------
+  let scroll; // from SnapScroll
+  let position; // from SnapScroll
+
+  // STATE ----------------------------------
+  let scrollUpdateReady = false
 
   // DATA -------------------------------------
   const lists = [
     [{tag: "music", text: "Music"}, {tag: "painting", text: "Painting"}],
     [
       [{tag: "blues", text: "Blues"}, {tag: "punk", text: "Punk"}],
-      [{tag: "abstract-expressionism", text: "Abstract Expressionism"},
+      [{tag: "expressionism", text: "Expressionism"},
       {tag: "fauvism", text: "Fauvism"}],
     ],
     [
@@ -17,8 +25,8 @@
       {tag: "ma-rainey", text: "Ma Rainey"}],
       [{tag: "the-stooges", text: "The Stooges"},
       {tag: "bad-brains", text: "Bad Brains"}],
-      [{tag: "mark-rothko", text: "Mark Rothko"},
-      {tag: "jackson-pollock", text: "Jackson Pollock"}],
+      [{tag: "max-beckmann", text: "Max Beckmann"},
+      {tag: "edvard-munch", text: "Edvard Munch"}],
       [{tag: "matisse", text: "Matisse"},
       {tag: "andre-derain", text: "Andre Derain"}]
     ]
@@ -29,12 +37,11 @@
     painting: 1,
     blues: 0,
     punk: 1,
-    "abstract-expressionism": 2,
+    expressionism: 2,
     fauvism: 3,
   }
 
   // EVENT HANDLERS --------------------------------------
-  let scroll;
   function waitAndScroll() {
     const timerId = setTimeout(()=> {
       scroll("right");
@@ -50,11 +57,27 @@
     }
     waitAndScroll();
   };
+
+  // ONMOUNT ----------------------------------
+  onMount(()=> {
+    if ($siteMenuStore.navigation.current >= 0) {
+    scroll("right", $siteMenuStore.navigation.current);
+    scrollUpdateReady = true;
+  }
+  });
+
+  $: if ($siteMenuStore.navigation.current !== position && scrollUpdateReady) {
+    siteMenuStore.currentNav(position);
+  }
 </script>
 
 <!-- MARKUP ////////////////////////////////////////// -->
+<p class="test">
+  {$siteMenuStore.navigation.current}
+  {position}
+</p>
 <nav>
-<SnapScroll direction="horizontal" bind:scroll={scroll}>
+<SnapScroll direction="horizontal" bind:scroll={scroll} bind:position={position}>
   {#each lists as list,listIndex} 
 
   {#if listIndex === 0}
@@ -96,16 +119,22 @@
 </nav>
 
 <style>
-  :global(.snap-scroll) {
-    border: 4px solid blue;
-    width: 400px;
-    height: 400px;
-  }
+.test {
+  position: absolute;
+  left: 4%;
+  top: 20%;
+}
+nav {
+  width: 100%;
+  height: 100%;
+}
 ul {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 a {
   display: flex;
@@ -138,4 +167,3 @@ li.selected :global(svg) {
   }
 }
 </style>
-

@@ -1,7 +1,7 @@
 <!-- SCRIPTS /////////////////////////////////////////////// -->
 <script>
   // IMPORTS ------------------------------------------
-  import audioBkgStore from "../../scripts/audioBkgStore";
+  import audioBkgStore from "../../scripts/audioBkgStoreOG";
   import FullscreenCheckbox from "../7-elements/interface/FullscreenCheckbox.svelte";
   import AudioBkgCheckbox from "../7-elements/interface/audio-bkg/AudioBkgCheckbox.svelte";
   import AudioBkgVolumeSlider from "../7-elements/interface/audio-bkg/AudioBkgVolumeSlider.svelte";

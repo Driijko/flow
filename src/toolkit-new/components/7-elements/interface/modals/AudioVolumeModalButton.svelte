@@ -2,7 +2,7 @@
 <script>
   // IMPORTS -----------------------------------------
   import modalsStore from "../../../../scripts/modalsStore";
-  import audioBkgStore from "../../../../scripts/audioBkgStore";
+  import audioBkgStore from "../../../../scripts/audioBkgStoreOG";
   import AudioVolumeOffIcon from "../../icons/audio/AudioVolumeOffIcon.svelte";
   import AudioVolumeLowIcon from "../../icons/audio/AudioVolumeLowIcon.svelte";
   import AudioVolumeHighIcon from "../../icons/audio/AudioVolumeHighIcon.svelte";

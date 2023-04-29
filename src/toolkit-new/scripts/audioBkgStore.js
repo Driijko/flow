@@ -1,56 +1,46 @@
-import { writable } from "svelte/store";
-import storeUpdate from "./utils/storeUpdate";
+import { writable, get } from "svelte/store";
+import { tweened } from "svelte/motion";
+import { linear } from "svelte/easing";
 
-function createBackgroundAudio() {
-  const {subscribe, update, set} = writable({
-    track: {
-      path: "./assets/audio/bkg/opening-prompt.mp3",
-      name: "Opening Prompt Theme",
-    },
-    currentTime: 0,
-    totalTime: 0,
-    volume: 0,
-    paused: true,
-    loop: false,
-    crossFade: {
-      registered: true,
-      trackPath: "",
-      duration: 0,
-    }
-  });
+// STATE ----------------------------------
+export const audioBkgTrack = writable({ name: "", path: "" });
+export const audioBkgPaused = writable(true);
+export const audioBkgCurrentTime = writable(0);
+export const audioBkgTotalTime = writable(0);
+export const audioBkgVolume = tweened(1, {easing: linear});
+export const audioBkgPlayAfterLoad = writable(false);
+export const audioBkgLoop = writable(false);
 
-  return {
-    subscribe,
-    set,
-    load: (trackPath,trackName) => storeUpdate("track", {
-      path: trackPath,
-      name: trackName,
-    }, update),
-    play: ()=> storeUpdate("paused", false, update),
-    pause: ()=> storeUpdate("paused", true, update),
-    togglePaused: ()=> storeUpdate(
-      "paused", prev => !(prev["paused"]), update, true
-    ),
-    volume: volume => storeUpdate("volume", volume, update),
-    loop: boolean => storeUpdate("loop", boolean, update),
-    restart: () => storeUpdate("currentTime", 0, update),
-    crossFade: (trackPath, duration) => storeUpdate(
-      "crossFade", {
-        registered: false, 
-        trackPath: trackPath, 
-        duration: duration,
-      }, update
-    ),
-    registerCrossFade: ()=> storeUpdate(
-      "crossFade", {
-        registered: true,
-        trackPath: "",
-        duration: 0,
-      }, update
-    ),
-  }
+// METHODS ------------------------------------
+export function audioBkgLoad(name, path) {
+  audioBkgTrack.set({name: name, path: path});
+  audioBkgPlayAfterLoad.set(false);
+};
+export function audioBkgLoadPlay(name, path) {
+  audioBkgTrack.set({name:name,path:path});
+  audioBkgPlayAfterLoad.set(true);
 }
-
-export const audioBkgStore = createBackgroundAudio();
-
-export default audioBkgStore;
+export function audioBkgPlay() {audioBkgPaused.set(false)};
+export function audioBkgPause() {audioBkgPaused.set(true)};
+export function audioBkgTogglePausePlay() {
+  audioBkgPaused.set(!(get(audioBkgPaused)));
+}
+export function audioBkgFade(duration) {
+  audioBkgVolume.set(0,{duration:duration});
+};
+export function audioBkgRestart() {audioBkgCurrentTime.set(0);};
+export function audioBkgAdjustVolume(volume) {
+  audioBkgVolume.set(volume, {duration: 0});
+};
+export function audioBkgUpdateTotalTime(time) {audioBkgTotalTime.set(time)};
+export function audioBkgUpdateCurrentTime(time) {audioBkgCurrentTime.set(time)};
+export function audioBkgFadeLoadPlay(trackName, trackPath, duration) {
+  const currentVolume = get(audioBkgVolume);
+  audioBkgFade(duration);
+  const timerId = setTimeout(()=> {
+    audioBkgAdjustVolume(currentVolume);
+    audioBkgLoadPlay(trackName, trackPath);
+    clearTimeout(timerId);
+  }, duration);
+};
+export function audioBkgSetLoop(boolean) {audioBkgLoop.set(boolean)};

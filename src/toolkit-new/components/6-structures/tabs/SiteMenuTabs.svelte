@@ -5,51 +5,13 @@
   import CompassIcon from "../../7-elements/icons/menu/CompassIcon.svelte";
   import GearIcon from "../../7-elements/icons/menu/GearIcon.svelte";
   import SiteSettings from "../SiteSettings.svelte";
-  import BranchingNav from "../../5-containers/BranchingNavOG.svelte";
+  import BranchingNav from "../../5-containers/BranchingNav.svelte";
   import SiteMenuBreadcrumbs from "../SiteMenuBreadcrumbs.svelte";
   import siteMenuStore from "../../../scripts/siteMenuStore";
-
-  // PROPS --------------------------------------
-  // export let menuTabs;
-
-  // STATE -----------------------------------
-  // let breadcrumbs = [];
-
-  // function updateBreadcrumbs(array) { 
-  //   if (menuTabs.current === 0) {
-  //     breadcrumbs = [{text: "navigation", href: "#nav0"}];
-  //   } else if (menuTabs.current === 1) {
-  //     breadcrumbs = [{text: "settings", href: "settings"}];
-  //   };
-  //   if (array) {
-  //     array.forEach((value,index)=> {
-  //       breadcrumbs[index + 1] = value;
-  //     });       
-  //   }
-  // }
-
-  // updateBreadcrumbs();
-
-  // EVENT HANDLERS ----------------------------
-  // function handleClick(tab) {
-  //   menuTabs.update(tab);
-  //   updateBreadcrumbs();
-  // }
-
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
 <SiteMenuBreadcrumbs />
-
-<!-- {#if menuTabs.current === 0}
-  <TabTransition {menuTabs}>
-    <BranchingNav {updateBreadcrumbs} />
-  </TabTransition>
-{:else if menuTabs.current === 1}
-  <TabTransition {menuTabs}>
-    <SiteSettings />
-  </TabTransition>
-{/if} -->
 
 {#if $siteMenuStore.tab.current === "navigation"}
   <TabTransition>
