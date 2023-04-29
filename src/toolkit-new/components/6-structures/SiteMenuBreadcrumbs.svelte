@@ -1,12 +1,19 @@
 <!-- SCRIPTS //////////////////////////////////// -->
 <script>
   // IMPORTS -------------------------------
-  import siteMenuStore from "../../scripts/siteMenuStore";
+  // import siteMenuStore from "../../scripts/siteMenuStore";
+  import { siteMenuTab } from "../../scripts/siteMenuStore";
+
 
 </script>
 
 <!-- MARKUP ///////////////////////////////////////// -->
-<ul class="site-menu-breadcrumbs horizontal-free-scroll">
+<ul class="site-menu-breadcrubms horizontal-free-scroll">
+  <li class:current={$siteMenuTab}>
+
+  </li>
+</ul>
+<!-- <ul class="site-menu-breadcrumbs horizontal-free-scroll">
   <li class:current={$siteMenuStore.navigation.current === 0}>
     <a href="#{$siteMenuStore.tab.current}0">
       {$siteMenuStore.tab.current}/
@@ -18,7 +25,7 @@
       </a>
     </li>
   {/each}
-</ul>
+</ul> -->
 
 <!-- STYLE ////////////////////////////////////////// -->
 <style>

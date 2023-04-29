@@ -4,12 +4,22 @@ import { writable, get } from "svelte/store";
 export const siteMenuTab = writable({current: "navigation", prev: "navigation"});
 export const navigationLevels = writable([]);
 export const navigationCurrentLevel = writable(0);
+export const settingsLevels = writable([]);
+export const settingsCurrentLevel = writable(0);
 
 // MAP -----------------------------------------
-export const tabPosition = {
-  navigation: 0,
-  settings: 1,
-}
+const map = {
+  navigation: {
+    levels: navigationLevels,
+    currentLevel: navigationCurrentLevel,
+    tabPosition: 0,
+  },
+  settings: {
+    levels: settingsLevels,
+    currentLevel: settingsCurrentLevel,
+    tabPosition: 1,
+  },
+};
 
 // FUNCTIONS ---------------------------------
 export function newTab(tabName) {
@@ -27,4 +37,12 @@ export function navigationCollapse(levelName, levelNum) {
 };
 export function setCurrentNavigationLevel(levelNum) {
   navigationCurrentLevel.set(levelNum);
+};
+export function getSiteMenuData(tabName,tabProperty) {
+  const data = map[tabName][tabProperty];
+  if (data.subscribe) {
+    return get(data);
+  } else {
+    return data;
+  };
 };

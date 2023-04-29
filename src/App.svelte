@@ -3,8 +3,9 @@
   import setUp from "./toolkit-new/scripts/setUp";
   import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
   import { siteMenuTab, newTab, navigationLevels, navigationExpand,
-    navigationCollapse
+    navigationCollapse, getSiteMenuData
   } from "./toolkit-new/scripts/siteMenuStore";
+
 
   setUp();
 </script>
@@ -29,10 +30,10 @@
 </button><br/>
 <button type="button" on:click={()=> navigationCollapse("blues", 2)}>
   Collapse
+</button><br/>
+<button type="button" on:click={()=> tests = getSiteMenuData("navigation", "levels")}>
+  Get Levels
 </button>
-
-
-
 
 
 
