@@ -5,7 +5,7 @@
   import { onMount } from "svelte";
   // import modalsStore from "../../../../scripts/modalsStore";
   import { siteMenuModal, modals } from "../../../../scripts/modalsStore";
-  import currentPageStore from "../../../../scripts/currentPageStore";
+  import { currentPage } from "../../../../scripts/currentPageStore";
 
   // ANIMATION --------------------------------------------
   let animation;
@@ -64,7 +64,7 @@
 <!-- MARKUP /////////////////////////////////////////// -->
 <button type="button" class="site-menu-modal-button" 
   on:click={()=>modals.toggle("siteMenu")}
-  class:splash={$currentPageStore.name === "splash"}
+  class:splash={$currentPage === "splash"}
   class:open={$siteMenuModal}
   class:closed={!($siteMenuModal)}
 >

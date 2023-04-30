@@ -2,33 +2,26 @@
 <script>
   // IMPORTS -----------------------------------------
   import shift from "../../../scripts/transitions/shift";
-  import modalsStore from "../../../scripts/modalsStore";
+  import { siteMenuModal } from "../../../scripts/modalsStore";
   import SiteMenuModalButton from "../../7-elements/interface/modals/SiteMenuModalButton.svelte";
-  import SiteMenuModalTabs from "../../6-structures/tabs/SiteMenuTabs.svelte";
-
-  // STATE --------------------------------------------
-  let menuTabs = {
-    current: 0,
-    prev: 0,
-    update: tab => {
-      menuTabs.prev = menuTabs.current;
-      menuTabs.current = tab;
-    },
-  }
+  import SiteMenuBreadcrumbs from "../../6-structures/SiteMenuBreadcrumbs.svelte";
+  import SiteMenuTabs from "../../6-structures/tabs/SiteMenuTabs.svelte";
 
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
 <SiteMenuModalButton />
 
-{#if $modalsStore.siteMenu}
+{#if $siteMenuModal}
 <div transition:shift="{{y:window.innerHeight,duration:1000}}">
   <header>
     <h1>FLOW</h1>
     <h2>A front-end web development framework</h2>
   </header>
 
-  <SiteMenuModalTabs {menuTabs} />
+  <SiteMenuBreadcrumbs />
+
+  <SiteMenuTabs />
 </div>
 {/if}
 

@@ -1,7 +1,7 @@
 <!-- SCRIPTS /////////////////////////////////////////////// -->
 <script>
   // IMPORTS ------------------------------------------
-  import audioBkgStore from "../../scripts/audioBkgStoreOG";
+  import { audioBkgPaused } from "../../scripts/audioBkgStore";
   import FullscreenCheckbox from "../7-elements/interface/FullscreenCheckbox.svelte";
   import AudioBkgCheckbox from "../7-elements/interface/audio-bkg/AudioBkgCheckbox.svelte";
   import AudioBkgVolumeSlider from "../7-elements/interface/audio-bkg/AudioBkgVolumeSlider.svelte";
@@ -18,7 +18,7 @@
     <label for="audio-option">Audio</label>
     <AudioBkgCheckbox />
   </div>
-  <div class="volume-adjust" class:visible={!($audioBkgStore.paused)}>
+  <div class="volume-adjust" class:visible={!($audioBkgPaused)}>
     <label for="volume">Adjust volume to your preference:</label>
     <AudioBkgVolumeSlider />
   </div>

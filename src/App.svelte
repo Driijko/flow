@@ -7,13 +7,16 @@
   } from "./toolkit-new/scripts/siteMenuStore";
   import SiteMenuBreadcrumbs from "./toolkit-new/components/6-structures/SiteMenuBreadcrumbs.svelte";
   import BranchingNav from "./toolkit-new/components/5-containers/BranchingNav.svelte";
+  import SiteMenuContent from "./toolkit-new/components/3-layers/site-menu/SiteMenuContent.svelte";
+  import SiteSettings from "./toolkit-new/components/6-structures/SiteSettings.svelte";
 
 
   setUp();
 </script>
 
 <AudioBkg />
-<BranchingNav />
+<!-- <SiteSettings /> -->
+<SiteMenuContent />
 <br/>
 <br/>
 <br/>

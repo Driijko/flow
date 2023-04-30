@@ -6,18 +6,18 @@
   import GearIcon from "../../7-elements/icons/menu/GearIcon.svelte";
   import SiteSettings from "../SiteSettings.svelte";
   import BranchingNav from "../../5-containers/BranchingNav.svelte";
-  import SiteMenuBreadcrumbs from "../SiteMenuBreadcrumbs.svelte";
-  import siteMenuStore from "../../../scripts/siteMenuStore";
+  // import SiteMenuBreadcrumbs from "../SiteMenuBreadcrumbs.svelte";
+  import { siteMenuTab, newTab } from "../../../scripts/siteMenuStore";
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
-<SiteMenuBreadcrumbs />
+<!-- <SiteMenuBreadcrumbs /> -->
 
-{#if $siteMenuStore.tab.current === "navigation"}
+{#if $siteMenuTab.current === "navigation"}
   <TabTransition>
     <BranchingNav />
   </TabTransition>
-{:else if $siteMenuStore.tab.current === "settings"}
+{:else if $siteMenuTab.current === "settings"}
   <TabTransition>
     <SiteSettings />
   </TabTransition>
@@ -25,15 +25,15 @@
 
 <ul class="site-menu-modal-tab-buttons">
   <li>
-    <button class:selected={$siteMenuStore.tab.current === "navigation"} 
-      on:click={()=> siteMenuStore.tab("navigation")}
+    <button class:selected={$siteMenuTab.current === "navigation"} 
+      on:click={()=> newTab("navigation")}
     >
       <CompassIcon />
     </button>
   </li>
   <li>
-    <button class:selected={$siteMenuStore.tab.current === "settings"} 
-      on:click={()=> siteMenuStore.tab("settings")}
+    <button class:selected={$siteMenuTab.current === "settings"} 
+      on:click={()=> newTab("settings")}
     >
       <GearIcon />
     </button>
