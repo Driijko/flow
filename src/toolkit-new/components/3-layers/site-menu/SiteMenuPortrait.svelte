@@ -5,7 +5,7 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
-<div id="this" class:background={$siteMenuModal}>
+<div id="this" class:background-color={$siteMenuModal}>
   <SiteMenuContent />
 </div>
 
@@ -16,7 +16,7 @@
   width: 100%;
   height: 100%;
 }
-#this.background {
+#this.background-color {
   background-color: black;
 }
 /* MENU BUTTON ---------------------------- */
@@ -81,7 +81,7 @@
 }
 /* TAB CONTENT ------------------------------------ */
 #this :global(.tab-content) {
-  height: 81.8%;
+  height: 78.8%;
 }
 /* NAV ---------------- */
 #this :global(nav), #this :global(.site-settings) {

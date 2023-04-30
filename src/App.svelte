@@ -14,11 +14,12 @@
   import OpeningPromptContent from "./toolkit-new/components/2-pages/opening-prompt/OpeningPromptContent.svelte";
   import { audioBkgVolume } from "./toolkit-new/scripts/audioBkgStore";
   import SiteMenuModal from "./toolkit-new/components/3-layers/site-menu/SiteMenuModal.svelte";
+  import Background from "./toolkit-new/components/7-elements/art/Background.svelte";
 
   setUp();
 </script>
-
-<AudioBkg />
+<!-- <Background /> -->
+<!-- <AudioBkg /> -->
 <SiteMenuModal />
 <!-- <SiteSettings /> -->
 <!-- <SiteMenuContent /> -->

@@ -80,11 +80,12 @@
     {#each lists as list,listIndex} 
   
     {#if listIndex === 0}
-      <ul id="navigation0">
+      <ul id="navigation0" class="first">
 
         {#each list as link}
           <li 
-            class:selected={ $navigationLevels[listIndex] === link.tag }>
+            class:selected={ $navigationLevels[listIndex] === link.tag }
+          >
             <a href={link.tag}
               class:column={$viewportOrientationStore === "portrait"}
               on:click|preventDefault={
@@ -101,7 +102,7 @@
       $navigationLevels[listIndex - 1]
       && typeof(map[$navigationLevels[listIndex - 1]]) === "number"
     }
-      <ul id="navigation{listIndex}">
+      <ul id="navigation{listIndex}" class={$navigationLevels[listIndex - 1]}>
 
         {#each list[map[$navigationLevels[listIndex - 1]]] as link}
           <li
@@ -137,6 +138,16 @@ ul {
   width: 100%;
   height: 100%;
 }
+ul.first {
+  background-image: url("../../../../public/assets/images/test1.png");
+  background-size: 100%;
+  background-position: 50% 50%;
+}
+ul.music {
+  background-image: url("../../../../public/assets/images/test1.png");
+  background-size: 150%;
+  background-position: 50% 50%;
+}
 a {
   display: flex;
   align-items: center;
@@ -145,10 +156,6 @@ a {
 }
 a.column {
   flex-direction: column;
-}
-li :global(svg) {
-  display: block;
-  width: 0;
 }
 li.selected {
   background-color: black;
