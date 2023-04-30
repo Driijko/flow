@@ -11,6 +11,7 @@
 
     // ANIMATIONS ----------------------------------------
     const tl = gsap.timeline();
+
     function pageEntrance() {
       // const tl = gsap.timeline();
       tl.from(".rect1", {
@@ -87,6 +88,7 @@
 
 <!-- STYLES ///////////////////////////////////// -->
 <style>
+@media screen and (orientation: portrait) {
 #this :global(header) {
   width: 100%;
   position: absolute;
@@ -102,5 +104,6 @@
   text-align: center;
   letter-spacing: calc(var(--uarr-width)/200);
   font-size: calc(var(--uarr-width)/15);
+}
 }
 </style>

@@ -1,7 +1,7 @@
 import { writable, get } from "svelte/store";
 
 // STATE ---------------------------------------
-export const siteMenuTab = writable({current: "navigation", prev: "navigation"});
+export const siteMenuTab = writable({current: "navigation", prev: "settings"});
 export const navigationLevels = writable([]);
 export const navigationCurrentLevel = writable(0);
 export const settingsLevels = writable([]);
