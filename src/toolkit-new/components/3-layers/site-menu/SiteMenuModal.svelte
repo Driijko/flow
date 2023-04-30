@@ -6,7 +6,17 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////// -->
-<DualUARR>
-  <SiteMenuPortrait slot="portrait-version" />
-  <SiteMenuLandscape slot="landscape-version" />
-</DualUARR>
+<div>
+  <DualUARR>
+    <SiteMenuPortrait slot="portrait-version" />
+    <SiteMenuLandscape slot="landscape-version" />
+  </DualUARR>
+</div>
+
+<!-- STYLES ////////////////////////////////////////////// -->
+<style>
+  div {
+    position: fixed;
+    z-index: 1;
+  }
+</style>

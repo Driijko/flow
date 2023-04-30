@@ -7,6 +7,7 @@
   import viewportOrientationStore 
   from "../../scripts/viewport/viewportOrientationStore";
   import SnapScroll from "./SnapScroll.svelte";
+  import { newPage } from "../../scripts/currentPageStore";
 
   // UP PROPS ------------------------------
   let scroll; // from SnapScroll
@@ -90,7 +91,8 @@
               class:column={$viewportOrientationStore === "portrait"}
               on:click|preventDefault={
                 ()=> handleClick(link.tag, listIndex + 1)
-            }>
+              }
+            >
               {link.text}
             </a>
           </li>
