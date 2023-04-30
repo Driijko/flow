@@ -1,11 +1,11 @@
 <!-- SCRIPTS ////////////////////////////////// -->
 <script>
   import SiteMenuContent from "./SiteMenuContent.svelte";
-  import modalsStore from "../../../scripts/modalsStore";
+  import { siteMenuModal } from "../../../scripts/modalsStore";
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
-<div id="this" class:background={$modalsStore.siteMenu}>
+<div id="this" class:background={$siteMenuModal}>
   <SiteMenuContent />
 </div>
 
@@ -69,19 +69,19 @@
   padding-left: 1%;
   background-color: hsl(0, 0%, 20%);
   color: white;
-  height: 3%;
-  font-size: calc(var(--uarr-width)/19);
+  height: 3.2%;
+  font-size: calc(var(--uarr-width)/19.3);
   display: flex;
-  gap: calc(var(--uarr-width)/100);
   overflow-x: scroll;
   scrollbar-width: 0;
 }
 #this :global(.site-menu-breadcrumbs li) {
   white-space: nowrap;
+  padding-right: calc(var(--uarr-width)/60);
 }
 /* TAB CONTENT ------------------------------------ */
 #this :global(.tab-content) {
-  height: 82%;
+  height: 81.8%;
 }
 /* NAV ---------------- */
 #this :global(nav), #this :global(.site-settings) {

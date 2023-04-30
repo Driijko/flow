@@ -16,6 +16,7 @@ export function newPage(pageName) {
     clearTimeout(timerId);
   },currentPageExit.duration);
 };
+
 export function setPageExit(exitMethod, duration) {
   currentPageExit.exitMethod = exitMethod;
   currentPageExit.duration = duration;

@@ -13,7 +13,7 @@
   let scrolling = false;
   let shiftKeyDown = false;
   let touchStart;
-  export let position = 0;
+  export let position = 0; // For passing up to parents.
 
   // SCROLL FUNCTIONS ----------------------------
   function up ( multiplier=0 ) {
@@ -43,15 +43,14 @@
     const timerId = setTimeout(()=> {
       scrolling = false;
       clearTimeout(timerId);
-    }, 700);
-  }
+    }, 400);
+  };
 
   // EVENT HANDLERS ------------------------------
   function handleKeyUp(e) {
     if (e.key === "Shift") {
       shiftKeyDown = false;
-    }
-  }
+  }};
 
   function handleKeyDown(e) {
     if (e.key === "Shift") {
@@ -74,11 +73,7 @@
             debounceScroll();
             if (e.key === "ArrowRight") scroll("right");
             else if (e.key === "ArrowLeft") scroll("left");
-          }
-        }
-      }
-    }
-  };
+  }}}}};
 
   function handleWheel(e) {
     e.preventDefault();
@@ -88,24 +83,24 @@
         if (e.deltaY > 0) scroll("down");
         else if (e.deltaY < 0) scroll("up");
       }
-      else if (direction === "horizontal" && shiftKeyDown) {
+      // else if (direction === "horizontal" && shiftKeyDown) {
+      //   if (e.deltaY > 0) scroll("left");
+      //   else if (e.deltaY < 0) scroll("right");
+      else if (direction === "horizontal") {
         if (e.deltaY > 0) scroll("left");
         else if (e.deltaY < 0) scroll("right");
-      }
-    };
-  };
+  }};};
 
   function handleTouchStart(e) {
     if (direction === "vertical") {
       touchStart = e.touches[0].clientY;
     } else if (direction === "horizontal") {
       touchStart = e.touches[0].clientX;
-    }
-  }
+  }};
 
   function handleTouchMove(e) {
     e.preventDefault();
-  }
+  };
 
   function handleTouchEnd(e) {
     if (direction === "vertical") {
@@ -116,8 +111,7 @@
       const touchEnd = e.changedTouches[0].clientX;
       if (touchStart > touchEnd + 5) scroll("right");
       else if (touchStart < touchEnd - 5) scroll("left");
-    }
-  }
+  }};
 
   function handleScroll(e) {
     if (scrolling === false) {
@@ -131,7 +125,7 @@
         clearTimeout(timerId);
       },500);
     }
-  }
+  };
 
   onMount(()=> {
     // EVENT LISTENERS -------------------------

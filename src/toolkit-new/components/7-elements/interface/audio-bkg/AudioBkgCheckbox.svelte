@@ -3,6 +3,7 @@
   // IMPORTS -------------------------------------------------
   import { audioBkgTogglePausePlay, audioBkgPaused 
   } from "../../../../scripts/audioBkgStore";
+  
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->

@@ -13,7 +13,7 @@
   // EVENT HANDLERS ----------------------------
   function handleClick() {
     newPage("splash");
-    audioBkgFadeLoadPlay("Test Music", "./assets/audio/bkg/test-music.mp3", 1300);
+    audioBkgFadeLoadPlay("Test Music", "./assets/audio/bkg/test-music.mp3", 2000);
   }
 </script>
 

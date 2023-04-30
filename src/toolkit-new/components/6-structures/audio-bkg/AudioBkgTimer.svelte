@@ -1,7 +1,9 @@
 <!-- SCRIPTS ////////////////////////////////////// -->
 <script>
   // IMPORTS -----------------------------------
-  import { audioBkgCurrentTime, audioBkgTotalTime} from "../../../scripts/audioBkgStore"
+  import { audioBkgCurrentTime, audioBkgTotalTime} 
+  from "../../../scripts/audioBkgStore"
+  
 </script>
 
 <!-- MARKUP //////////////////////////////////// -->

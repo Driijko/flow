@@ -14,13 +14,15 @@
 <!-- MARKUP ///////////////////////////////////-->
 <div class="tab-content" 
   in:shift="{{
-    x: currentTabPosition < prevTabPosition ? -window.innerWidth : window.innerWidth, 
+    x: currentTabPosition < prevTabPosition ? 
+      -window.innerWidth : window.innerWidth, 
     duration: 500, 
     delay: 500,
     easing: linear,
   }}"
   out:shift="{{
-    x: currentTabPosition < prevTabPosition ? -window.innerWidth: window.innerWidth, 
+    x: currentTabPosition < prevTabPosition ? 
+      -window.innerWidth: window.innerWidth, 
     duration: 500,
     easing: linear,
   }}"

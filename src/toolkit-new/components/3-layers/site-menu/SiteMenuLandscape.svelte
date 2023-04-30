@@ -1,11 +1,11 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
   import SiteMenuContent from "./SiteMenuContent.svelte";
-  import modalsStore from "../../../scripts/modalsStore";
+  import { siteMenuModal } from "../../../scripts/modalsStore";
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////// -->
-<div id="this" class:background={$modalsStore.siteMenu}>
+<div id="this" class:background={$siteMenuModal}>
   <SiteMenuContent />
 </div>
 
@@ -37,7 +37,7 @@
   top: 0%;
   left: 94%;
   height: 10%;
-  border-left: calc(var(--uarr-width)/200) solid white;
+  border-left: calc(var(--uarr-width)/200) solid hsl(0, 0%, 20%);
 }
 #this :global(.site-menu-modal-button.open svg) {
   width: 60%;
@@ -66,12 +66,25 @@
 #this :global(h2) {
   font-size: calc(var(--uarr-width)/60);
 }
+/* BREADCRUMBS -------------------------------- */
+#this :global(.site-menu-breadcrumbs) {
+  display: flex;
+  padding-left: 0.5%;
+  align-items: center;
+  height: 3%;
+  font-size: calc(var(--uarr-width)/80);
+  letter-spacing: calc(var(--uarr-width)/1000);
+}
+#this :global(.site-menu-breadcrumbs li) {
+  padding-right: calc(var(--uarr-width)/200);
+}
 /* TAB CONTENT ------------------------------------ */
 #this :global(.tab-content) {
-  height: 80%;
+  height: 77%;
 }
 #this :global(nav), #this :global(.site-settings) {
   height: 100%;
+  border-top: calc(var(--uarr-width)/200) solid black;
   border-left: calc(var(--uarr-width)/200) solid black;
   border-right: calc(var(--uarr-width)/200) solid black;
   background-color: hsl(0, 0%, 80%);

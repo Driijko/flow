@@ -1,7 +1,8 @@
 <!-- SCRIPTS ///////////////////////////////////////////// -->
 <script>
   // IMPORTS --------------------------------------------
-  import { audioBkgTrack, audioBkgRestart, audioBkgLoadPlay, audioBkgFadeLoadPlay
+  import { audioBkgTrack, audioBkgRestart, audioBkgLoadPlay, 
+    audioBkgFadeLoadPlay
   } from "../../../scripts/audioBkgStore";
 
   // PROPS ---------------------------------------------
@@ -64,9 +65,7 @@
 <ul class="audio-bkg-track-list">
   {#each tracks as track}
     <li>
-      <button type="button" 
-        on:click={()=> handleClick(track)}
-      >
+      <button type="button" on:click={()=> handleClick(track)}>
         {track.name}
       </button>
     </li>

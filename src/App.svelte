@@ -13,17 +13,16 @@
   import OpeningPromptPage from "./toolkit-new/components/2-pages/opening-prompt/OpeningPromptPage.svelte";
   import OpeningPromptContent from "./toolkit-new/components/2-pages/opening-prompt/OpeningPromptContent.svelte";
   import { audioBkgVolume } from "./toolkit-new/scripts/audioBkgStore";
+  import SiteMenuModal from "./toolkit-new/components/3-layers/site-menu/SiteMenuModal.svelte";
 
   setUp();
 </script>
 
 <AudioBkg />
+<SiteMenuModal />
 <!-- <SiteSettings /> -->
 <!-- <SiteMenuContent /> -->
-<OpeningPromptContent />
-<p>
-  {$audioBkgVolume}
-</p>
+<!-- <OpeningPromptPage /> -->
 <!-- <br/>
 <br/>
 <br/>
@@ -68,8 +67,5 @@ p {
 }
 :global(input[type="checkbox"]) {
   border: 4px solid black;
-}
-:global(.opening-prompt-content) {
-  top: 10%;
 }
 </style>

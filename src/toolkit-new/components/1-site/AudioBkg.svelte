@@ -28,6 +28,6 @@
 
 </script>
 
-<audio controls bind:this={audioBkgElement} src={$audioBkgTrack.path} 
+<audio bind:this={audioBkgElement} src={$audioBkgTrack.path} 
   bind:paused={$audioBkgPaused} loop={$audioBkgLoop} bind:currentTime={$audioBkgCurrentTime}
 ></audio>

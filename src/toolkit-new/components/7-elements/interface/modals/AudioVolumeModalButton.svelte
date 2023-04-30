@@ -7,7 +7,6 @@
   import AudioVolumeLowIcon from "../../icons/audio/AudioVolumeLowIcon.svelte";
   import AudioVolumeHighIcon from "../../icons/audio/AudioVolumeHighIcon.svelte";
 
-  // CONDITIONS ---------------------------------------
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->

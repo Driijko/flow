@@ -14,13 +14,14 @@
     } else {
       fullscreenStatus = false;
     }
-  }
+  };
 
   // RUN ON INITIALIZATION ----------------------------------
   setFullscreenStatus();
 
   // EVENT LISTENERS ---------------------------------------
   document.addEventListener("fullscreenchange", setFullscreenStatus);
+
   onDestroy(()=> {
     document.removeEventListener("fullscreenchange", setFullscreenStatus);
   });
@@ -29,10 +30,12 @@
   function toggleFullscreen(e) {
     fullscreen(e.target.checked);
   }
+
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////// -->
-<input id="fullscreen-option" type="checkbox" on:click={toggleFullscreen}   checked={fullscreenStatus}
+<input id="fullscreen-option" type="checkbox" 
+  on:click={toggleFullscreen}   checked={fullscreenStatus}
 />
 
 <style>

@@ -1,4 +1,4 @@
-/* MEYER-WEB RESET SHEET /////////////////////////////////////////// */
+/* MEYER-WEB RESET SHEET (modified) ////////////////////////////////////// */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -171,6 +171,7 @@ svg {
   justify-content: center;
   align-items: center;
 }
+
 .uarr {
   position: relative;
 }
@@ -189,8 +190,6 @@ svg {
   display: inline-block;
 }
 
-
-
 /* PORTRAIT / LANDSCAPE ///////////////////////// */
 @media screen and (orientation: portrait) {
   .landscape {
@@ -204,6 +203,7 @@ svg {
     height: var(--uarr1-height);
   }
 }
+
 @media screen and (orientation: landscape) {
   .portrait {
     display: none;
@@ -216,6 +216,7 @@ svg {
     height: var(--uarr2-height);
   }
 }
+
 .uarr1 {
   width: var(--uarr1-width);
   height: var(--uarr1-height);

@@ -7,10 +7,10 @@
   import SiteSettings from "../SiteSettings.svelte";
   import BranchingNav from "../../5-containers/BranchingNav.svelte";
   import { siteMenuTab, newTab } from "../../../scripts/siteMenuStore";
+
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
-
 {#if $siteMenuTab.current === "navigation"}
   <TabTransition>
     <BranchingNav />
@@ -24,15 +24,13 @@
 <ul class="site-menu-modal-tab-buttons">
   <li>
     <button class:selected={$siteMenuTab.current === "navigation"} 
-      on:click={()=> newTab("navigation")}
-    >
+      on:click={()=> newTab("navigation")}>
       <CompassIcon />
     </button>
   </li>
   <li>
     <button class:selected={$siteMenuTab.current === "settings"} 
-      on:click={()=> newTab("settings")}
-    >
+      on:click={()=> newTab("settings")}>
       <GearIcon />
     </button>
   </li>
