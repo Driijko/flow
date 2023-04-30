@@ -2,7 +2,7 @@
 <script>
   // IMPORTS -----------------------------------------------
   import { onMount } from "svelte";
-  import currentPageStore from "../../scripts/currentPageStore";
+  import { setPageExit, newPage } from "../../scripts/currentPageStore";
 
   // STATE ---------------------------------------
   let fade = false;
@@ -11,16 +11,16 @@
   function pageExit() {
     fade = true;
   }
-  currentPageStore.exit(2000, pageExit);
+  setPageExit(pageExit, 2000);
   
   // LOAD EVENT ----------------------------------
   onMount(()=> {
     window.addEventListener("load", ()=>{
-      currentPageStore.newPage("splash");
+      newPage("opening-prompt");
     });
     return ()=> {
       window.removeEventListener("load", ()=> {
-        currentPageStore.newPage("splash");
+        newPage("opening-prompt");
       });
     };
   });

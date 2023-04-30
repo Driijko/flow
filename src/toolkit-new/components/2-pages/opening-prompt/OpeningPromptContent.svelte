@@ -2,17 +2,18 @@
 <script>
   // IMPORTS -------------------------------------
   import SiteSettings from "../../6-structures/SiteSettings.svelte";
-  import currentPageStore from "../../../scripts/currentPageStore";
-  import audioBkgStore from "../../../scripts/audioBkgStoreOG";
+  import { newPage } from "../../../scripts/currentPageStore";
+  import { audioBkgFadeLoadPlay, audioBkgLoad, audioBkgSetLoop 
+  } from "../../../scripts/audioBkgStore";
 
   // Load and loop opening-prompt track.
-  audioBkgStore.load("./assets/audio/bkg/opening-prompt.mp3");
-  audioBkgStore.loop(true);
+  audioBkgLoad("Opening Prompt Theme","./assets/audio/bkg/opening-prompt.mp3");
+  audioBkgSetLoop(true);
 
   // EVENT HANDLERS ----------------------------
   function handleClick() {
-    currentPageStore.newPage("splash");
-    audioBkgStore.crossFade("./assets/audio/bkg/test-music.mp3",3);
+    newPage("splash");
+    audioBkgFadeLoadPlay("Test Music", "./assets/audio/bkg/test-music.mp3", 1300);
   }
 </script>
 

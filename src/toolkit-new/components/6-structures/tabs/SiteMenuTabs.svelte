@@ -6,12 +6,10 @@
   import GearIcon from "../../7-elements/icons/menu/GearIcon.svelte";
   import SiteSettings from "../SiteSettings.svelte";
   import BranchingNav from "../../5-containers/BranchingNav.svelte";
-  // import SiteMenuBreadcrumbs from "../SiteMenuBreadcrumbs.svelte";
   import { siteMenuTab, newTab } from "../../../scripts/siteMenuStore";
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
-<!-- <SiteMenuBreadcrumbs /> -->
 
 {#if $siteMenuTab.current === "navigation"}
   <TabTransition>

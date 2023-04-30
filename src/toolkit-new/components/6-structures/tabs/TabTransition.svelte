@@ -12,23 +12,6 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////-->
-<!-- <div class="tab-content" 
-  in:shift="{{
-    x: $siteMenuStore[$siteMenuStore.tab.current].tabPosition < $siteMenuStore[$siteMenuStore.tab.prev].tabPosition ? -window.innerWidth : window.innerWidth, 
-    duration: 500, 
-    delay: 500,
-    easing: linear,
-  }}"
-  out:shift="{{
-    x: $siteMenuStore[$siteMenuStore.tab.current].tabPosition < $siteMenuStore[$siteMenuStore.tab.prev].tabPosition ? window.innerWidth: -window.innerWidth, 
-    duration: 500,
-    easing: linear,
-  }}"
->
-
-  <slot />
-</div> -->
-
 <div class="tab-content" 
   in:shift="{{
     x: currentTabPosition < prevTabPosition ? -window.innerWidth : window.innerWidth, 
@@ -42,6 +25,5 @@
     easing: linear,
   }}"
 >
-
   <slot />
 </div>

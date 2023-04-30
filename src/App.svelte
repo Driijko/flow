@@ -9,15 +9,22 @@
   import BranchingNav from "./toolkit-new/components/5-containers/BranchingNav.svelte";
   import SiteMenuContent from "./toolkit-new/components/3-layers/site-menu/SiteMenuContent.svelte";
   import SiteSettings from "./toolkit-new/components/6-structures/SiteSettings.svelte";
-
+  import LoadingPage from "./toolkit-new/components/2-pages/LoadingPage.svelte";
+  import OpeningPromptPage from "./toolkit-new/components/2-pages/opening-prompt/OpeningPromptPage.svelte";
+  import OpeningPromptContent from "./toolkit-new/components/2-pages/opening-prompt/OpeningPromptContent.svelte";
+  import { audioBkgVolume } from "./toolkit-new/scripts/audioBkgStore";
 
   setUp();
 </script>
 
 <AudioBkg />
 <!-- <SiteSettings /> -->
-<SiteMenuContent />
-<br/>
+<!-- <SiteMenuContent /> -->
+<OpeningPromptContent />
+<p>
+  {$audioBkgVolume}
+</p>
+<!-- <br/>
 <br/>
 <br/>
 <br/>
@@ -48,14 +55,21 @@
 </button><br/>
 <button type="button" on:click={()=> setCurrentNavigationLevel(2)}>
   Nav 2
-</button><br/>
+</button><br/> -->
 
 
 
 
 <!-- STYLES //////////////////////////////// -->
 <style>
+p {
+  position: absolute;
+  top: 70%;
+}
 :global(input[type="checkbox"]) {
   border: 4px solid black;
+}
+:global(.opening-prompt-content) {
+  top: 10%;
 }
 </style>

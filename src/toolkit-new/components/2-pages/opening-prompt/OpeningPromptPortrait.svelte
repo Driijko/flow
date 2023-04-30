@@ -3,7 +3,7 @@
   // IMPORTS -------------------------------------------------------
   import { gsap } from "gsap";
   import { onMount } from "svelte";
-  import currentPageStore from "../../../scripts/currentPageStore";
+  import { setPageExit } from "../../../scripts/currentPageStore";
   import OpeningPromptContent from "./OpeningPromptContent.svelte";
 
   // ANIMATION -------------------------------------------------
@@ -20,7 +20,7 @@
       tl2.to(".rect2",{duration: 0.5, attr:{x:900}},1);
     }
 
-    currentPageStore.exit(2000,pageExit);
+    setPageExit(pageExit,2000);
   });
 </script>
 
