@@ -7,14 +7,18 @@
   import Background 
   from "./toolkit-new/components/7-elements/art/Background.svelte";
   import SplashPage 
-  from "./toolkit-new/components/2-pages/splash/SplashPage.svelte"
+  from "./toolkit-new/components/2-pages/splash/SplashPage.svelte";
+  import AudioBkgPlayer 
+  from "./toolkit-new/components/6-structures/audio-bkg/AudioBkgPlayer.svelte";
+  import AudioBkgPlaylist 
+  from "./toolkit-new/components/6-structures/audio-bkg/AudioBkgPlaylist.svelte";
 
   setUp();
 </script>
 <!-- <Background /> -->
 <!-- <AudioBkg /> -->
-<SiteMenuModal />
-<SplashPage />
+<!-- <SiteMenuModal /> -->
+<AudioBkgPlaylist />
 
 
 
