@@ -11,26 +11,25 @@
 
   // STATE ---------------------------------
   let scrolling = false;
-  let shiftKeyDown = false;
   let touchStart;
   export let position = 0; // For passing up to parents.
 
   // SCROLL FUNCTIONS ----------------------------
-  function up ( multiplier=0 ) {
+  function up ( multiplier=1 ) {
     snapScroll.scrollBy(
-      0, -snapScroll.clientHeight - (snapScroll.clientHeight * multiplier)
+      0, -(snapScroll.clientHeight * multiplier)
   );};
-  function down ( multiplier=0 ) {
+  function down ( multiplier=1 ) {
     snapScroll.scrollBy(
-      0, snapScroll.clientHeight + (snapScroll.clientHeight * multiplier)
+      0, snapScroll.clientHeight * multiplier
   );};
-  function left ( multiplier=0 ) {
+  function left ( multiplier=1 ) {
     snapScroll.scrollBy(
-      -snapScroll.clientWidth - (snapScroll.clientWidth * multiplier), 0
+      -(snapScroll.clientWidth * multiplier), 0
   );};
-  function right ( multiplier=0 ) { 
+  function right ( multiplier=1 ) { 
     snapScroll.scrollBy(
-      snapScroll.clientWidth + (snapScroll.clientWidth * multiplier), 0
+      snapScroll.clientWidth * multiplier, 0
   );};
   export const scroll = (direction, multiplier) => {
     if (direction === "up") up(multiplier);
@@ -53,27 +52,26 @@
   }};
 
   function handleKeyDown(e) {
-    if (e.key === "Shift") {
-      shiftKeyDown = true;
-    }
-    else {
-      if (direction === "vertical") {
-        if (e.key === "ArrowUp" || e.key ==="ArrowDown") {
-          e.preventDefault();
-          if (e.repeat === false && scrolling === false) {
-            debounceScroll();
-            if (e.key === "ArrowUp") scroll("up");
-            else if (e.key === "ArrowDown") scroll("down");
-          }
+    if (direction === "vertical") {
+      if (e.key === "ArrowUp" || e.key ==="ArrowDown") {
+        e.preventDefault();
+        if (e.repeat === false && scrolling === false) {
+          debounceScroll();
+          if (e.key === "ArrowUp") scroll("up");
+          else if (e.key === "ArrowDown") scroll("down");
         }
-      } else if (direction === "horizontal") {
-        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-          e.preventDefault();
-          if (e.repeat === false && scrolling === false) {
-            debounceScroll();
-            if (e.key === "ArrowRight") scroll("right");
-            else if (e.key === "ArrowLeft") scroll("left");
-  }}}}};
+      }
+    } else if (direction === "horizontal") {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.preventDefault();
+        if (e.repeat === false && scrolling === false) {
+          debounceScroll();
+          if (e.key === "ArrowRight") scroll("right");
+          else if (e.key === "ArrowLeft") scroll("left");
+        }
+      }
+    }
+  };
 
   function handleWheel(e) {
     e.preventDefault();
@@ -83,20 +81,21 @@
         if (e.deltaY > 0) scroll("down");
         else if (e.deltaY < 0) scroll("up");
       }
-      // else if (direction === "horizontal" && shiftKeyDown) {
-      //   if (e.deltaY > 0) scroll("left");
-      //   else if (e.deltaY < 0) scroll("right");
       else if (direction === "horizontal") {
         if (e.deltaY > 0) scroll("left");
         else if (e.deltaY < 0) scroll("right");
-  }};};
+      }
+    };
+  };
 
   function handleTouchStart(e) {
     if (direction === "vertical") {
       touchStart = e.touches[0].clientY;
-    } else if (direction === "horizontal") {
+    } 
+    else if (direction === "horizontal") {
       touchStart = e.touches[0].clientX;
-  }};
+    }
+  };
 
   function handleTouchMove(e) {
     e.preventDefault();

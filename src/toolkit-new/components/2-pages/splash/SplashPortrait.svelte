@@ -39,7 +39,7 @@
       modals.close("siteMenu");
     }
 
-    setPageExit(pageExit, 4);
+    setPageExit(pageExit, 4000);
 
     pageEntrance();
     

@@ -2,7 +2,8 @@
 <script>
   // IMPORTS -------------------------------
   import { onMount } from "svelte";
-  import { siteMenuTab, getSiteMenuData } from "../../scripts/siteMenuStore";
+  import { siteMenuTab, getSiteMenuData, menuScroll, navigationCurrentLevel } 
+  from "../../scripts/siteMenuStore";
 
   // ELEMENT REFERENCE -----------------------------------
   let breadcrumbsElement;
@@ -11,6 +12,16 @@
   function handleWheel(e) {
     e.preventDefault();
     breadcrumbsElement.scrollLeft += e.deltaY;
+  }
+
+  function handleClick(levelNum) {
+    if (levelNum > $navigationCurrentLevel) {
+      console.log(levelNum - $navigationCurrentLevel);
+      $menuScroll("right", levelNum - $navigationCurrentLevel);
+    }
+    else if (levelNum < $navigationCurrentLevel) {
+      $menuScroll("left", $navigationCurrentLevel - levelNum);
+    }
   }
 
   onMount(()=> {
@@ -24,7 +35,7 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////////// -->
-<ul bind:this={breadcrumbsElement} 
+<!-- <ul bind:this={breadcrumbsElement} 
   class="site-menu-breadcrumbs horizontal-free-scroll"
 >
   <li class:current={$tabCurrentLevel === 0}>
@@ -37,6 +48,25 @@
       class:last={index === $tabLevels.length - 1}
     >
       <a href="#{$siteMenuTab.current}{index + 1}">
+        {level}/
+      </a>
+    </li>
+  {/each}
+</ul> -->
+
+<ul bind:this={breadcrumbsElement} 
+  class="site-menu-breadcrumbs horizontal-free-scroll"
+>
+  <li class:current={$tabCurrentLevel === 0}>
+    <a href="{$siteMenuTab.current}" on:click|preventDefault={()=> handleClick(0)}>
+      {$siteMenuTab.current}/
+    </a>
+  </li>
+  {#each $tabLevels as level, index}
+    <li class:current={$tabCurrentLevel === index + 1}
+      class:last={index === $tabLevels.length - 1}
+    >
+      <a href={level} on:click|preventDefault={()=> handleClick(index + 1)}>
         {level}/
       </a>
     </li>

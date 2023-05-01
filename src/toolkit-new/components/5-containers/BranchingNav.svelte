@@ -2,7 +2,7 @@
 <script>
   import { onMount } from "svelte";
   import { navigationLevels, navigationExpand, navigationCollapse,
-    navigationCurrentLevel, setCurrentNavigationLevel
+    navigationCurrentLevel, setCurrentNavigationLevel, setMenuScroll
   } from "../../scripts/siteMenuStore";
   import viewportOrientationStore 
   from "../../scripts/viewport/viewportOrientationStore";
@@ -64,7 +64,10 @@
     if ($navigationCurrentLevel >= 0) {
       scroll("right", $navigationCurrentLevel);
       scrollUpdateReady = true;
-  }});
+    }
+    console.log(scroll);
+    setMenuScroll(scroll);
+  });
 
   // REACTIVE -----------------------------
   $: if ($navigationCurrentLevel !== position && scrollUpdateReady) {
@@ -141,12 +144,12 @@ ul {
   height: 100%;
 }
 ul.first {
-  background-image: url("../../../../public/assets/images/test1.png");
+  background-image: url("./assets/images/test1.png");
   background-size: 100%;
   background-position: 50% 50%;
 }
 ul.music {
-  background-image: url("../../../../public/assets/images/test1.png");
+  background-image: url("./assets/images/test1.png");
   background-size: 150%;
   background-position: 50% 50%;
 }

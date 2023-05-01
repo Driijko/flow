@@ -13,7 +13,7 @@
 
     function pageEntrance() {
       tl.from([".a-paths1", ".a-paths2"], {
-        duration: 5, ease: "linear", opacity: 0.9
+        duration: 5, ease: "linear", opacity: 0.93
       },0);
       tl.from(".a-paths1", {
         duration: 3, ease: "elastic.out(1, 1)",
@@ -28,11 +28,19 @@
         }
       }, 0);
       tl.from("h1", {duration: 5, opacity: 0},4);
-      tl.from("h2 span", {duration:2, opacity:0, stagger: 1},4.8);
-      tl.from(".site-menu-modal-button", {duration:2, opacity:0},9)
+      tl.from("h2 span", {duration:2, opacity:0, stagger: 0.5},5);
+      tl.from(".site-menu-modal-button", {duration:2, opacity:0},7.4)
     };
 
+    function pageExit() {
+      modals.close("siteMenu");
+      tl.timeScale(3).reverse();
+    }
+
+    setPageExit(pageExit, 4000);
+
     pageEntrance();
+
   });
 
 </script>
