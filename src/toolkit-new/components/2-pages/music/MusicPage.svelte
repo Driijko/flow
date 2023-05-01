@@ -3,12 +3,16 @@
   import viewportOrientationStore 
   from "../../../scripts/viewport/viewportOrientationStore";
   import MusicPagePortrait from "./MusicPagePortrait.svelte";
+  import AudioAnimationList 
+  from "../../6-structures/audio-bkg/AudioAnimationList.svelte";
 </script>
 
 <!-- MARKUP //////////////////////////////////////////////// -->
 <div class="uarr-container">
   {#if ($viewportOrientationStore === "landscape")}
-    <div class="uarr2"></div>
+    <div class="uarr2">
+      <AudioAnimationList />
+    </div>
   {/if}
   <div class="uarr1">
     <MusicPagePortrait />

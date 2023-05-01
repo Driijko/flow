@@ -30,7 +30,7 @@
         gsap.to(".audio-bkg-pause-play-button path:nth-of-type(1)", {
           duration: duration,
           attr: {
-            d: "M 20,20 L 50,35 L 50,65 L 20,80 Z",
+            d: "M 20,20 L 51,35.5 L 51,64.5 L 20,80 Z",
           },
         });
         gsap.to(".audio-bkg-pause-play-button path:nth-of-type(2)", {
