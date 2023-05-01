@@ -26,14 +26,51 @@
 }
 }
 #this :global(.audio-bkg-tracklist) {
-  border: 4px solid green;
-  height: 80%;
+  border: calc(var(--uarr-width)/100) solid black;
+  height: 77%;
   overflow-y: scroll;
   scrollbar-width: none;
+  padding-left: calc(var(--uarr-width)/20);
+  padding-top: calc(var(--uarr-width)/50);
+  padding-bottom: calc(var(--uarr-width)/5);
+  font-size: calc(var(--uarr-width)/17);
 }
-
 #this :global(.audio-bkg-tracklist::-webkit-scrollbar) {
   display: none;
 }
-
+#this :global(.audio-bkg-player) {
+  position: relative;
+  padding-top: calc(var(--uarr-width)/17);
+  border: calc(var(--uarr-width)/100) solid black;
+  height: 23%;
+}
+#this :global(.audio-bkg-player h3) {
+  text-align: center;
+  font-size: calc(var(--uarr-width)/15);
+}
+#this :global(.audio-bkg-pause-play-button) {
+  position: absolute;
+  height: 40%;
+  width: 16%;
+  border: calc(var(--uarr-width)/200) solid black;
+  top: 50%;
+  left: 10%;
+}
+#this :global(.audio-bkg-timer) {
+  position: absolute;
+  font-size: calc(var(--uarr-width)/17);
+  width: 50%;
+  text-align: center;
+  left: 25%;
+  top: 60%;
+}
+#this :global(.audio-bkg-volume-modal-button) {
+  position: absolute;
+  height: 40%;
+  width: 16%;
+  border: calc(var(--uarr-width)/200) solid black;
+  top: 50%;
+  left: 72%;
+  padding: calc(var(--uarr-width)/50);
+}
 </style>

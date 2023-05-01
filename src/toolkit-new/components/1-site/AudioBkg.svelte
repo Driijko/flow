@@ -10,7 +10,7 @@
   let audioBkgElement;
 
   // EVENT HANDLERS -------------------------------------
-  function handleCanPlay(e) {
+  function handleLoadedData(e) {
     audioBkgUpdateTotalTime(e.target.duration);
     if ($audioBkgPlayAfterLoad) {
       e.target.play();
@@ -18,7 +18,7 @@
 
   onMount(()=> {
     // EVENT LISTENERS ---------------------------------
-    audioBkgElement.addEventListener("canplay", handleCanPlay);
+    audioBkgElement.addEventListener("loadeddata", handleLoadedData);
   });
 
   // REACTIVE -------------------------------------------
@@ -26,8 +26,17 @@
     audioBkgElement.volume = $audioBkgVolume;
   };
 
+  // $: if (audioBkgElement) {
+  //   if ($audioBkgPaused) {
+  //     audioBkgElement.pause();
+  //   } else {
+  //     audioBkgElement.play();
+  //   }
+  // };
+
 </script>
 
 <audio bind:this={audioBkgElement} src={$audioBkgTrack.path} 
-  bind:paused={$audioBkgPaused} loop={$audioBkgLoop} bind:currentTime={$audioBkgCurrentTime}
+  bind:paused={$audioBkgPaused} loop={$audioBkgLoop} 
+  bind:currentTime={$audioBkgCurrentTime}
 ></audio>

@@ -10,7 +10,8 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
-<button type="button" on:click={()=> modals.toggle("audioVolume")}
+<button type="button" class="audio-bkg-volume-modal-button"
+  on:click={()=> modals.toggle("audioVolume")}
   class:volume-off={$audioBkgVolume < 0.03}
   class:volume-low={$audioBkgVolume >= 0.03 && $audioBkgVolume < 0.5}
   class:volume-high={$audioBkgVolume >= 0.5}

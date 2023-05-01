@@ -65,7 +65,6 @@
       scroll("right", $navigationCurrentLevel);
       scrollUpdateReady = true;
     }
-    console.log(scroll);
     setMenuScroll(scroll);
   });
 
