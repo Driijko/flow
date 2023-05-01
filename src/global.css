@@ -135,10 +135,10 @@ a, button, label, input {
 the minimum recommended size on mobile. 
 Recommended interface size is 40px - 70px, 
 with 50-60 being ideal. */
-a, button, input {
+/* a, button, input {
   min-width: 40px;
   min-height: 40px;
-}
+} */
 
 em {
   font-style: italic;

@@ -1,14 +1,14 @@
 <!-- SCRIPTS ///////////////////////////////////////// -->
 <script>
-  import XIcon from "../../icons/menu/XIcon.svelte";
+  import MusicIcon from "../../icons/audio/MusicIcon.svelte";
   import { modals } from "../../../../scripts/modalsStore";
 </script>
 
 <!-- MARKUP ////////////////////////////////////////// -->
 <button type="button" class="playlist-modal-closer-button"
-  on:click={()=> modals.close("playlist")}
+  on:click={()=> modals.open("playlist")}
 >
-  <XIcon />
+  <MusicIcon />
 </button>
 
 <!-- STYLES //////////////////////////////////// -->

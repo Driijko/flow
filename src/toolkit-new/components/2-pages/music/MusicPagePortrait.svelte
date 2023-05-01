@@ -2,15 +2,26 @@
 <script>
   import AudioBkgPlaylist 
   from "../../6-structures/audio-bkg/AudioBkgPlaylist.svelte";
-
-
+  import PlaylistModalCloserButton 
+  from "../../7-elements/interface/modals/PlaylistModalCloserButton.svelte";
+  import viewportOrientationStore
+  from "../../../scripts/viewport/viewportOrientationStore";
+  import { playlistModal } from "../../../scripts/modalsStore";
+  import shift from "../../../scripts/transitions/shift";
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////// -->
-<div id="this">
-
-  <AudioBkgPlaylist />
-</div>
+{#if $playlistModal }
+  <div id="this" 
+    in:shift="{{y: window.innerHeight, duration: 500}}"
+    out:shift="{{y: -window.innerHeight, duration: 500}}"
+  >
+    {#if $viewportOrientationStore === "landscape"}
+      <PlaylistModalCloserButton />
+    {/if}
+    <AudioBkgPlaylist />
+  </div>
+{/if}
 
 <!-- STYLES ///////////////////////////////////////////// -->
 <style>
@@ -27,12 +38,23 @@
 #this :global(.audio-bkg-playlist) {
   height: 100%;
 }
+#this :global(.playlist-modal-closer-button) {
+  border: 1px solid black;
+  position: absolute;
+  height: 8%;
+  width: 15%;
+  left: 85%;
+}
+#this :global(.playlist-modal-closer-button svg) {
+  width: 40%;
+}
 }
 #this :global(.audio-bkg-playlist h2) {
   height: 8%;
   display: flex;
   align-items: center;
   padding-left: calc(var(--uarr1-width)/20);
+  font-size: calc(var(--uarr1-width)/13);
 }
 #this :global(.audio-bkg-tracklist) {
   border: calc(var(--uarr1-width)/100) solid black;
