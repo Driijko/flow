@@ -5,7 +5,7 @@
 </script>
 
 <!-- MARKUP /////////////////////////////// -->
-<section>
+<section class="audio-bkg-playlist">
   <AudioBkgTracklist />
   <AudioBkgPlayer />
 </section>

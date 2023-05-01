@@ -24,8 +24,10 @@
   div.uarr-container {
     position: fixed;
     z-index: 1;
+    pointer-events: none;
   }
   div.uarr-container.open {
     background-color: white;
+    pointer-events: initial;
   }
 </style>

@@ -7,7 +7,7 @@
 </script>
 
 <!-- MARKUP //////////////////////////////////// -->
-<span>
+<span class="audio-bkg-timer">
   <span>
     {Math.floor($audioBkgCurrentTime / 60)}:{
     Math.floor($audioBkgCurrentTime % 60) < 10 ? 

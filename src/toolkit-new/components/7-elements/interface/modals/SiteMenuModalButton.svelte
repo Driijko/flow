@@ -87,6 +87,8 @@ button {
   transition-property: width, height, left, top;
   transition-timing-function: ease-out;
   transition-duration: 1s;
+  z-index: 2;
+  pointer-events: initial;
 }
 svg {
   height: 100%;

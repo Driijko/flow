@@ -62,7 +62,7 @@
 </script>
 
 <!-- MARKUP //////////////////////////////////////////////// -->
-<ul class="audio-bkg-track-list">
+<ul class="audio-bkg-tracklist">
   {#each tracks as track}
     <li>
       <button type="button" on:click={()=> handleClick(track)}>

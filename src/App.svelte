@@ -12,13 +12,15 @@
   from "./toolkit-new/components/6-structures/audio-bkg/AudioBkgPlayer.svelte";
   import AudioBkgPlaylist 
   from "./toolkit-new/components/6-structures/audio-bkg/AudioBkgPlaylist.svelte";
+  import MusicPage 
+  from "./toolkit-new/components/2-pages/music/MusicPage.svelte";
 
   setUp();
 </script>
 <!-- <Background /> -->
-<!-- <AudioBkg /> -->
-<!-- <SiteMenuModal /> -->
-<AudioBkgPlaylist />
+<AudioBkg />
+<SiteMenuModal />
+<MusicPage />
 
 
 
