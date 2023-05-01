@@ -6,6 +6,7 @@
 
 <!-- MARKUP /////////////////////////////// -->
 <section class="audio-bkg-playlist">
+  <h2>Music Playlist</h2>
   <AudioBkgTracklist />
   <AudioBkgPlayer />
 </section>
