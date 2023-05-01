@@ -5,7 +5,7 @@
 </script>
 
 <!-- MARKUP ////////////////////////////////////////// -->
-<button type="button" class="playlist-modal-closer-button"
+<button type="button" class="playlist-modal-opener-button"
   on:click={()=> modals.open("playlist")}
 >
   <MusicIcon />

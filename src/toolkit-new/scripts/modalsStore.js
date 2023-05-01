@@ -3,7 +3,7 @@ import { writable, get } from "svelte/store";
 // STATE ---------------------------------
 export const siteMenuModal = writable(false);
 export const audioVolumeModal = writable(false);
-export const playlistModal = writable(true);
+export const playlistModal = writable(false);
 
 // MAP ------------------------------------
 const map = {

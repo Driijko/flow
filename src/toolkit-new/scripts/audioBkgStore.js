@@ -7,7 +7,7 @@ export const audioBkgPaused = writable(true);
 export const audioBkgPlayAfterLoad = writable(false);
 export const audioBkgTotalTime = writable(0);
 export const audioBkgTrack = writable({ 
-  name: "Opening Prompt", path: "./assets/audio/bkg/opening-prompt.mp3" 
+  name: "Opening Prompt Loop", path: "./assets/audio/bkg/opening-prompt.mp3" 
 });
 export const audioBkgVolume = writable(0);
 

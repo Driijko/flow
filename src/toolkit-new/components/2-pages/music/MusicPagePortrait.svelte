@@ -13,7 +13,7 @@
 <!-- MARKUP ///////////////////////////////////////////// -->
 {#if $playlistModal }
   <div id="this" 
-    in:shift="{{y: window.innerHeight, duration: 500}}"
+    in:shift="{{y: -window.innerHeight, duration: 500}}"
     out:shift="{{y: -window.innerHeight, duration: 500}}"
   >
     {#if $viewportOrientationStore === "landscape"}
