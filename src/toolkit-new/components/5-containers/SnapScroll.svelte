@@ -1,100 +1,109 @@
-<!-- SCRIPTS /////////////////////////////////////// -->
+<!-- SCRIPTS ////////////////////////////////////////// -->
 <script>
-  // IMPORTS -------------------------------------
+  // IMPORTS ------------------------------------------
+  import { gsap } from "gsap";
   import { onMount, onDestroy } from "svelte";
 
-  // PROPS ---------------------------------------
-  export let direction = "vertical";
+  // PROPS --------------------------------------
+  export let axis = "vertical";
+  export let trackPosition = 0;
+  export let handleScroll;
+  export let dynamic = false;
 
-  // ELEMENT REFERENCES ------------------------
+  // STATE ------------------------------------------
+  let scrolling = false;
+  export let position = 0;
+  let numPositions = 0;
+  let touchStart;
+
+  // ELEMENT REFERENCE ---------------------------
   let snapScroll;
 
-  // STATE ---------------------------------
-  let scrolling = false;
-  let touchStart;
-  export let position = 0; // For passing up to parents.
-
-  // SCROLL FUNCTIONS ----------------------------
-  function up ( multiplier=1 ) {
-    snapScroll.scrollBy(
-      0, -(snapScroll.clientHeight * multiplier)
-  );};
-  function down ( multiplier=1 ) {
-    snapScroll.scrollBy(
-      0, snapScroll.clientHeight * multiplier
-  );};
-  function left ( multiplier=1 ) {
-    snapScroll.scrollBy(
-      -(snapScroll.clientWidth * multiplier), 0
-  );};
-  function right ( multiplier=1 ) { 
-    snapScroll.scrollBy(
-      snapScroll.clientWidth * multiplier, 0
-  );};
-  export const scroll = (direction, multiplier) => {
-    if (direction === "up") up(multiplier);
-    else if (direction === "down") down(multiplier);
-    else if (direction === "left") left(multiplier);
-    else if (direction === "right") right(multiplier);
-  }
-  function debounceScroll() {
+  // SCROLL FUNCTIONALITY ---------------------------
+  function scroll(newPosition) {
     scrolling = true;
-    const timerId = setTimeout(()=> {
+
+    function scrollEnd(newPosition) {
+      position = newPosition;
+      trackPosition = newPosition;
       scrolling = false;
-      clearTimeout(timerId);
-    }, 400);
+      if (handleScroll) {
+        handleScroll(newPosition);
+      };
+    };
+
+    if (axis === "vertical") {
+      gsap.to(".snap-scroll", {
+        duration: 1,
+        ease: "circ.out",
+        scrollTop: Math.round(0 + (snapScroll.clientHeight * newPosition)),
+      });
+    } 
+    else {
+      gsap.to(".snap-scroll", {
+        duration: 1,
+        ease: "circ.out",
+        scrollLeft: Math.round(0 + (snapScroll.clientWidth * newPosition)),
+      });
+    }
+
+    gsap.delayedCall(1, scrollEnd, [newPosition]);
   };
 
   // EVENT HANDLERS ------------------------------
-  function handleKeyUp(e) {
-    if (e.key === "Shift") {
-      shiftKeyDown = false;
-  }};
-
   function handleKeyDown(e) {
-    if (direction === "vertical") {
-      if (e.key === "ArrowUp" || e.key ==="ArrowDown") {
-        e.preventDefault();
-        if (e.repeat === false && scrolling === false) {
-          debounceScroll();
-          if (e.key === "ArrowUp") scroll("up");
-          else if (e.key === "ArrowDown") scroll("down");
-        }
+    if (
+      e.key === "ArrowUp" 
+      || e.key === "ArrowDown"
+      || e.key === "ArrowRight"
+      || e.key === "ArrowLeft"
+    ) e.preventDefault();
+
+    if (scrolling === false && e.repeat === false) {
+      if (dynamic) {
+        numPositions = snapScroll.childElementCount;  
       }
-    } else if (direction === "horizontal") {
-      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-        e.preventDefault();
-        if (e.repeat === false && scrolling === false) {
-          debounceScroll();
-          if (e.key === "ArrowRight") scroll("right");
-          else if (e.key === "ArrowLeft") scroll("left");
-        }
+      if (axis === "vertical") {
+        if (e.key === "ArrowUp" && position > 0) scroll(position - 1);
+        else if (
+          e.key === "ArrowDown" 
+          && position < (numPositions - 1)
+        ) scroll(position + 1);
       }
-    }
+      else if (axis === "horizontal") {
+        if (e.key === "ArrowLeft" && position > 0) scroll(position - 1);
+        else if (
+          e.key === "ArrowRight"
+          && position < (numPositions - 1)
+        ) scroll(position + 1);
+      };
+    };
   };
 
   function handleWheel(e) {
     e.preventDefault();
     if (scrolling === false) {
-      debounceScroll();
-      if (direction === "vertical") {
-        if (e.deltaY > 0) scroll("down");
-        else if (e.deltaY < 0) scroll("up");
+      if (dynamic) {
+        numPositions = snapScroll.childElementCount;  
       }
-      else if (direction === "horizontal") {
-        if (e.deltaY > 0) scroll("left");
-        else if (e.deltaY < 0) scroll("right");
+      if (axis === "vertical") {
+        if (e.deltaY > 0 && position < (numPositions - 1)) scroll(position + 1);
+        else if (e.deltaY < 0 && position > 0) scroll(position - 1);
       }
+      else if (axis === "horizontal") {
+        if (e.deltaY < 0 && position < (numPositions - 1)) scroll(position + 1);
+        else if (e.deltaY > 0 && position > 0) scroll(position - 1);
+      };
     };
   };
 
   function handleTouchStart(e) {
-    if (direction === "vertical") {
+    if (axis === "vertical") {
       touchStart = e.touches[0].clientY;
     } 
-    else if (direction === "horizontal") {
+    else if (axis === "horizontal") {
       touchStart = e.touches[0].clientX;
-    }
+    };
   };
 
   function handleTouchMove(e) {
@@ -102,76 +111,87 @@
   };
 
   function handleTouchEnd(e) {
-    if (direction === "vertical") {
-      const touchEnd = e.changedTouches[0].clientY;
-      if (touchStart > touchEnd + 5) scroll("down");
-      else if (touchStart < touchEnd - 5) scroll("up");
-    } else if (direction === "horizontal") {
-      const touchEnd = e.changedTouches[0].clientX;
-      if (touchStart > touchEnd + 5) scroll("right");
-      else if (touchStart < touchEnd - 5) scroll("left");
-  }};
-
-  function handleScroll(e) {
     if (scrolling === false) {
-      debounceScroll();
-      const timerId = setTimeout(()=> {
-        if (direction === "horizontal") {
-          position = Math.round(snapScroll.scrollLeft / snapScroll.clientWidth);
-        } else {
-          position = Math.round(snapScroll.scrollTop / snapScroll.clientHeight);
-        };
-        clearTimeout(timerId);
-      },500);
-    }
+      if (dynamic) {
+        numPositions = snapScroll.childElementCount;  
+      }
+      if (axis === "vertical") {
+        const touchEnd = e.changedTouches[0].clientY;
+        if (
+          touchStart > touchEnd + 5 
+          && position < numPositions - 1
+        ) scroll(position + 1);
+        else if (
+          touchStart < touchEnd - 5
+          && position > 0
+        ) scroll(position - 1);
+      } 
+      else if (axis === "horizontal") {
+        const touchEnd = e.changedTouches[0].clientX;
+        if (
+          touchStart > touchEnd + 5
+          && position < numPositions - 1
+        ) scroll(position + 1);
+        else if (
+          touchStart < touchEnd - 5
+          && position > 0
+        ) scroll(position - 1);
+      };
+    };
   };
 
+  // UPDATE STATE ON MOUNT ----------------------------------
   onMount(()=> {
-    // EVENT LISTENERS -------------------------
+    numPositions = snapScroll.childElementCount;  
+  });
+
+  // EVENT LISTENERS -----------------------------------
+  onMount(()=> {
     window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
-    snapScroll.addEventListener("wheel",handleWheel);
+    snapScroll.addEventListener("wheel", handleWheel);
     snapScroll.addEventListener("touchstart",handleTouchStart,{passive:false});
     snapScroll.addEventListener("touchmove", handleTouchMove, {passive:false});
     snapScroll.addEventListener("touchend", handleTouchEnd,{passive:false});
-    snapScroll.addEventListener("scroll", handleScroll);
   });
 
   onDestroy(()=> {
     window.removeEventListener("keydown", handleKeyDown);
-    window.removeEventListener("keyup", handleKeyUp);
   });
+
+  // REACTIVE ----------------------------------------
+  $: if (snapScroll && trackPosition !== position && scrolling === false) {
+    scroll(trackPosition);
+  };
 
 </script>
 
-<!-- MARKUP ////////////////////////////////// -->
+<!-- MARKUP ////////////////////////////////////// -->
 <div bind:this={snapScroll} class="snap-scroll" 
-  class:vertical={direction === "vertical"} 
-  class:horizontal={direction === "horizontal"}
+  class:vertical={axis === "vertical"} 
+  class:horizontal={axis === "horizontal"}
 >
   <slot />
 </div>
 
-<!-- STYLES ////////////////////////////////////// -->
+<!-- STYLES /////////////////////////////////// -->
 <style>
-  div {
-    width: 100%;
-    height: 100%;
-    scroll-behavior: smooth;
-    scrollbar-width: none;  
-  }
-  div::-webkit-scrollbar {
-    display: none;
-  }
-  div.vertical {
-    overflow-y: scroll;
-  }
-  div.horizontal {
-    display: flex;
-    overflow-x: scroll;
-  }
-  div > :global(*) {
-    min-width: 100%;
-    min-height: 100%;
-  }
+div {
+  width: 100%;
+  height: 100%;
+  scrollbar-width: none;  
+}
+div::-webkit-scrollbar {
+  display: none;
+}
+div.vertical {
+  overflow-y: scroll;
+}
+div.horizontal {
+  display: flex;
+  overflow-x: scroll;
+}
+div > :global(*) {
+  min-width: 100%;
+  min-height: 100%;
+}
 </style>

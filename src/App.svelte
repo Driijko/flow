@@ -4,24 +4,42 @@
   import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
   import SiteMenuModal 
   from "./toolkit-new/components/3-layers/site-menu/SiteMenuModal.svelte";
-  import Background 
-  from "./toolkit-new/components/7-elements/art/Background.svelte";
-  import SplashPage 
-  from "./toolkit-new/components/2-pages/splash/SplashPage.svelte";
-  import AudioBkgPlayer 
-  from "./toolkit-new/components/6-structures/audio-bkg/AudioBkgPlayer.svelte";
-  import AudioBkgPlaylist 
-  from "./toolkit-new/components/6-structures/audio-bkg/AudioBkgPlaylist.svelte";
-  import MusicPage 
-  from "./toolkit-new/components/2-pages/music/MusicPage.svelte";
-  import { audioBkgPaused } from "./toolkit-new/scripts/audioBkgStore";
+  import SnapScroll 
+  from "./toolkit-new/components/5-containers/SnapScroll.svelte";
+
+  let trackPosition = 0;
+  let position;
 
   setUp();
 </script>
-<!-- <Background /> -->
-<AudioBkg />
+<!-- <AudioBkg /> -->
 <SiteMenuModal />
-<MusicPage />
+<!-- <MusicPage /> -->
+<!-- <div class="container">
+  <SnapScroll axis="vertical" bind:trackPosition={trackPosition} 
+  bind:position={position} >
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </SnapScroll>
+</div> -->
+
+<!-- <p>
+  {position},{trackPosition}
+</p>
+<button type="button" on:click={()=> trackPosition = 0}>
+  Position 0
+</button>
+<button type="button" on:click={()=> trackPosition = 1}>
+  Position 1
+</button>
+<button type="button" on:click={()=> trackPosition = 2}>
+  Position 2
+</button>
+<button type="button" on:click={()=> trackPosition = 3}>
+  Position 3
+</button> -->
 
 
 
@@ -29,11 +47,12 @@
 
 <!-- STYLES //////////////////////////////// -->
 <style>
-p {
-  position: absolute;
-  top: 70%;
+.container {
+  width: 320px;
+  height: 480px;
 }
-:global(input[type="checkbox"]) {
-  border: 4px solid black;
+div {
+  font-size: 100px;
 }
+
 </style>

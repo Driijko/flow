@@ -9,13 +9,6 @@
   import SnapScroll from "./SnapScroll.svelte";
   import { newPage } from "../../scripts/currentPageStore";
 
-  // UP PROPS ------------------------------
-  let scroll; // from SnapScroll
-  let position; // from SnapScroll
-
-  // STATE ----------------------------------
-  let scrollUpdateReady = false
-
   // DATA -------------------------------------
   const lists = [
     [{tag: "music", text: "Music"}, {tag: "painting", text: "Painting"}],
@@ -53,32 +46,20 @@
     && $navigationLevels[levelNum - 1] !== levelName) {
       navigationCollapse(levelName, levelNum - 1);
     };
-    const timerId = setTimeout(()=> {
-      scroll("right");
-      clearTimeout(timerId);
-    },200);
+    setCurrentNavigationLevel($navigationCurrentLevel + 1);
   };
 
-  onMount(()=> {
-    // REACT ON MOUNT -----------------
-    if ($navigationCurrentLevel >= 0) {
-      scroll("right", $navigationCurrentLevel);
-      scrollUpdateReady = true;
-    }
-    setMenuScroll(scroll);
-  });
-
-  // REACTIVE -----------------------------
-  $: if ($navigationCurrentLevel !== position && scrollUpdateReady) {
-    setCurrentNavigationLevel(position);
+  // REACTIVE ----------------------------------------------
+  $: if ($navigationCurrentLevel !== 0) {
+    
   }
 
 </script>
 
 <!-- MARKUP ////////////////////////////////////////// -->
 <nav>
-  <SnapScroll direction="horizontal" bind:scroll={scroll} 
-    bind:position={position}
+  <SnapScroll axis="horizontal" trackPosition={$navigationCurrentLevel}
+    handleScroll={setCurrentNavigationLevel} dynamic={true}
   >
     {#each lists as list,listIndex} 
   
@@ -129,7 +110,6 @@
 </nav>
 
 <style>
-
 nav {
   width: 100%;
   height: 100%;

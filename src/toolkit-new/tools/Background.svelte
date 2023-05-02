@@ -1,6 +1,6 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
-  import fullscreen from "../../../scripts/viewport/fullscreen";
+  import fullscreen from "../scripts/viewport/fullscreen";
 </script>
 
 <button on:click={()=> fullscreen(true)}>

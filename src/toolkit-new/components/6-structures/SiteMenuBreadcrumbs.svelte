@@ -2,7 +2,7 @@
 <script>
   // IMPORTS -------------------------------
   import { onMount } from "svelte";
-  import { siteMenuTab, getSiteMenuData, menuScroll, navigationCurrentLevel } 
+  import { siteMenuTab, getSiteMenuData, setCurrentNavigationLevel } 
   from "../../scripts/siteMenuStore";
 
   // ELEMENT REFERENCE -----------------------------------
@@ -12,19 +12,14 @@
   function handleWheel(e) {
     e.preventDefault();
     breadcrumbsElement.scrollLeft += e.deltaY;
-  }
+  };
 
   function handleClick(levelNum) {
-    if (levelNum > $navigationCurrentLevel) {
-      $menuScroll("right", levelNum - $navigationCurrentLevel);
-    }
-    else if (levelNum < $navigationCurrentLevel) {
-      $menuScroll("left", $navigationCurrentLevel - levelNum);
-    }
-  }
+    setCurrentNavigationLevel(levelNum);
+  };
 
+  // EVENT LISTENERS -------------------------------
   onMount(()=> {
-    // EVENT LISTENERS -------------------------------
     breadcrumbsElement.addEventListener("wheel", handleWheel);
   });
 
