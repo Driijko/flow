@@ -26,7 +26,7 @@
     {#if $viewportOrientationStore === "landscape"}
       <PlaylistModalCloserButton />
     {/if}
-    <AudioBkgPlaylist />
+    <AudioBkgPlaylist identifier="playlist1" />
   </div>
 {/if}
 
