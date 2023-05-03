@@ -1,5 +1,6 @@
 <!-- SCRIPTS ///////////////////////////////////////// -->
 <script>
+  // IMPORTS ---------------------------------------
   import AudioBkgPlaylist 
   from "../../5-structures/audio-bkg/AudioBkgPlaylist.svelte";
   import PlaylistModalCloserButton 
@@ -41,7 +42,7 @@
 }
 }
 @media screen and (orientation: landscape) {
-#this :global(.audio-bkg-playlist) {
+#this :global(.audio-bkg-playlist-section) {
   height: 100%;
 }
 #this :global(.playlist-modal-closer-button) {
@@ -55,14 +56,14 @@
   width: 40%;
 }
 }
-#this :global(.audio-bkg-playlist h2) {
+#this :global(.audio-bkg-playlist-section h2) {
   height: 8%;
   display: flex;
   align-items: center;
   padding-left: calc(var(--uarr1-width)/20);
   font-size: calc(var(--uarr1-width)/13);
 }
-#this :global(.audio-bkg-tracklist) {
+#this :global(.audio-bkg-playlist) {
   border: calc(var(--uarr1-width)/100) solid black;
   height: 69%;
   overflow-y: scroll;
@@ -72,11 +73,11 @@
   padding-bottom: calc(var(--uarr1-width)/5);
   font-size: calc(var(--uarr1-width)/17);
 }
-#this :global(.audio-bkg-tracklist li) {
+#this :global(.audio-bkg-playlist li) {
   height: 15%;
   display: flex;
 }
-#this :global(.audio-bkg-tracklist::-webkit-scrollbar) {
+#this :global(.audio-bkg-playlist::-webkit-scrollbar) {
   display: none;
 }
 #this :global(.audio-bkg-player) {

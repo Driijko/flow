@@ -1,6 +1,8 @@
 import { writable, get } from "svelte/store";
 
 // STATE ----------------------------------
+export const audioBkgCurrentPlaylist = writable({name: "", tracks: []});
+export const audioBkgCurrentPlaylistIndex = writable(0);
 export const audioBkgCurrentTime = writable(0);
 export const audioBkgLoop = writable(false);
 export const audioBkgPaused = writable(true);
@@ -48,19 +50,36 @@ export function audioBkgLoad(name, path) {
 export function audioBkgLoadPlay(name, path) {
   audioBkgTrack.set({name:name,path:path});
   audioBkgPlayAfterLoad.set(true);
-}
+};
+
+export function audioBkgNewPlaylist(name, tracks) {
+  audioBkgCurrentPlaylist.set({name: name, tracks: tracks});
+};
+
+export function audioBkgUpdateCurrentPlaylistIndex(index) {
+  audioBkgCurrentPlaylistIndex.set(index);
+};
+
+export function audioBkgNextPlaylistTrack() {
+  let nextIndex = get(audioBkgCurrentPlaylistIndex) + 1;
+  if (nextIndex > get(audioBkgCurrentPlaylist).tracks.length) {
+    nextIndex = 0;
+  };
+  audioBkgCurrentPlaylistIndex.set(nextIndex);
+};
 
 export function audioBkgPlay() {audioBkgPaused.set(false)};
 
 export function audioBkgPause() {audioBkgPaused.set(true)};
 
+export function audioBkgRestart() {audioBkgCurrentTime.set(0);};
+
 export function audioBkgSetLoop(boolean) {audioBkgLoop.set(boolean)};
 
 export function audioBkgTogglePausePlay() {
   audioBkgPaused.set(!(get(audioBkgPaused)));
-}
+};
 
-export function audioBkgRestart() {audioBkgCurrentTime.set(0);};
 
 export function audioBkgUpdateTotalTime(time) {audioBkgTotalTime.set(time)};
 
