@@ -1,16 +1,14 @@
 import { writable, get } from "svelte/store";
 
 // STATE ----------------------------------
-export const audioBkgCurrentPlaylist = writable({name: "", tracks: []});
+export const audioBkgCurrentPlaylist = writable({identifier: "", tracks: []});
 export const audioBkgCurrentPlaylistIndex = writable(0);
 export const audioBkgCurrentTime = writable(0);
 export const audioBkgLoop = writable(false);
 export const audioBkgPaused = writable(true);
 export const audioBkgPlayAfterLoad = writable(false);
 export const audioBkgTotalTime = writable(0);
-export const audioBkgTrack = writable({ 
-  name: "Opening Prompt Loop", path: "./assets/audio/bkg/opening-prompt.mp3" 
-});
+export const audioBkgTrack = writable({name: "", path: ""});
 export const audioBkgVolume = writable(1);
 
 // FUNCTIONS ------------------------------------
@@ -52,8 +50,8 @@ export function audioBkgLoadPlay(name, path) {
   audioBkgPlayAfterLoad.set(true);
 };
 
-export function audioBkgNewPlaylist(name, tracks) {
-  audioBkgCurrentPlaylist.set({name: name, tracks: tracks});
+export function audioBkgNewPlaylist(identifier, tracks) {
+  audioBkgCurrentPlaylist.set({identifier: identifier, tracks: tracks});
 };
 
 export function audioBkgUpdateCurrentPlaylistIndex(index) {

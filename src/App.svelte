@@ -4,62 +4,33 @@
   import AudioBkg from "./toolkit/components/1-site/AudioBkg.svelte";
   import SiteMenuModal 
   from "./toolkit/components/3-layers/site-menu/SiteMenuModal.svelte";
-  import { audioBkgCurrentPlaylist, audioBkgCurrentPlaylistIndex,
-    audioBkgNewPlaylist, audioBkgUpdateCurrentPlaylistIndex, 
-    audioBkgNextPlaylistTrack
+  import { audioBkgCurrentPlaylist, audioBkgCurrentPlaylistIndex, 
   } from "./toolkit/scripts/audioBkgStore";
-  import playlists from "./toolkit/data/playlists";
+  import AudioBkgPlaylist 
+  from "./toolkit/components/5-structures/audio-bkg/AudioBkgPlaylist.svelte";
 
   setUp();
 </script>
-
+<AudioBkg />
+<AudioBkgPlaylist identifier="playlist1" />
+<br/>
 <p>
-  Playlist name: {$audioBkgCurrentPlaylist.name}
+  Playlist identifier: {$audioBkgCurrentPlaylist.identifier}
 </p>
 <br/>
 <p>
-  Current Index: {$audioBkgCurrentPlaylistIndex}
+  Playlist Current Index: {$audioBkgCurrentPlaylistIndex}
 </p>
 <br/>
 {#if $audioBkgCurrentPlaylist.tracks.length > 0}
-<p>
-  Current Track: 
-  {$audioBkgCurrentPlaylist.tracks[$audioBkgCurrentPlaylistIndex].name}
-</p>
-<br/>
-{/if}
-<p>
-  Tracks:
-</p>
 <ul>
   {#each $audioBkgCurrentPlaylist.tracks as track}
     <li>{track.name}</li>
   {/each}
 </ul>
-<br/>
-<button type="button" 
-  on:click={()=> audioBkgNewPlaylist("Playlist 1", playlists.playlist1)} 
->
-  Playlist 1
-</button>
-<br/>
-<button type="button" 
-  on:click={()=> audioBkgUpdateCurrentPlaylistIndex(0)} 
->
-  Go to track 0
-</button>
-<br/>
-<button type="button" 
-  on:click={()=> audioBkgUpdateCurrentPlaylistIndex(1)} 
->
-  Go to track 1
-</button>
-<br/>
-<button type="button" 
-  on:click={()=> audioBkgNextPlaylistTrack()} 
->
-  Next Track
-</button>
+{/if}
+
+
 
 <!-- STYLES //////////////////////////////// -->
 <style>
@@ -67,5 +38,8 @@
   border-width: 10px;
   width: 100px;
   height: 100px;
+}
+:global(.audio-bkg-player) {
+  display: none;
 }
 </style>
