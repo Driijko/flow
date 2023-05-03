@@ -56,3 +56,10 @@
   </ul>
   <AudioBkgPlayer />
 </section>
+
+<!-- STYLES /////////////////////////////// -->
+<style>
+section {
+  background-color: hsla(0, 0%, 100%, 0.7);
+}
+</style>

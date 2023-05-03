@@ -1,7 +1,7 @@
 <!-- SCRIPTS ///////////////////////////////////////// -->
 <script>
   import { audioBkgTrack } from "../../../scripts/audioBkgStore";
-  import Animation from "../../6-elements/art/Animation.svelte";
+  import Animation2 from "../../6-elements/art/Animation2.svelte";
   import PlaylistModalOpenerButton
   from "../../6-elements/interface/modals/PlaylistModalOpenerButton.svelte";
   import shift from "../../../scripts/transitions/shift";
@@ -20,7 +20,7 @@
 {/if}
 
 {#if $audioBkgTrack.name === "Opening Prompt Loop"}
-  <Animation />
+  <Animation2 />
 {/if}
 
 <!-- STYLES ////////////////////////////////////////// -->
