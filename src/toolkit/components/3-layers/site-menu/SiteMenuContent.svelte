@@ -3,9 +3,10 @@
   // IMPORTS -----------------------------------------
   import shift from "../../../scripts/transitions/shift";
   import { siteMenuModal } from "../../../scripts/modalsStore";
-  import SiteMenuModalButton from "../../7-elements/interface/modals/SiteMenuModalButton.svelte";
-  import SiteMenuBreadcrumbs from "../../6-structures/SiteMenuBreadcrumbs.svelte";
-  import SiteMenuTabs from "../../6-structures/tabs/SiteMenuTabs.svelte";
+  import SiteMenuModalButton 
+  from "../../6-elements/interface/modals/SiteMenuModalButton.svelte";
+  import SiteMenuBreadcrumbs from "../../5-structures/SiteMenuBreadcrumbs.svelte";
+  import SiteMenuTabs from "../../5-structures/tabs/SiteMenuTabs.svelte";
 
 </script>
 

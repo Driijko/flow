@@ -1,7 +1,7 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
   // IMPORTS -------------------------------------
-  import SiteSettings from "../../6-structures/SiteSettings.svelte";
+  import SiteSettings from "../../5-structures/SiteSettings.svelte";
   import { newPage } from "../../../scripts/currentPageStore";
   import { audioBkgFadeLoadPlay, audioBkgLoad, audioBkgSetLoop 
   } from "../../../scripts/audioBkgStore";

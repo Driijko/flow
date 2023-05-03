@@ -2,10 +2,10 @@
 <script>
   // IMPORTS ------------------------------------
   import TabTransition from "./TabTransition.svelte";
-  import CompassIcon from "../../7-elements/icons/menu/CompassIcon.svelte";
-  import GearIcon from "../../7-elements/icons/menu/GearIcon.svelte";
+  import CompassIcon from "../../6-elements/icons/menu/CompassIcon.svelte";
+  import GearIcon from "../../6-elements/icons/menu/GearIcon.svelte";
   import SiteSettings from "../SiteSettings.svelte";
-  import BranchingNav from "../../5-containers/BranchingNav.svelte";
+  import BranchingNav from "../../4-layouts/partial/BranchingNav.svelte";
   import { siteMenuTab, newTab } from "../../../scripts/siteMenuStore";
 
 </script>

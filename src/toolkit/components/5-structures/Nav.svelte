@@ -1,13 +1,13 @@
 <!-- SCRIPTS ////////////////////////////////////////////// -->
 <script>
   // IMPORTS ------------------------------------------
-  import currentPageStore from "../../scripts/currentPageStore";
-  import modalsStore from "../../scripts/modalsStore";
+  import { newPage } from "../../scripts/currentPageStore";
+  import { modals } from "../../scripts/modalsStore";
 
   // EVENT HANDLERS -----------------------------------
   function handleClick(page) {
-    modalsStore.close("siteMenu");
-    currentPageStore.newPage(page);
+    modals.close("siteMenu");
+    newPage(page);
   }
 </script>
 

@@ -1,9 +1,9 @@
 <!-- SCRIPTS ///////////////////////////////////////// -->
 <script>
   import { audioBkgTrack } from "../../../scripts/audioBkgStore";
-  import Animation from "../../7-elements/art/Animation.svelte";
+  import Animation from "../../6-elements/art/Animation.svelte";
   import PlaylistModalOpenerButton
-  from "../../7-elements/interface/modals/PlaylistModalOpenerButton.svelte";
+  from "../../6-elements/interface/modals/PlaylistModalOpenerButton.svelte";
   import shift from "../../../scripts/transitions/shift";
   import { playlistModal } from "../../../scripts/modalsStore";
   import { cubicIn } from "svelte/easing";

@@ -6,7 +6,6 @@ export const navigationLevels = writable([]);
 export const navigationCurrentLevel = writable(0);
 export const settingsLevels = writable([]);
 export const settingsCurrentLevel = writable(0);
-export const menuScroll = writable(()=> null);
 
 // MAP -----------------------------------------
 const map = {
@@ -42,6 +41,3 @@ export function setCurrentNavigationLevel(levelNum) {
 export function getSiteMenuData(tabName,tabProperty) {
   return map[tabName][tabProperty];
 };
-export function setMenuScroll(scrollFunction) {
-  menuScroll.set(scrollFunction);
-}

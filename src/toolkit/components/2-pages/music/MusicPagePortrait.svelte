@@ -1,9 +1,9 @@
 <!-- SCRIPTS ///////////////////////////////////////// -->
 <script>
   import AudioBkgPlaylist 
-  from "../../6-structures/audio-bkg/AudioBkgPlaylist.svelte";
+  from "../../5-structures/audio-bkg/AudioBkgPlaylist.svelte";
   import PlaylistModalCloserButton 
-  from "../../7-elements/interface/modals/PlaylistModalCloserButton.svelte";
+  from "../../6-elements/interface/modals/PlaylistModalCloserButton.svelte";
   import viewportOrientationStore
   from "../../../scripts/viewport/viewportOrientationStore";
   import { playlistModal } from "../../../scripts/modalsStore";

@@ -3,8 +3,8 @@
   // IMPORTS --------------------------------------
   import { gsap } from "gsap";
   import { onMount } from "svelte";
-  import { audioBkgTogglePausePlay, audioBkgPaused 
-  } from "../../../../scripts/audioBkgStore";
+  import { audioBkgTogglePausePlay, audioBkgPaused } 
+  from "../../../../scripts/audioBkgStore";
 
   // ANIMATION ------------------------------------
   const animationDuration = 1;
@@ -81,6 +81,10 @@
 
 <!-- STYLES ///////////////////////////////////////////////////// -->
 <style>
+button {
+  border-color: black;
+  border-style: solid;
+}
 svg {
   width: 100%; 
   height: 100%;

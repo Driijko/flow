@@ -2,12 +2,12 @@
 <script>
   import { onMount } from "svelte";
   import { navigationLevels, navigationExpand, navigationCollapse,
-    navigationCurrentLevel, setCurrentNavigationLevel, setMenuScroll
-  } from "../../scripts/siteMenuStore";
+    navigationCurrentLevel, setCurrentNavigationLevel 
+  } from "../../../scripts/siteMenuStore";
   import viewportOrientationStore 
-  from "../../scripts/viewport/viewportOrientationStore";
+  from "../../../scripts/viewport/viewportOrientationStore";
   import SnapScroll from "./SnapScroll.svelte";
-  import { newPage } from "../../scripts/currentPageStore";
+  import { newPage } from "../../../scripts/currentPageStore";
 
   // DATA -------------------------------------
   const lists = [

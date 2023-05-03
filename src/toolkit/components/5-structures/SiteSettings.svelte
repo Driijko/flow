@@ -3,11 +3,11 @@
   // IMPORTS ------------------------------------------
   import { audioBkgPaused } from "../../scripts/audioBkgStore";
   import FullscreenCheckbox 
-  from "../7-elements/interface/FullscreenCheckbox.svelte";
+  from "../6-elements/interface/FullscreenCheckbox.svelte";
   import AudioBkgCheckbox 
-  from "../7-elements/interface/audio-bkg/AudioBkgCheckbox.svelte";
+  from "../6-elements/interface/audio-bkg/AudioBkgCheckbox.svelte";
   import AudioBkgVolumeSlider 
-  from "../7-elements/interface/audio-bkg/AudioBkgVolumeSlider.svelte";
+  from "../6-elements/interface/audio-bkg/AudioBkgVolumeSlider.svelte";
 
 </script>
 

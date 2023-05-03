@@ -4,13 +4,17 @@
   import { audioBkgAdjustVolume, audioBkgVolume } 
   from "../../../../scripts/audioBkgStore";
 
+  // PROPS ----------------------------------
+  export let axis = "horizontal";
+
   // EVENT HANDLERS ------------------------
   function handleInput(e) {audioBkgAdjustVolume(e.target.value);};
 
 </script>
 
 <!-- MARKUP ////////////////////////////////////////////// -->
-<input type="range" min="0.00" max="1.00" step="0.01" 
+<input type="range" class:vertical={axis === "vertical"}
+  min="0.00" max="1.00" step="0.01" 
   value="{$audioBkgVolume}" on:input={handleInput} 
 />
 
@@ -20,6 +24,9 @@ input[type="range"] {
   width: 200px;
   height: 50px;
   padding: 10px;
+}
+input.vertical {
+  transform: rotate(270deg);
 }
 input[type="range"]::-webkit-slider-runnable-track {
   background-color: transparent;

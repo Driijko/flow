@@ -2,12 +2,12 @@
 <script>
   // IMPORTS ---------------------------------------
   import { onMount, onDestroy } from "svelte";
-  import UpArrow from "../7-elements/icons/arrows/UpArrow.svelte";
-  import DownArrow from "../7-elements/icons/arrows/DownArrow.svelte";
+  import UpArrow from "../../6-elements/icons/arrows/UpArrow.svelte";
+  import DownArrow from "../../6-elements/icons/arrows/DownArrow.svelte";
   import LeftArrowIcon
-  from "../7-elements/icons/arrows/LeftArrowIcon.svelte";
+  from "../../6-elements/icons/arrows/LeftArrowIcon.svelte";
   import RightArrowIcon
-  from "../7-elements/icons/arrows/RightArrowIcon.svelte";
+  from "../../6-elements/icons/arrows/RightArrowIcon.svelte";
 
   // PROPS -----------------------------------------
   export let axis = "vertical";

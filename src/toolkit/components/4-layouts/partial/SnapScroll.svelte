@@ -12,7 +12,7 @@
 
   // STATE ------------------------------------------
   let scrolling = false;
-  export let position = 0;
+  let position = 0;
   let numPositions = 0;
   let touchStart;
 

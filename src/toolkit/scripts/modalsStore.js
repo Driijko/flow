@@ -1,9 +1,9 @@
 import { writable, get } from "svelte/store";
 
 // STATE ---------------------------------
-export const siteMenuModal = writable(true);
+export const siteMenuModal = writable(false);
 export const audioVolumeModal = writable(false);
-export const playlistModal = writable(false);
+export const playlistModal = writable(true);
 
 // MAP ------------------------------------
 const map = {

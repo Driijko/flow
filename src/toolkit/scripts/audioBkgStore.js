@@ -9,7 +9,7 @@ export const audioBkgTotalTime = writable(0);
 export const audioBkgTrack = writable({ 
   name: "Opening Prompt Loop", path: "./assets/audio/bkg/opening-prompt.mp3" 
 });
-export const audioBkgVolume = writable(0);
+export const audioBkgVolume = writable(1);
 
 // FUNCTIONS ------------------------------------
 export function audioBkgAdjustVolume(volume) {

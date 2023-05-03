@@ -1,7 +1,8 @@
 <!-- SCRIPTS ////////////////////////////////////////////////// -->
 <script>
   // IMPORTS ---------------------------------------------------
-  import viewportOrientationStore from "../../../scripts/viewport/viewportOrientationStore";
+  import viewportOrientationStore 
+  from "../../../../scripts/viewport/viewportOrientationStore";
 </script>
 
 <!-- MARKUP //////////////////////////////////////////////////// -->

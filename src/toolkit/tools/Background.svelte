@@ -3,6 +3,7 @@
   import fullscreen from "../scripts/viewport/fullscreen";
 </script>
 
+<!-- MARKUP //////////////////////////////////// -->
 <button on:click={()=> fullscreen(true)}>
   <img src="./assets/images/test.jpg" alt="test" />
 </button>

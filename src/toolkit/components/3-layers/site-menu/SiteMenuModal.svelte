@@ -1,6 +1,5 @@
 <!-- SCRIPTS /////////////////////////////////////// -->
 <script>
-  import DualUARR from "../../4-modules/uarr/DualUARR.svelte";
   import SiteMenuPortrait from "./SiteMenuPortrait.svelte";
   import SiteMenuLandscape from "./SiteMenuLandscape.svelte";
   import viewportOrientationStore from "../../../scripts/viewport/viewportOrientationStore";
