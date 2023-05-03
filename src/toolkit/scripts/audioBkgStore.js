@@ -62,7 +62,7 @@ export function audioBkgUpdateCurrentPlaylistIndex(index) {
 
 export function audioBkgNextPlaylistTrack() {
   let nextIndex = get(audioBkgCurrentPlaylistIndex) + 1;
-  if (nextIndex > get(audioBkgCurrentPlaylist).tracks.length) {
+  if (nextIndex > get(audioBkgCurrentPlaylist).tracks.length - 1) {
     nextIndex = 0;
   };
   audioBkgCurrentPlaylistIndex.set(nextIndex);

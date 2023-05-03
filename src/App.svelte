@@ -8,16 +8,58 @@
     audioBkgNewPlaylist, audioBkgUpdateCurrentPlaylistIndex, 
     audioBkgNextPlaylistTrack
   } from "./toolkit/scripts/audioBkgStore";
+  import playlists from "./toolkit/data/playlists";
 
   setUp();
 </script>
 
 <p>
-  Tracklist name: {$audioBkgCurrentPlaylist.name}
+  Playlist name: {$audioBkgCurrentPlaylist.name}
 </p>
-
-
-
+<br/>
+<p>
+  Current Index: {$audioBkgCurrentPlaylistIndex}
+</p>
+<br/>
+{#if $audioBkgCurrentPlaylist.tracks.length > 0}
+<p>
+  Current Track: 
+  {$audioBkgCurrentPlaylist.tracks[$audioBkgCurrentPlaylistIndex].name}
+</p>
+<br/>
+{/if}
+<p>
+  Tracks:
+</p>
+<ul>
+  {#each $audioBkgCurrentPlaylist.tracks as track}
+    <li>{track.name}</li>
+  {/each}
+</ul>
+<br/>
+<button type="button" 
+  on:click={()=> audioBkgNewPlaylist("Playlist 1", playlists.playlist1)} 
+>
+  Playlist 1
+</button>
+<br/>
+<button type="button" 
+  on:click={()=> audioBkgUpdateCurrentPlaylistIndex(0)} 
+>
+  Go to track 0
+</button>
+<br/>
+<button type="button" 
+  on:click={()=> audioBkgUpdateCurrentPlaylistIndex(1)} 
+>
+  Go to track 1
+</button>
+<br/>
+<button type="button" 
+  on:click={()=> audioBkgNextPlaylistTrack()} 
+>
+  Next Track
+</button>
 
 <!-- STYLES //////////////////////////////// -->
 <style>
