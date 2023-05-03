@@ -6,8 +6,14 @@
   from "../../6-elements/interface/modals/PlaylistModalCloserButton.svelte";
   import viewportOrientationStore
   from "../../../scripts/viewport/viewportOrientationStore";
-  import { playlistModal } from "../../../scripts/modalsStore";
+  import { playlistModal, modals } from "../../../scripts/modalsStore";
   import shift from "../../../scripts/transitions/shift";
+
+  // REACTIVE -------------------------------------
+  $: if ($viewportOrientationStore === "portrait" && $playlistModal === false) {
+    modals.open("playlist");
+  };
+  
 </script>
 
 <!-- MARKUP ///////////////////////////////////////////// -->

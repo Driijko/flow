@@ -11,7 +11,7 @@
 <div class="uarr-container">
   {#if ($viewportOrientationStore === "landscape")}
     <div class="uarr2">
-      <!-- <AudioAnimationList /> -->
+      <AudioAnimationList />
     </div>
   {/if}
   <div class="uarr1">
