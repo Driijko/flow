@@ -53,7 +53,7 @@
   left: 85%;
 }
 #this :global(.playlist-modal-closer-button svg) {
-  width: 40%;
+  width: 50%;
 }
 }
 #this :global(.audio-bkg-playlist-section h2) {

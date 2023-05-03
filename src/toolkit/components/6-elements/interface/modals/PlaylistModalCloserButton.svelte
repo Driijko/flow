@@ -1,6 +1,6 @@
 <!-- SCRIPTS ///////////////////////////////////////// -->
 <script>
-  import XIcon from "../../icons/menu/XIcon.svelte";
+  import UpAngle from "../../icons/arrows/UpAngle.svelte";
   import { modals } from "../../../../scripts/modalsStore";
 </script>
 
@@ -8,7 +8,7 @@
 <button type="button" class="playlist-modal-closer-button"
   on:click={()=> modals.close("playlist")}
 >
-  <XIcon />
+  <UpAngle />
 </button>
 
 <!-- STYLES //////////////////////////////////// -->

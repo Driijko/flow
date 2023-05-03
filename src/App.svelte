@@ -5,11 +5,14 @@
   import SiteMenuModal 
   from "./toolkit/components/3-layers/site-menu/SiteMenuModal.svelte";
   import Technologies from "./toolkit/components/5-structures/content/Technologies.svelte";
+  import MusicPage from "./toolkit/components/2-pages/music/MusicPage.svelte";
+  import AudioVolumeModal from "./toolkit/components/3-layers/AudioVolumeModal.svelte";
 
   setUp();
 </script>
 <AudioBkg />
-<Technologies />
+<AudioVolumeModal />
+<MusicPage />
 
 <!-- STYLES //////////////////////////////// -->
 <style>
@@ -17,8 +20,5 @@
   border-width: 10px;
   width: 100px;
   height: 100px;
-}
-:global(.audio-bkg-player) {
-  display: none;
 }
 </style>
