@@ -3,10 +3,12 @@
   // IMPORTS -----------------------------------
   import { audioBkgCurrentTime, audioBkgTotalTime} 
   from "../../../scripts/audioBkgStore"
+    import Animation from "../../6-elements/art/Animation.svelte";
   
 </script>
 
 <!-- MARKUP //////////////////////////////////// -->
+{#if $audioBkgTotalTime > 0}
 <span class="audio-bkg-timer">
   <span>
     {Math.floor($audioBkgCurrentTime / 60)}:{
@@ -20,3 +22,4 @@
     Math.floor($audioBkgTotalTime % 60)}
   </span>
 </span>
+{/if}
