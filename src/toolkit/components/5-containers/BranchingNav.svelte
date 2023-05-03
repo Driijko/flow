@@ -49,11 +49,6 @@
     setCurrentNavigationLevel($navigationCurrentLevel + 1);
   };
 
-  // REACTIVE ----------------------------------------------
-  $: if ($navigationCurrentLevel !== 0) {
-    
-  }
-
 </script>
 
 <!-- MARKUP ////////////////////////////////////////// -->

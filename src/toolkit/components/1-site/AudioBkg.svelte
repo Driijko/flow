@@ -16,23 +16,19 @@
       e.target.play();
   }};
 
+  // EVENT LISTENERS ---------------------------------
   onMount(()=> {
-    // EVENT LISTENERS ---------------------------------
     audioBkgElement.addEventListener("loadeddata", handleLoadedData);
+
+    return ()=> {
+      audioBkgElement.removeEventListener("loadeddata", handleLoadedData);
+    };
   });
 
   // REACTIVE -------------------------------------------
   $: if (audioBkgElement) {
     audioBkgElement.volume = $audioBkgVolume;
   };
-
-  // $: if (audioBkgElement) {
-  //   if ($audioBkgPaused) {
-  //     audioBkgElement.pause();
-  //   } else {
-  //     audioBkgElement.play();
-  //   }
-  // };
 
 </script>
 

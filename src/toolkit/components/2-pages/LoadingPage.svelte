@@ -12,16 +12,18 @@
     fade = true;
   }
   setPageExit(pageExit, 2000);
+
+  // EVENT HANDLERS --------------------------
+  function handleLoad(e) {
+    newPage("opening-prompt");
+  };
   
   // LOAD EVENT ----------------------------------
   onMount(()=> {
-    window.addEventListener("load", ()=>{
-      newPage("opening-prompt");
-    });
+    window.addEventListener("load", handleLoad);
+    
     return ()=> {
-      window.removeEventListener("load", ()=> {
-        newPage("opening-prompt");
-      });
+      window.removeEventListener("load", handleLoad);
     };
   });
 </script>

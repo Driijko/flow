@@ -152,10 +152,17 @@
     snapScroll.addEventListener("touchstart",handleTouchStart,{passive:false});
     snapScroll.addEventListener("touchmove", handleTouchMove, {passive:false});
     snapScroll.addEventListener("touchend", handleTouchEnd,{passive:false});
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      snapScroll.removeEventListener("wheel", handleWheel);
+      snapScroll.removeEventListener("touchstart",handleTouchStart,{passive:false});
+      snapScroll.removeEventListener("touchmove", handleTouchMove, {passive:false});
+      snapScroll.removeEventListener("touchend", handleTouchEnd,{passive:false});
+    };
   });
 
   onDestroy(()=> {
-    window.removeEventListener("keydown", handleKeyDown);
   });
 
   // REACTIVE ----------------------------------------

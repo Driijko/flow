@@ -1,13 +1,13 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
-  import setUp from "./toolkit-new/scripts/setUp";
-  import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
-  import SiteMenuModal 
-  from "./toolkit-new/components/3-layers/site-menu/SiteMenuModal.svelte";
-  import SnapScroll 
-  from "./toolkit-new/components/5-containers/SnapScroll.svelte";
-  import ArrowHighlightScroll
-  from "./toolkit-new/components/6-structures/ArrowHighlightScroll.svelte";
+  // import setUp from "./toolkit-new/scripts/setUp";
+  // import AudioBkg from "./toolkit-new/components/1-site/AudioBkg.svelte";
+  // import SiteMenuModal 
+  // from "./toolkit-new/components/3-layers/site-menu/SiteMenuModal.svelte";
+  // import SnapScroll 
+  // from "./toolkit-new/components/5-containers/SnapScroll.svelte";
+  // import ArrowHighlightScroll
+  // from "./toolkit-new/components/6-structures/ArrowHighlightScroll.svelte";
 
 
   setUp();

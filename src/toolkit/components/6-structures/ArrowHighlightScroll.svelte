@@ -74,10 +74,10 @@
       markerEndHighlight = true;
       element.addEventListener("scroll",handleScroll);
     };
-  });
 
-  onDestroy(()=> {
-    element.removeEventListener("scroll",handleScroll);
+    return () => {
+      element.removeEventListener("scroll",handleScroll);
+    };
   });
 
 </script>

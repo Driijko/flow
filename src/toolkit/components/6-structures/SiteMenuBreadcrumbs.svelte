@@ -21,6 +21,10 @@
   // EVENT LISTENERS -------------------------------
   onMount(()=> {
     breadcrumbsElement.addEventListener("wheel", handleWheel);
+
+    return ()=> {
+      breadcrumbsElement.removeEventListener("wheel", handleWheel);
+    };
   });
 
   // REACTIVE ------------------------------
