@@ -6,53 +6,46 @@
   from "./toolkit-new/components/3-layers/site-menu/SiteMenuModal.svelte";
   import SnapScroll 
   from "./toolkit-new/components/5-containers/SnapScroll.svelte";
+  import ArrowHighlightScroll
+  from "./toolkit-new/components/6-structures/ArrowHighlightScroll.svelte";
 
-  let trackPosition = 0;
-  let position;
 
   setUp();
 </script>
-<!-- <AudioBkg /> -->
-<SiteMenuModal />
-<!-- <MusicPage /> -->
-<!-- <div class="container">
-  <SnapScroll axis="vertical" bind:trackPosition={trackPosition} 
-  bind:position={position} >
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-  </SnapScroll>
-</div> -->
 
-<!-- <p>
-  {position},{trackPosition}
-</p>
-<button type="button" on:click={()=> trackPosition = 0}>
-  Position 0
-</button>
-<button type="button" on:click={()=> trackPosition = 1}>
-  Position 1
-</button>
-<button type="button" on:click={()=> trackPosition = 2}>
-  Position 2
-</button>
-<button type="button" on:click={()=> trackPosition = 3}>
-  Position 3
-</button> -->
-
-
-
+<div>
+  <ArrowHighlightScroll axis="vertical" >
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dolorem totam doloremque voluptatem, a consectetur. Ipsam, porro laudantium beatae delectus totam molestiae ratione, cum provident quas fugit est excepturi exercitationem?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dolorem totam doloremque voluptatem, a consectetur. Ipsam, porro laudantium beatae delectus totam molestiae ratione, cum provident quas fugit est excepturi exercitationem?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dolorem totam doloremque voluptatem, a consectetur. Ipsam, porro laudantium beatae delectus totam molestiae ratione, cum provident quas fugit est excepturi exercitationem?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dolorem totam doloremque voluptatem, a consectetur. Ipsam, porro laudantium beatae delectus totam molestiae ratione, cum provident quas fugit est excepturi exercitationem?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dolorem totam doloremque voluptatem, a consectetur. Ipsam, porro laudantium beatae delectus totam molestiae ratione, cum provident quas fugit est excepturi exercitationem?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dolorem totam doloremque voluptatem, a consectetur. Ipsam, porro laudantium beatae delectus totam molestiae ratione, cum provident quas fugit est excepturi exercitationem?
+    </p>
+  </ArrowHighlightScroll>
+</div>
 
 
 <!-- STYLES //////////////////////////////// -->
 <style>
-.container {
-  width: 320px;
-  height: 480px;
-}
 div {
-  font-size: 100px;
+  border: 4px solid green;
+  width: 500px;
+  height: 300px;
 }
-
+p {
+  padding: 20px;
+  min-width: 300px;
+}
 </style>

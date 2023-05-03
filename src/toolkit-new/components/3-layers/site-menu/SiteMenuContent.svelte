@@ -6,7 +6,6 @@
   import SiteMenuModalButton from "../../7-elements/interface/modals/SiteMenuModalButton.svelte";
   import SiteMenuBreadcrumbs from "../../6-structures/SiteMenuBreadcrumbs.svelte";
   import SiteMenuTabs from "../../6-structures/tabs/SiteMenuTabs.svelte";
-  import SiteHeader from "../../6-structures/content/SiteHeader.svelte";
 
 </script>
 
@@ -16,7 +15,10 @@
 {#if $siteMenuModal}
 <div id="this" transition:shift="{{y:window.innerHeight,duration:1000}}">
 
-  <SiteHeader />
+  <header>
+    <h1>FLOW</h1>
+    <h2>A front-end web-development framework</h2>
+  </header>
 
   <SiteMenuBreadcrumbs />
 
