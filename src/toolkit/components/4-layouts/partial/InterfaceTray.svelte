@@ -3,14 +3,11 @@
   // IMPORTS --------------------------------------
   import { flip } from "svelte/animate";
   import shift from "../../../scripts/transitions/shift";
-  import { quintOut, quintIn, linear, sineOut } from "svelte/easing";
+  import { quintOut, quintIn, sineOut } from "svelte/easing";
   import viewportOrientationStore
   from "../../../scripts/viewport/viewportOrientationStore";
-  import { modals } from "../../../scripts/modalsStore";
   import { currentPage } from "../../../scripts/currentPageStore";
   import { siteMenuModal, playlistModal } from "../../../scripts/modalsStore";
-  import GearIcon from "../../6-elements/icons/menu/GearIcon.svelte";
-  import CompassIcon from "../../6-elements/icons/menu/CompassIcon.svelte";
   import PlaylistModalOpenerButton 
   from "../../6-elements/interface/modals/PlaylistModalOpenerButton.svelte";
   import SiteMenuModalButton 
@@ -51,8 +48,6 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
-<button type="button" on:click={()=> list = [list[0], playlistItem]}>Test</button>
-
 <ul class="interface-tray"
   class:splash={$currentPage === "splash"}
   class:closed={$siteMenuModal === false}
@@ -66,46 +61,15 @@
       <svelte:component this={listItem.component} />
     </li>
   {/each}
-
-  <!-- <li animate:flip="{{duration:200}}">
-    <GearIcon />
-  </li>
-  {#if $playlistModal === false}
-  <li>
-    <PlaylistModalOpenerButton />
-  </li>
-  {/if} -->
 </ul>
 
 <!-- STYLES //////////////////////////////////////// -->
 <style>
-button {
-  position: absolute;
-  background-color: black;
-  color: white;
-  pointer-events: initial;
-} 
-#test2 {
-  top: 10%;
-}
-#test3 {
-  top: 20%;
-}
-#test4 {
-  top: 30%;
-}
-#test5 {
-  top: 40%;
-}
-#test6 {
-  top: 50%;
-}
 ul {
   display: flex;
   flex-flow: row-reverse;
 }
 li {
-
   background-color: black;
 }
 ul :global(svg) {

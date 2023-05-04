@@ -15,7 +15,6 @@
 <!-- MARKUP ///////////////////////////////////// -->
 <AudioBkg />
 <SiteMenuModal />
-<AudioVolumeModal />
 <MusicPage />
 
 <!-- STYLES //////////////////////////////// -->
