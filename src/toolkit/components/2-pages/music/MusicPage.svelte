@@ -9,11 +9,11 @@
 
 <!-- MARKUP //////////////////////////////////////////////// -->
 <div class="uarr-container">
-  {#if ($viewportOrientationStore === "landscape")}
+  <!-- {#if ($viewportOrientationStore === "landscape")} -->
     <div class="uarr2">
       <AudioAnimationList />
     </div>
-  {/if}
+  <!-- {/if} -->
   <div class="uarr1">
     <MusicPagePortrait />
   </div>

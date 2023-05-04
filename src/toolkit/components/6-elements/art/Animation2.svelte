@@ -3,7 +3,7 @@
   // IMPORTS ---------------------------
   import { gsap } from "gsap";
   import { onMount } from "svelte";
-  import { audioBkgPaused } from "../../../scripts/audioBkgStore";
+  import { audioBkgPaused, audioBkgCurrentTime, audioBkgRestartCount } from "../../../scripts/audioBkgStore";
 
   // ANIMATIONS ----------------------------
   const tl = gsap.timeline();
@@ -12,7 +12,7 @@
       duration: 10,
       strokeWidth: 0,
       stroke: "hsl(0, 100%, 100%)",
-      ease: "bounce.out",
+      ease: "power.out",
       repeat: -1,
       yoyo: true,
       attr: {
@@ -26,7 +26,12 @@
     tl.pause();
   } else {
     tl.play();
+  };
+
+  $: if ($audioBkgRestartCount) {
+    tl.restart();
   }
+
 
 </script>
 

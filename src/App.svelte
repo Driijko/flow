@@ -9,16 +9,16 @@
   import AudioVolumeModal from "./toolkit/components/3-layers/AudioVolumeModal.svelte";
 
   setUp();
+
 </script>
+
+<!-- MARKUP ///////////////////////////////////// -->
 <AudioBkg />
+<SiteMenuModal />
 <AudioVolumeModal />
 <MusicPage />
 
 <!-- STYLES //////////////////////////////// -->
 <style>
-:global(.audio-bkg-pause-play-button) {
-  border-width: 10px;
-  width: 100px;
-  height: 100px;
-}
+
 </style>

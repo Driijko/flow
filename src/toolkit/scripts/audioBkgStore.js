@@ -7,6 +7,7 @@ export const audioBkgCurrentTime = writable(0);
 export const audioBkgLoop = writable(false);
 export const audioBkgPaused = writable(true);
 export const audioBkgPlayAfterLoad = writable(false);
+export const audioBkgRestartCount = writable(0);
 export const audioBkgTotalTime = writable(0);
 export const audioBkgTrack = writable({name: "", path: ""});
 export const audioBkgVolume = writable(1);
@@ -69,7 +70,10 @@ export function audioBkgPlay() {audioBkgPaused.set(false)};
 
 export function audioBkgPause() {audioBkgPaused.set(true)};
 
-export function audioBkgRestart() {audioBkgCurrentTime.set(0);};
+export function audioBkgRestart() {
+  audioBkgCurrentTime.set(0);
+  audioBkgRestartCount.set(get(audioBkgRestartCount) + 1);
+};
 
 export function audioBkgSetLoop(boolean) {audioBkgLoop.set(boolean)};
 

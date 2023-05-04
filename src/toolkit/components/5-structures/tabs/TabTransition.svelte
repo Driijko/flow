@@ -16,14 +16,14 @@
   in:shift="{{
     x: currentTabPosition < prevTabPosition ? 
       -window.innerWidth : window.innerWidth, 
-    duration: 500, 
-    delay: 500,
+    duration: 300, 
+    delay: 300,
     easing: linear,
   }}"
   out:shift="{{
     x: currentTabPosition < prevTabPosition ? 
       -window.innerWidth: window.innerWidth, 
-    duration: 500,
+    duration: 300,
     easing: linear,
   }}"
 >

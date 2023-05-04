@@ -23,9 +23,9 @@
     in:shift="{{y: -window.innerHeight, duration: 500}}"
     out:shift="{{y: -window.innerHeight, duration: 500}}"
   >
-    {#if $viewportOrientationStore === "landscape"}
+    <!-- {#if $viewportOrientationStore === "landscape"} -->
       <PlaylistModalCloserButton />
-    {/if}
+    <!-- {/if} -->
     <AudioBkgPlaylist identifier="playlist1" />
   </div>
 {/if}
@@ -37,13 +37,20 @@
   height: 100%;
 }
 @media screen and (orientation: portrait) {
-#this :global(.audio-bkg-playlist) {
+#this :global(.audio-bkg-playlist-section) {
   height: 92%;
+}
+#this :global(.playlist-modal-closer-button) {
+  border: 4px solid black;
+  position: absolute;
+  height: 7.5%;
+  width: 15%;
+  left: 85%;
 }
 }
 @media screen and (orientation: landscape) {
 #this :global(.audio-bkg-playlist-section) {
-  height: 100%;
+  height: 100%;  
 }
 #this :global(.playlist-modal-closer-button) {
   border: 1px solid black;
