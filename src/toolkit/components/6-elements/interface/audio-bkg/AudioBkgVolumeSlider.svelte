@@ -13,7 +13,7 @@
 </script>
 
 <!-- MARKUP ////////////////////////////////////////////// -->
-<input type="range" class:vertical={axis === "vertical"}
+<input type="range" class:vertical={axis === "vertical"} class="audio-bkg-volume-slider"
   min="0.00" max="1.00" step="0.01" 
   value="{$audioBkgVolume}" on:input={handleInput} 
 />
@@ -26,6 +26,7 @@ input[type="range"] {
   padding: 10px;
 }
 input.vertical {
+  transform-origin: 50% 50%;
   transform: rotate(270deg);
 }
 input[type="range"]::-webkit-slider-runnable-track {
