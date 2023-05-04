@@ -14,15 +14,6 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
-{#if !($playlistModal)}
-  <div id="this" class:portrait={$viewportOrientationStore === "portrait"}
-    in:shift="{{y:-400, duration:500}}"
-    out:shift="{{y:-400, duration: 500, easing: cubicIn}}"
-  >
-    <PlaylistModalOpenerButton />
-  </div>
-{/if}
-
 {#if $audioBkgTrack.name === "Opening Prompt Loop"}
   <div class:portrait={$viewportOrientationStore === "portrait"}>
     <Animation2 />
@@ -31,26 +22,8 @@
 
 <!-- STYLES ////////////////////////////////////////// -->
 <style>
-#this {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-#this :global(.playlist-modal-opener-button) {
-  background-color: black;
-  position: absolute;
-  left: 89%;
-  width: 5%;
-  height: 8%;
-}
 div.portrait :global(svg) {
-  border: 4px solid green;
-  transform: rotate(90deg) scale(1.8);
+  transform: rotate(90deg) scale(2.2);
 }
-#this :global(.playlist-modal-opener-button svg) {
-  width: 40%;
-}
-#this :global(.playlist-modal-opener-button path) {
-  fill: white;
-}
+
 </style>

@@ -19,8 +19,27 @@
 #this.background {
   background-color: black;
 }
+/* INTERFACE TRAY ------------------------- */
+#this :global(.interface-tray) {
+  right: 0%;
+  gap: calc(var(--uarr2-width)/100);
+}
+#this :global(.interface-tray.closed li) {
+  width: calc(var(--uarr2-width)/20);
+  height: calc(var(--uarr2-width)/22);
+  padding: calc(var(--uarr2-width)/80);
+  padding-top: calc(var(--uarr2-width)/100);
+}
+#this :global(.interface-tray.open li) {
+  width: calc(var(--uarr2-width)/18);
+  height: calc(var(--uarr2-width)/18);
+  padding: calc(var(--uarr2-width)/80);
+}
+#this :global(.interface-tray svg) {
+  width: 100%;
+}
 /* MENU BUTTON ---------------------------- */
-#this :global(.site-menu-modal-button) {
+/* #this :global(.site-menu-modal-button) {
   z-index: 1;
 }
 #this :global(.site-menu-modal-button.closed) {
@@ -49,12 +68,9 @@
   left: 90%;
   background-color: hsl(0, 0%, 5%);
 }
-#this :global(.site-menu-modal-button.closed.splash line) {
-  /* stroke: black; */
-}
 #this :global(.site-menu-modal-button.closed.splash svg) {
   width: 40%;
-}
+} */
 /* HEADER ------------------------------------------ */
 #this :global(header) {
   height: 10%;

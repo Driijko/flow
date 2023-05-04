@@ -9,11 +9,6 @@
   from "../../../scripts/viewport/viewportOrientationStore";
   import { playlistModal, modals } from "../../../scripts/modalsStore";
   import shift from "../../../scripts/transitions/shift";
-
-  // REACTIVE -------------------------------------
-  $: if ($viewportOrientationStore === "portrait" && $playlistModal === false) {
-    modals.open("playlist");
-  };
   
 </script>
 
@@ -23,9 +18,7 @@
     in:shift="{{y: -window.innerHeight, duration: 500}}"
     out:shift="{{y: -window.innerHeight, duration: 500}}"
   >
-    <!-- {#if $viewportOrientationStore === "landscape"} -->
-      <PlaylistModalCloserButton />
-    <!-- {/if} -->
+    <PlaylistModalCloserButton />
     <AudioBkgPlaylist identifier="playlist1" />
   </div>
 {/if}
@@ -37,38 +30,39 @@
   height: 100%;
 }
 @media screen and (orientation: portrait) {
-#this :global(.audio-bkg-playlist-section) {
-  height: 92%;
-}
-#this :global(.playlist-modal-closer-button) {
-  border: 4px solid black;
-  position: absolute;
-  height: 7.5%;
-  width: 15%;
-  left: 85%;
-}
+  #this :global(.audio-bkg-playlist-section) {
+    height: 92%;
+  }
 }
 @media screen and (orientation: landscape) {
-#this :global(.audio-bkg-playlist-section) {
-  height: 100%;  
+  #this :global(.audio-bkg-playlist-section) {
+    height: 100%;  
+  }
+}
+#this :global(.playlist-modal-closer-button svg) {
+  width: 60%;
 }
 #this :global(.playlist-modal-closer-button) {
-  border: 1px solid black;
+  border: calc(var(--uarr1-width)/100) solid black;
   position: absolute;
-  height: 8%;
+  height: 7.9%;
   width: 15%;
   left: 85%;
 }
-#this :global(.playlist-modal-closer-button svg) {
-  width: 50%;
+@media screen and (orientation: landscape) {
+  #this :global(.playlist-modal-closer-button) {
+    height: 8.4%;
+  }
 }
-}
+
 #this :global(.audio-bkg-playlist-section h2) {
   height: 8%;
   display: flex;
   align-items: center;
   padding-left: calc(var(--uarr1-width)/20);
   font-size: calc(var(--uarr1-width)/13);
+  border-left: calc(var(--uarr1-width)/20) solid black;
+  border-top: calc(var(--uarr1-width)/100) solid black;
 }
 #this :global(.audio-bkg-playlist) {
   border: calc(var(--uarr1-width)/100) solid black;

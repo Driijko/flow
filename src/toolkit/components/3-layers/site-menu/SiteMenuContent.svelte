@@ -7,25 +7,30 @@
   from "../../6-elements/interface/modals/SiteMenuModalButton.svelte";
   import SiteMenuBreadcrumbs from "../../5-structures/SiteMenuBreadcrumbs.svelte";
   import SiteMenuTabs from "../../5-structures/tabs/SiteMenuTabs.svelte";
+  import InterfaceTray from "../../4-layouts/partial/InterfaceTray.svelte";
 
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
-<SiteMenuModalButton />
+<!-- <SiteMenuModalButton /> -->
+<div id="this">
+  <InterfaceTray />
 
-{#if $siteMenuModal}
-<div id="this" transition:shift="{{y:window.innerHeight,duration:1000}}">
-
-  <header>
-    <h1>FLOW</h1>
-    <h2>A front-end web-development framework</h2>
-  </header>
-
-  <SiteMenuBreadcrumbs />
-
-  <SiteMenuTabs />
+  {#if $siteMenuModal}
+  <div transition:shift="{{y:window.innerHeight,duration:1000}}">
+  
+    <header>
+      <h1>FLOW</h1>
+      <h2>A front-end web-development framework</h2>
+    </header>
+  
+    <SiteMenuBreadcrumbs />
+  
+    <SiteMenuTabs />
+  </div>
+  {/if}
 </div>
-{/if}
+
 
 <!-- STYLES /////////////////////////////////// -->
 <style>
@@ -34,7 +39,12 @@ div {
   height: 100%;
   overflow: hidden;
 }
-#this :global(header) {
+#this :global(.interface-tray) {
+  position: absolute;
+  z-index: 2;
+  pointer-events: initial;
+}
+header {
   background-color: black;
   color: white;
 }

@@ -72,6 +72,7 @@ export function audioBkgPause() {audioBkgPaused.set(true)};
 
 export function audioBkgRestart() {
   audioBkgCurrentTime.set(0);
+  if (get(audioBkgPaused)) {audioBkgPlay()};
   audioBkgRestartCount.set(get(audioBkgRestartCount) + 1);
 };
 

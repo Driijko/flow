@@ -19,10 +19,50 @@
 #this.background-color {
   background-color: black;
 }
-/* MENU BUTTON ---------------------------- */
-#this :global(.site-menu-modal-button) {
+/* INTERFACE TRAY ------------------------------ */
+#this :global(.interface-tray) {
   height: 8%;
+  background-color: black;
+  justify-content: center;
+  transition-property: left, width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  gap: 8%;
 }
+#this :global(.interface-tray.closed) {
+  width: 100%;
+  top: 92%;
+  left: 0%;
+  transition-property: left, width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}
+#this :global(.interface-tray li) {
+  min-width: calc(var(--uarr1-width)/8);
+  height: 100%;
+}
+#this :global(.interface-tray button) {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#this :global(.interface-tray svg) {
+  width: calc(var(--uarr1-width)/12);
+  height: calc(var(--uarr1-width)/12);
+}
+#this :global(.interface-tray.open) {
+  width: 15%;
+  left: 85%;
+  top: 92%;
+  transition-property: left, width;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+
+/* MENU BUTTON ---------------------------- */
+/*
 #this :global(.site-menu-modal-button.closed) {
   width: 100%;
   top: 92%;
@@ -47,7 +87,7 @@
 }
 #this :global(.site-menu-modal-button.closed.splash svg) {
   width: 40%;
-}
+} */
 /* HEADER ------------------------------------------ */
 #this :global(header) {
   border: 1px solid black;
