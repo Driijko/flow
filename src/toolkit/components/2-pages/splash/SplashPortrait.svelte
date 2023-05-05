@@ -26,9 +26,9 @@
         ease: "elastic.out(10, 1)"
       },0);
       tl.from([".rect1", ".rect2"], {duration:5, opacity:0.8},0);
-      tl.from("h1", {duration: 3, opacity: 0},4);
-      tl.from("h2 span", {stagger: 0.8, duration: 1, opacity: 0},5);
-      tl.fromTo(".site-menu-modal-button",
+      tl.from(".splash-content h1", {duration: 3, opacity: 0},4);
+      tl.from(".splash-content h2 span", {stagger: 0.8, duration: 1, opacity: 0},5);
+      tl.fromTo(".splash-content .site-menu-modal-button",
         {opacity:0}, {opacity:1, duration: 3}
       ,8.5);
     };
