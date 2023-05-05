@@ -29,15 +29,13 @@
 <!-- STYLES ////////////////////////////////////////// -->
 <style>
   button {
-    width: 100px;
-    height: 100px;
     background-color: black;
     justify-content: center;
     align-items: center;
     display: flex;
   }
   button :global(svg) {
-    width: 80%;
+    width: 100%;
   }
   button.on :global(svg) {
     width: 80%;

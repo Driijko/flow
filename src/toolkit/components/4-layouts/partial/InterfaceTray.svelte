@@ -12,6 +12,8 @@
   from "../../6-elements/interface/modals/PlaylistModalOpenerButton.svelte";
   import SiteMenuModalButton 
   from "../../6-elements/interface/modals/SiteMenuModalButton.svelte";
+  import AnimationsButton 
+  from "../../6-elements/interface/modals/AnimationsButton.svelte";
 
   // TRANSITIONS BASED ON VIEWPORT ----------------------
   const inTrans = {easing: quintOut, duration: 1000};
@@ -27,17 +29,28 @@
 
   // DATA ----------------------------------
   const menuItem = {id: 0, component: SiteMenuModalButton, delay:0}
-  const playlistItem = {id: 1, component: PlaylistModalOpenerButton, delay: 0}; 
+  const playlistItem = {id: 2, component: PlaylistModalOpenerButton, delay: 0};
+  const animationsItem = {id: 1, component: AnimationsButton, delay: 0}; 
   let list = [menuItem];
   let storage = [];
 
   // REACTIVE --------------------------------
-  $: if ($playlistModal && list.length > 1) {
+  $: if ($currentPage === "music") {
+    list[1] = animationsItem;
+  } else {
     list = [list[0]];
+  }
+  // Remove/add playlist button if playlist modal is open/closed.
+  $: if ($playlistModal && list.length > 2) {
+    list = [list[0], list[1]];
   } else if ($playlistModal === false) {
-    list = [list[0], playlistItem];
+    list[2] = playlistItem;
   };
 
+
+
+  // Empty/fill tray of all items except site menu if site menu modal 
+  // is open/closed.
   $: if ($siteMenuModal && list.length > 1) {
     storage = list.slice(1, list.length);
     list = [list[0]];

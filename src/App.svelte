@@ -12,9 +12,5 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////// -->
-<!-- <Router /> -->
-<AnimationsButton />
-<p>
-  {$animationsOff}
-</p>
+<Router />
 <Notify />
