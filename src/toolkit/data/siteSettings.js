@@ -3,7 +3,7 @@ const siteSettings = {
   landscapeUARR: [16,9],
   smallestViewport: 320 * 480,
   resizeDelay: 2000,
-  startingPageName: "opening-prompt",
+  startingPageName: "music",
 }
 
 export default siteSettings;

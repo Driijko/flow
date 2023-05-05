@@ -4,7 +4,7 @@
   import { audioBkgTrack, audioBkgRestart, audioBkgFadeLoadPlay, 
     audioBkgUpdateCurrentPlaylistIndex, audioBkgLoad,
     audioBkgNewPlaylist, audioBkgCurrentPlaylist, audioBkgLoop,
-    audioBkgSetLoop 
+    audioBkgSetLoop, audioBkgLoadPlay
   } from "../../../scripts/audioBkgStore";
   import AudioBkgPlayer from "./AudioBkgPlayer.svelte";
   import playlists from "../../../data/playlists";
@@ -28,7 +28,8 @@
       audioBkgRestart();
     } 
     else {
-      audioBkgFadeLoadPlay(track.name, track.path, fadeDuration);
+      // audioBkgFadeLoadPlay(track.name, track.path, fadeDuration);
+      audioBkgLoadPlay(track.name, track.path);
       if ($audioBkgCurrentPlaylist.identifier !== identifier) {
         audioBkgNewPlaylist(identifier, tracks);
       }

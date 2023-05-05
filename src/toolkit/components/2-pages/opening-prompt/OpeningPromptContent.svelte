@@ -3,7 +3,7 @@
   // IMPORTS -------------------------------------
   import SiteSettings from "../../5-structures/SiteSettings.svelte";
   import { newPage } from "../../../scripts/currentPageStore";
-  import { audioBkgFadeLoadPlay, audioBkgLoad, audioBkgSetLoop } 
+  import { audioBkgLoadPlay, audioBkgLoad, audioBkgSetLoop } 
   from "../../../scripts/audioBkgStore";
 
   // Load and loop opening-prompt track.
@@ -13,8 +13,8 @@
   // EVENT HANDLERS ----------------------------
   function handleClick() {
     newPage("splash");
-    audioBkgFadeLoadPlay("Test Music", "./assets/audio/bkg/test-music.mp3", 2000);
-  }
+    audioBkgLoadPlay("Test Music", "./assets/audio/bkg/test-music.mp3");
+  };
 
 </script>
 
