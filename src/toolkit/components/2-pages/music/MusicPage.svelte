@@ -4,11 +4,15 @@
   import AudioAnimationList 
   from "../../5-structures/audio-bkg/AudioAnimationList.svelte";
   import AudioVolumeModal from "../../3-layers/AudioVolumeModal.svelte";
+  import viewportOrientationStore
+  from "../../../scripts/viewport/viewportOrientationStore";
 </script>
 
 <!-- MARKUP //////////////////////////////////////////////// -->
 <AudioVolumeModal />
-<div class="uarr-container">
+<div class="uarr-container"
+  class:landscape={$viewportOrientationStore === "landscape"}
+>
   <div class="uarr2">
     <AudioAnimationList />
   </div>
@@ -19,7 +23,13 @@
 
 <!-- STYLES //////////////////////////////////////// -->
 <style>
+  .uarr-container.landscape {
+    background-color: black;
+  }
   .uarr1, .uarr2 {
     position: absolute;
+  }
+  .uarr2 {
+    background-color: white;
   }
 </style>

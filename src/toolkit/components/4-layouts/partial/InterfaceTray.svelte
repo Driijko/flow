@@ -15,7 +15,7 @@
 
   // TRANSITIONS BASED ON VIEWPORT ----------------------
   const inTrans = {easing: quintOut, duration: 1000};
-  const outTrans = {easing: quintIn, duration: 1000};
+  const outTrans = {easing: quintIn, duration: 500};
 
   if ($viewportOrientationStore === "portrait") {
     inTrans.x = -window.innerWidth;

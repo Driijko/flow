@@ -7,6 +7,7 @@
   import Technologies from "./toolkit/components/5-structures/content/Technologies.svelte";
   import MusicPage from "./toolkit/components/2-pages/music/MusicPage.svelte";
   import AudioVolumeModal from "./toolkit/components/3-layers/AudioVolumeModal.svelte";
+  import { currentPage } from "./toolkit/scripts/currentPageStore";
 
   setUp();
 

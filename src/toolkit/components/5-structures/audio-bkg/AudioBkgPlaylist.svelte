@@ -59,7 +59,10 @@
 
 <!-- STYLES /////////////////////////////// -->
 <style>
-section {
+h2, section :global(.audio-bkg-player) {
+  background-color: white;
+}
+ul {
   background-color: hsla(0, 0%, 100%, 0.7);
 }
 </style>
