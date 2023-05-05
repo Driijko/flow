@@ -1,11 +1,9 @@
 <!-- SCRIPTS /////////////////////////////////////// -->
 <script>
-  import { onMount } from "svelte";
+  // IMPORTS ------------------------------------------------------
   import { navigationLevels, navigationExpand, navigationCollapse,
     navigationCurrentLevel, setCurrentNavigationLevel 
   } from "../../../scripts/siteMenuStore";
-  import viewportOrientationStore 
-  from "../../../scripts/viewport/viewportOrientationStore";
   import SnapScroll from "./SnapScroll.svelte";
   import { newPage } from "../../../scripts/currentPageStore";
   import nav from "../../../data/navigation";
@@ -80,6 +78,7 @@
           {/each}
         </ul>
 
+      <!-- PREVIEW ------------------------------- -->
       {:else if nav[navLevel].type === "preview"}
         <svelte:component this={nav[navLevel].component} />
       {/if}
@@ -88,8 +87,3 @@
 
   </SnapScroll>
 </nav>
-
-<!-- STYLES //////////////////////////////////////////// -->
-<style>
-
-</style>

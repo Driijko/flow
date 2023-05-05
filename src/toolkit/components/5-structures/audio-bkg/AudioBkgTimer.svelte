@@ -3,7 +3,6 @@
   // IMPORTS -----------------------------------
   import { audioBkgCurrentTime, audioBkgTotalTime} 
   from "../../../scripts/audioBkgStore"
-    import Animation from "../../6-elements/art/Animation.svelte";
   
 </script>
 

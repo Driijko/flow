@@ -34,20 +34,20 @@
 
     if (axis === "vertical") {
       gsap.to(".snap-scroll", {
-        duration: 1,
+        duration: 0.5,
         ease: "circ.out",
         scrollTop: Math.round(0 + (snapScroll.clientHeight * newPosition)),
       });
     } 
     else {
       gsap.to(".snap-scroll", {
-        duration: 1,
+        duration: 0.5,
         ease: "circ.out",
         scrollLeft: Math.round(0 + (snapScroll.clientWidth * newPosition)),
       });
-    }
+    };
 
-    gsap.delayedCall(1, scrollEnd, [newPosition]);
+    gsap.delayedCall(0.5, scrollEnd, [newPosition]);
   };
 
   // EVENT HANDLERS ------------------------------

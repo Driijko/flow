@@ -2,7 +2,7 @@
 <script>
   import MusicPagePortrait from "./MusicPagePortrait.svelte";
   import AudioAnimationList 
-  from "../../5-structures/audio-bkg/AudioAnimationList.svelte";
+  from "../../4-layouts/partial/AudioAnimationList.svelte";
   import AudioVolumeModal from "../../3-layers/AudioVolumeModal.svelte";
   import viewportOrientationStore
   from "../../../scripts/viewport/viewportOrientationStore";

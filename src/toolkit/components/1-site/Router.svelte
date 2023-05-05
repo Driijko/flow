@@ -1,6 +1,6 @@
 <!-- SCRIPTS /////////////////////////////////// -->
 <script>
-  import currentPageStore from "../../scripts/currentPageStore";
+  import { currentPage } from "../../scripts/currentPageStore";
   import resizeStore from "../../scripts/viewport/resizeStore";
   import LoadingPage from "../2-pages/LoadingPage.svelte";
   import AudioBkg from "../1-site/AudioBkg.svelte";
@@ -10,15 +10,15 @@
 <AudioBkg />
 
 {#key $resizeStore}
-  {#if $currentPageStore.name === "loading"}
+  {#if $currentPage === "loading"}
     <LoadingPage />
-  {:else if $currentPageStore.name === "opening-prompt"}
+  {:else if $currentPage === "opening-prompt"}
     <!-- <OpeningPrompt /> -->
   {:else}
     <!-- <SiteMenu /> -->
-    {#if $currentPageStore.name === "splash"}
+    {#if $currentPage === "splash"}
       <!-- <Splash /> -->
-    {:else if $currentPageStore.name === "ambient-light"}
+    {:else if $currentPage === "ambient-light"}
       <!-- <AmbientLight /> -->
     {/if}
   {/if}
