@@ -11,7 +11,6 @@ export const audioBkgRestartCount = writable(0);
 export const audioBkgTotalTime = writable(0);
 export const audioBkgTrack = writable({name: "", path: ""});
 export const audioBkgVolume = writable(0);
-export const audioBkgFading = writable(false);
 
 // FUNCTIONS ------------------------------------
 export function audioBkgAdjustVolume(volume) {
@@ -19,7 +18,6 @@ export function audioBkgAdjustVolume(volume) {
 };
 
 export function audioBkgFade(duration) {
-  audioBkgFading.set(true);
   let currentVolume = get(audioBkgVolume) * 1000;
   let decrement = currentVolume / (duration/10);
   const timerId = setInterval(()=> {
@@ -31,10 +29,6 @@ export function audioBkgFade(duration) {
       audioBkgAdjustVolume(currentVolume/1000);
     }
   },10);
-  const timerId2 = setTimeout(()=> {
-    audioBkgFading.set(false);
-    clearTimeout(timerId2);
-  },duration);
 };
 
 export function audioBkgFadeLoadPlay(trackName, trackPath, duration) {
@@ -87,7 +81,6 @@ export function audioBkgSetLoop(boolean) {audioBkgLoop.set(boolean)};
 export function audioBkgTogglePausePlay() {
   audioBkgPaused.set(!(get(audioBkgPaused)));
 };
-
 
 export function audioBkgUpdateTotalTime(time) {audioBkgTotalTime.set(time)};
 
