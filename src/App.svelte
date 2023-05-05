@@ -6,6 +6,7 @@
   import AnimationsButton 
   from "./toolkit/components/6-elements/interface/modals/AnimationsButton.svelte";
   import { animationsOff } from "./toolkit/scripts/animationsStore";
+  import { audioBkgCurrentTime } from "./toolkit/scripts/audioBkgStore";
 
   setUp();
 
@@ -14,3 +15,15 @@
 <!-- MARKUP ///////////////////////////////////// -->
 <Router />
 <Notify />
+<p>
+  {$audioBkgCurrentTime}
+</p>
+
+<!-- STYLES /////////////////////////////// -->
+<style>
+  p {
+    position: absolute;
+    top: 0%;
+    z-index: 5;
+  }
+</style>

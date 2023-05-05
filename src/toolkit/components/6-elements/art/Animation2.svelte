@@ -9,7 +9,7 @@
   const tl = gsap.timeline();
   onMount(()=> {
     tl.from(".a-path1", {
-      duration: 10,
+      duration: 70,
       strokeWidth: 0,
       stroke: "hsl(0, 100%, 100%)",
       ease: "power.out",
@@ -19,7 +19,15 @@
         d: "M 0 0L 0 1600 M 100 0L 100 1600 M 400 0L 200 1600 M 700 0L 300 1600 M 1000 0L 400 1600 M 1300 0L 500 1600 M 1600 0L 600 1600 M 1900 0L 700 1600 M 2200 0L 800 1600 M 2500 0L 900 1600 M 2800 0L 1000 1600 M 3100 0L 1100 1600 M 3400 0L 1200 1600 M 3700 0L 1300 1600 M 4000 0L 1400 1600 M 4300 0L 1500 1600 M 4600 0L 1600 1600 M 4900 0M 0 0 L 1600 0M 0 100 L 1600 200M 0 200 L 1600 400M 0 300 L 1600 600M 0 400 L 1600 800M 0 500 L 1600 1000M 0 600 L 1600 1200M 0 700 L 1600 1400M 0 800 L 1600 1600M 0 900 L 1600 1800"
       }
     },0);
+
+    // REACT ON MOUNT ----------------------
+    // In case animations get turned off and on.
+    if ($audioBkgCurrentTime !== 0) {
+      tl.seek($audioBkgCurrentTime);
+    };
   });
+
+
 
   // REACTIVE -------------------------
   $: if ($audioBkgPaused) {
@@ -31,7 +39,6 @@
   $: if ($audioBkgRestartCount) {
     tl.restart();
   }
-
 
 </script>
 
