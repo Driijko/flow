@@ -10,7 +10,7 @@ export const audioBkgPlayAfterLoad = writable(false);
 export const audioBkgRestartCount = writable(0);
 export const audioBkgTotalTime = writable(0);
 export const audioBkgTrack = writable({name: "", path: ""});
-export const audioBkgVolume = writable(1);
+export const audioBkgVolume = writable(0);
 export const audioBkgFading = writable(false);
 
 // FUNCTIONS ------------------------------------

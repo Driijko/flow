@@ -13,7 +13,6 @@
     const tl = gsap.timeline();
 
     function pageEntrance() {
-      // const tl = gsap.timeline();
       tl.from(".rect1", {
         duration: 3, 
         stagger: 0.1, 
@@ -93,6 +92,7 @@
   width: 100%;
   position: absolute;
   top: 17%;
+  height: 60%;
 }
 #this :global(h1) {
   text-align: center;
@@ -104,6 +104,17 @@
   text-align: center;
   letter-spacing: calc(var(--uarr-width)/200);
   font-size: calc(var(--uarr-width)/15);
+}
+#this :global(header .site-menu-modal-button) {
+  position: absolute;
+  top: 75%;
+  left: 40%;
+  width: 20%;
+  height: 15%;
+  border-radius: calc(var(--uarr1-width)/100);
+}
+#this :global(header svg) {
+  width: 40%;
 }
 }
 </style>

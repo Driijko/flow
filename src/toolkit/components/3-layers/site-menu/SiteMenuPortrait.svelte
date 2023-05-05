@@ -60,34 +60,16 @@
   transition-duration: 1s;
   transition-timing-function: ease-out;
 }
+#this :global(.interface-tray.splash) {
+  transition-property: top;
+  transition-duration: 0.89s;
+  transition-timing-function: ease-out;
+}
+/* INTERFACE TRAY SPLASH -------------------- */
+#this :global(.interface-tray.closed.splash) {
+  top: 300%;
+}
 
-/* MENU BUTTON ---------------------------- */
-/*
-#this :global(.site-menu-modal-button.closed) {
-  width: 100%;
-  top: 92%;
-  left: 0%;
-}
-#this :global(.site-menu-modal-button.closed svg) {
-  width: 9%;
-}
-#this :global(.site-menu-modal-button.open) {
-  width: 15%;
-  top: 92%;
-  left: 85%;
-}
-#this :global(.site-menu-modal-button.open svg) {
-  width: 60%;
-}
-#this :global(.site-menu-modal-button.closed.splash) {
-  width: 22%;
-  height: 10%;
-  top: 60%;
-  left: 39%;
-}
-#this :global(.site-menu-modal-button.closed.splash svg) {
-  width: 40%;
-} */
 /* HEADER ------------------------------------------ */
 #this :global(header) {
   border: 1px solid black;

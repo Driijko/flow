@@ -1,10 +1,10 @@
 <!-- SCRIPTS /////////////////////////////////// -->
 <script>
   // IMPORTS --------------------------------
-  import { audioBkgTrack, audioBkgRestart, audioBkgLoadPlay, 
-    audioBkgFadeLoadPlay, audioBkgUpdateCurrentPlaylistIndex, 
+  import { audioBkgTrack, audioBkgRestart, audioBkgFadeLoadPlay, 
+    audioBkgUpdateCurrentPlaylistIndex, audioBkgLoad,
     audioBkgNewPlaylist, audioBkgCurrentPlaylist, audioBkgLoop,
-    audioBkgSetLoop, audioBkgLoad
+    audioBkgSetLoop 
   } from "../../../scripts/audioBkgStore";
   import AudioBkgPlayer from "./AudioBkgPlayer.svelte";
   import playlists from "../../../data/playlists";

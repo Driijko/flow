@@ -1,12 +1,7 @@
 <!-- SCRIPTS //////////////////////////////////////////// -->
 <script>
   import setUp from "./toolkit/scripts/setUp";
-  import AudioBkg from "./toolkit/components/1-site/AudioBkg.svelte";
-  import SiteMenuModal 
-  from "./toolkit/components/3-layers/site-menu/SiteMenuModal.svelte";
-  import Technologies from "./toolkit/components/5-structures/content/Technologies.svelte";
-  import MusicPage from "./toolkit/components/2-pages/music/MusicPage.svelte";
-  import AudioVolumeModal from "./toolkit/components/3-layers/AudioVolumeModal.svelte";
+  import Router from "./toolkit/components/1-site/Router.svelte";
   import { currentPage } from "./toolkit/scripts/currentPageStore";
 
   setUp();
@@ -14,11 +9,18 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////// -->
-<AudioBkg />
-<SiteMenuModal />
-<MusicPage />
+<Router />
+<p>
+  {$currentPage}
+</p>
 
-<!-- STYLES //////////////////////////////// -->
+<!-- STYLES //////////////////////////////////// -->
 <style>
-
+  p {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    color: black;
+    z-index: 3;
+  }
 </style>

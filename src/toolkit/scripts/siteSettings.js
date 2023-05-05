@@ -3,7 +3,7 @@ const siteSettings = {
   landscapeUARR: [16,9],
   smallestViewport: 320 * 480,
   resizeDelay: 2000,
-  startingPageName: "music",
+  startingPageName: "splash",
 }
 
 export default siteSettings;

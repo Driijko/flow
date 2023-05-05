@@ -23,6 +23,7 @@
 #this :global(.interface-tray) {
   right: 0%;
   gap: calc(var(--uarr2-width)/100);
+  top: 0%;
 }
 #this :global(.interface-tray.closed li) {
   width: calc(var(--uarr2-width)/20);
@@ -38,39 +39,14 @@
 #this :global(.interface-tray svg) {
   width: 100%;
 }
-/* MENU BUTTON ---------------------------- */
-/* #this :global(.site-menu-modal-button) {
-  z-index: 1;
+#this :global(.interface-tray.splash) {
+  transition-property: top;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
 }
-#this :global(.site-menu-modal-button.closed) {
-  width: 5%;
-  top: 0%;
-  left: 95%;
-  height: 8%;
+#this :global(.interface-tray.splash.closed) {
+  top: -8%;
 }
-#this :global(.site-menu-modal-button.closed svg) {
-  width: 35%;
-}
-#this :global(.site-menu-modal-button.open) {
-  width: 6%;
-  top: 0%;
-  left: 94%;
-  height: 10%;
-  border-left: calc(var(--uarr-width)/200) solid hsl(0, 0%, 20%);
-}
-#this :global(.site-menu-modal-button.open svg) {
-  width: 60%;
-}
-#this :global(.site-menu-modal-button.closed.splash) {
-  width: 10%;
-  height: 15%;
-  top: 85.1%;
-  left: 90%;
-  background-color: hsl(0, 0%, 5%);
-}
-#this :global(.site-menu-modal-button.closed.splash svg) {
-  width: 40%;
-} */
 /* HEADER ------------------------------------------ */
 #this :global(header) {
   height: 10%;

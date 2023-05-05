@@ -79,22 +79,13 @@
 <!-- STYLES /////////////////////////////////////////// -->
 <style>
 button {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
   background-color: black;
-  /* position: absolute; */
-  /* transition-property: width, height, left, top; */
-  /* transition-timing-function: ease-out; */
-  /* transition-duration: 1s; */
-  /* z-index: 2; */
-  /* pointer-events: initial; */
 }
 svg {
-  /* height: 100%; */
-  /* transition-property: width; */
-  /* transition-timing-function: ease-out; */
-  /* transition-duration: 0.5s; */
+  height: 100%;
 }
 line {
   stroke: white;

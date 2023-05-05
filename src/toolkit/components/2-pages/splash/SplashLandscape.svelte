@@ -72,6 +72,9 @@
   color: white;
   left: 1%;
   top: 1%;
+  width: 99%;
+  height: 99%;
+  border: 1px solid green;
 }
 #this :global(h1) {
   font-size: calc(var(--uarr-width)/20);
@@ -80,6 +83,17 @@
   font-size: calc(var(--uarr-width)/50);
   word-spacing: calc(var(--uarr-width)/300);
   letter-spacing: calc(var(--uarr-width)/1000);
+}
+#this :global(header .site-menu-modal-button) {
+  position: absolute;
+  width: 10%;
+  height: 15%;
+  left: 89%;
+  top: 83.3%;
+  background-color: hsl(0, 0%, 10%);
+}
+#this :global(header svg) {
+  width: 40%;
 }
 }
 </style>
