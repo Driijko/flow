@@ -83,20 +83,20 @@
   height: calc(var(--uarr-width)/9);
 }
 #this :global(input[type="range"]::-webkit-slider-runnable-track) {
-  height: 50%;
-  width: 50%;
+  height: calc(var(--uarr-width)/25);
+  width: calc(var(--uarr-width)/6);
   border-radius: calc(var(--uarr-width)/10);
   border-width: calc(var(--uarr-width)/100);
 }
 #this :global(input[type="range"]::-webkit-slider-thumb) {
-  margin-top: -4.5%; 
+  margin-top: calc(var(--uarr-width)/-45); 
   border-width: calc(var(--uarr-width)/100);
   border-radius: calc(var(--uarr-width)/10);
-  height: 250%;
-  width: 13.5%;    
+  height: calc(var(--uarr-width)/16);
+  width: calc(var(--uarr-width)/16);    
 }
 #this :global(input[type="range"]::-moz-range-track) {
-  height: 30%;
+  height: calc(var(--uarr-width)/45);
   border-radius: calc(var(--uarr-width)/10);
   border-width: calc(var(--uarr-width)/100);
 }
@@ -104,8 +104,8 @@
   margin-top: -4.5%; 
   border-width: calc(var(--uarr-width)/100);
   border-radius: calc(var(--uarr-width)/10);
-  height: 60%;
-  width: 10%;   
+  height: calc(var(--uarr-width)/21);
+  width: calc(var(--uarr-width)/21);   
 }
 #this :global(a) {
   border: calc(var(--uarr-width)/100) solid black;

@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import siteSettings from "./siteSettings";
+import siteSettings from "../data/siteSettings";
 
 // STATE ----------------------------------------
 export const currentPage = writable(siteSettings.startingPageName);

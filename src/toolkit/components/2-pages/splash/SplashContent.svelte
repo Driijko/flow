@@ -5,7 +5,7 @@
   from "../../6-elements/interface/modals/SiteMenuModalButton.svelte";
 </script>
 
-<header>
+<header class="splash-content">
   <h1>FLOW</h1>
   <h2>
     <span>A</span><br class="portrait"/>

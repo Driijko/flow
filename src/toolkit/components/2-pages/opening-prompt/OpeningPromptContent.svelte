@@ -3,8 +3,8 @@
   // IMPORTS -------------------------------------
   import SiteSettings from "../../5-structures/SiteSettings.svelte";
   import { newPage } from "../../../scripts/currentPageStore";
-  import { audioBkgFadeLoadPlay, audioBkgLoad, audioBkgSetLoop 
-  } from "../../../scripts/audioBkgStore";
+  import { audioBkgFadeLoadPlay, audioBkgLoad, audioBkgSetLoop } 
+  from "../../../scripts/audioBkgStore";
 
   // Load and loop opening-prompt track.
   audioBkgLoad("Opening Prompt Theme","./assets/audio/bkg/opening-prompt.mp3");
@@ -15,6 +15,7 @@
     newPage("splash");
     audioBkgFadeLoadPlay("Test Music", "./assets/audio/bkg/test-music.mp3", 2000);
   }
+
 </script>
 
 <!-- MARKUP //////////////////////////////////////////// -->

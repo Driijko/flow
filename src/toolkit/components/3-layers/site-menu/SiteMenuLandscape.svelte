@@ -45,7 +45,7 @@
   transition-timing-function: ease-out;
 }
 #this :global(.interface-tray.splash.closed) {
-  top: -8%;
+  top: -100%;
 }
 /* HEADER ------------------------------------------ */
 #this :global(header) {

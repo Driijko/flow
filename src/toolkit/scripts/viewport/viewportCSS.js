@@ -1,4 +1,4 @@
-import siteSettings from "../siteSettings";
+import siteSettings from "../../data/siteSettings";
 
 export default function viewportCSS() {
   const viewportRes = window.innerWidth/window.innerHeight;

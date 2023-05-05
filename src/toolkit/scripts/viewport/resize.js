@@ -1,4 +1,4 @@
-import siteSettings from "../siteSettings";
+import siteSettings from "../../data/siteSettings";
 import viewportCSS from "./viewportCSS";
 import resizeStore from "./resizeStore";
 import viewportOrientationStore from "./viewportOrientationStore";

@@ -27,9 +27,9 @@
           d: "M 0,0 H 1600 Q 0 500 1600 900 T 0,900"
         }
       }, 0);
-      tl.from("h1", {duration: 5, opacity: 0},4);
-      tl.from("h2 span", {duration:2, opacity:0, stagger: 0.5},5);
-      tl.from(".site-menu-modal-button", {duration:2, opacity:0},7.4)
+      tl.from(".splash-content h1", {duration: 5, opacity: 0},4);
+      tl.from(".splash-content h2 span", {duration:2, opacity:0, stagger: 0.5},5);
+      tl.from("header .site-menu-modal-button", {duration:2, opacity:0},7.4)
     };
 
     function pageExit() {
@@ -74,7 +74,6 @@
   top: 1%;
   width: 99%;
   height: 99%;
-  border: 1px solid green;
 }
 #this :global(h1) {
   font-size: calc(var(--uarr-width)/20);

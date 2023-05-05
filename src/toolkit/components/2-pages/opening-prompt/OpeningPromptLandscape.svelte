@@ -96,35 +96,33 @@
   height: calc(var(--uarr-width)/9);
 }
 #this :global(input[type="range"]::-webkit-slider-runnable-track) {
-  height: 15%;
-  width: 100%;
+  height: calc(var(--uarr-width)/60);
   border-radius: calc(var(--uarr-width)/10);
   border-width: calc(var(--uarr-width)/300);
   border-color: white;
 }
 #this :global(input[type="range"]::-webkit-slider-thumb) {
-  margin-top: -3.5%; 
+  margin-top: calc(var(--uarr-width)/-125); 
   border-width: calc(var(--uarr-width)/300);
   border-radius: calc(var(--uarr-width)/10);
   border-color: white;
   background-color: hsl(0, 0%, 20%);
-  height: 270%;
-  width: 11%;    
+  height: calc(var(--uarr-width)/40);
+  width: calc(var(--uarr-width)/40);    
 }
 #this :global(input[type="range"]::-moz-range-track) {
-  height: 15%;
+  height: calc(var(--uarr-width)/110);
   border-radius: calc(var(--uarr-width)/10);
   border-width: calc(var(--uarr-width)/400);
   border-color: white;
 }
 #this :global(input[type="range"]::-moz-range-thumb) {
-  margin-top: -4.5%; 
   border-width: calc(var(--uarr-width)/300);
   border-radius: calc(var(--uarr-width)/10);
   border-color: white;
   background-color: hsl(0, 0%, 20%);
-  height: 20%;
-  width: 9%;   
+  height: calc(var(--uarr-width)/60);
+  width: calc(var(--uarr-width)/60);   
 }
 #this :global(.opening-prompt-content p:nth-of-type(3)) {
   width: 22%;

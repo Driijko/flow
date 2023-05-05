@@ -4,10 +4,7 @@
   import { onMount } from "svelte";
   import { audioBkgTrack, audioBkgPaused, audioBkgVolume, audioBkgLoadPlay,
     audioBkgUpdateTotalTime, audioBkgPlayAfterLoad, audioBkgLoop, audioBkgCurrentTime, audioBkgCurrentPlaylist, audioBkgCurrentPlaylistIndex,
-    audioBkgNextPlaylistTrack,
-
-    audioBkgUpdateCurrentTime
-
+    audioBkgNextPlaylistTrack
   } from "../../scripts/audioBkgStore";
 
   // ELEMENT REFERENCE -----------------------------------

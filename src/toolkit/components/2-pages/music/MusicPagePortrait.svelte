@@ -5,9 +5,7 @@
   from "../../5-structures/audio-bkg/AudioBkgPlaylist.svelte";
   import PlaylistModalCloserButton 
   from "../../6-elements/interface/modals/PlaylistModalCloserButton.svelte";
-  import viewportOrientationStore
-  from "../../../scripts/viewport/viewportOrientationStore";
-  import { playlistModal, modals } from "../../../scripts/modalsStore";
+  import { playlistModal } from "../../../scripts/modalsStore";
   import shift from "../../../scripts/transitions/shift";
   
 </script>
@@ -54,7 +52,6 @@
     height: 8.4%;
   }
 }
-
 #this :global(.audio-bkg-playlist-section h2) {
   height: 8%;
   display: flex;

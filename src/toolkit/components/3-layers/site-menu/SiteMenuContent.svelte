@@ -3,8 +3,6 @@
   // IMPORTS -----------------------------------------
   import shift from "../../../scripts/transitions/shift";
   import { siteMenuModal } from "../../../scripts/modalsStore";
-  import SiteMenuModalButton 
-  from "../../6-elements/interface/modals/SiteMenuModalButton.svelte";
   import SiteMenuBreadcrumbs from "../../5-structures/SiteMenuBreadcrumbs.svelte";
   import SiteMenuTabs from "../../5-structures/tabs/SiteMenuTabs.svelte";
   import InterfaceTray from "../../4-layouts/partial/InterfaceTray.svelte";

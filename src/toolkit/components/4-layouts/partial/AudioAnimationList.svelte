@@ -5,12 +5,6 @@
   import viewportOrientationStore 
   from "../../../scripts/viewport/viewportOrientationStore";
   import Animation2 from "../../6-elements/art/Animation2.svelte";
-  import PlaylistModalOpenerButton
-  from "../../6-elements/interface/modals/PlaylistModalOpenerButton.svelte";
-  import shift from "../../../scripts/transitions/shift";
-  import { playlistModal } from "../../../scripts/modalsStore";
-  import { cubicIn } from "svelte/easing";
-
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
@@ -25,5 +19,4 @@
 div.portrait :global(svg) {
   transform: rotate(90deg) scale(2.2);
 }
-
 </style>
