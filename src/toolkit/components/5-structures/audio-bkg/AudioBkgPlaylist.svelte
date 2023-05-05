@@ -4,7 +4,7 @@
   import { audioBkgTrack, audioBkgRestart, audioBkgLoadPlay, 
     audioBkgFadeLoadPlay, audioBkgUpdateCurrentPlaylistIndex, 
     audioBkgNewPlaylist, audioBkgCurrentPlaylist, audioBkgLoop,
-    audioBkgSetLoop
+    audioBkgSetLoop, audioBkgLoad
   } from "../../../scripts/audioBkgStore";
   import AudioBkgPlayer from "./AudioBkgPlayer.svelte";
   import playlists from "../../../data/playlists";
@@ -28,18 +28,20 @@
       audioBkgRestart();
     } 
     else {
-      if ($audioBkgTrack.name === "") {
-        audioBkgLoadPlay(track.name, track.path);
+      audioBkgFadeLoadPlay(track.name, track.path, fadeDuration);
+      if ($audioBkgCurrentPlaylist.identifier !== identifier) {
         audioBkgNewPlaylist(identifier, tracks);
-      } else {
-        audioBkgFadeLoadPlay(track.name, track.path, fadeDuration);
-        if ($audioBkgCurrentPlaylist.identifier !== identifier) {
-          audioBkgNewPlaylist(identifier, tracks);
-        }
-      };
+      }
       audioBkgUpdateCurrentPlaylistIndex(index);
     };
   };
+
+  // REACT ON INITIALIZE ----------------------------------------
+  if ($audioBkgTrack.name === "") {
+    audioBkgLoad(tracks[0].name, tracks[0].path);
+    audioBkgNewPlaylist(identifier, tracks);
+  };
+
 </script>
 
 <!-- MARKUP /////////////////////////////// -->
