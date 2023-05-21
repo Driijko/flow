@@ -127,3 +127,26 @@ p a {
 a, button, label, input {
   cursor: pointer;
 }
+
+/* LAYOUT HELPERS ////////////////////////////////////////// */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* VIEWPORT-BASED LAYOUTS /////////////////////////////// */
+.vp {
+  width: 100vw;
+  height: var(--vph);
+}
+
+.pr {
+  width: var(--pw);
+  height: var(--ph);
+}
+
+.lr {
+  width: var(--lw);
+  height: var(--lh);
+}

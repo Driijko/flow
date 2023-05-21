@@ -13,7 +13,7 @@ export default function viewportCSS() {
 
   // ACTUAL VIEWPORT HEIGHT ------------
   document.documentElement.style.setProperty(
-    "--vp-height", `${window.innerHeight}px`
+    "--vph", `${window.innerHeight}px`
   );
 
   // PORTRAIT UARR --------------------
