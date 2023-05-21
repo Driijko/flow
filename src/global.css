@@ -164,3 +164,9 @@ a, button, label, input {
   }
 }
 
+/* FONTS ///////////////////////////////////////////////////////// */
+:root {
+  font-family: "Arial", sans-serif;
+  color: black;
+  font-weight: 400;
+}
