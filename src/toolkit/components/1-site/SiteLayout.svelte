@@ -1,10 +1,10 @@
 <!-- SCRIPTS /////////////////////////////////////////// -->
 <script>
   import { layoutBreakpoint } from "../../data/dynamic/layoutBreakpointStore";
-  import siteSettings from "../../data/static/siteSettings";
+  import InterfaceArea from "./InterfaceArea.svelte";
 </script>
 
-<div class="vp" 
+<div id="this" class="vp" 
   class:center={$layoutBreakpoint !== "4K"}
 >
   <!-- <slot name="vp" /> -->
@@ -18,13 +18,10 @@
       <slot name="content" />
     </div>
   {:else}
-    <div class="interface-area center" 
-      style="min-width:{siteSettings.minPortraitWidth}px;max-width:{siteSettings.maxPortraitWidth}px;"
-    >
-      Interface
-    </div>
+    <InterfaceArea />
     <div class="content-area center">
-      <div class="elr">content</div>
+      <div class="content-container">
+      </div>
     </div>
   {/if}
 
@@ -34,17 +31,23 @@
   .vp {
     display: flex;
   }
-  div {
-    border: 4px solid red;
-  }
   .interface-area, .content-area {
     height: 100%;
     
   }
-  .interface-area {
+  #this :global(.interface-area) {
     flex: 2;
+    border: 4px solid blue;
   }
   .content-area {
     flex: 1;
+    border: 4px solid red;
+  }
+  .content-container {
+    width: 100%;
+    max-width: 1920px;
+    border: 4px solid blue;
+    padding-bottom: 56.25%;
+    border: 4px solid green;
   }
 </style>

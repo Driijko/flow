@@ -8,10 +8,20 @@
   import InterfaceAreaButton 
   from "./toolkit/components/6-elements/interface/modal/InterfaceAreaButton.svelte";
   import { interfaceArea } from "./toolkit/data/dynamic/modalsStore";
+  import calcUARR from "./toolkit/scripts/utils/calcUARR";
+  import { onMount } from "svelte";
 
   updateLayoutBreakpoint();
   viewportCSS();
   updateOnResize();
+
+  let container;
+  const size = {width: 0, height: 0};
+  onMount(()=> {
+    const calc = calcUARR(container.offsetWidth, container.offsetHeight, 16, 9, 640, 360);
+    size.width = calc.width;
+    size.height = calc.height;
+  });
 
 </script>
 
@@ -19,13 +29,26 @@
 <!-- <SiteLayout >
   <div slot="content">hey</div>
 </SiteLayout> -->
-<p>{$interfaceArea}</p>
-<InterfaceAreaButton />
+<!-- <div bind:this={container} class="container">
+  <div class="inner"
+    style="width:{size.width}px;height:{size.height}px"
+  ></div>
+</div> -->
+<div class="vp center">
+  <div class="pr"></div>
+</div>
+
 
 <!-- STYLES ///////////////////////////////////// -->
 <style>
- div {
+ .vp {
   border: 4px solid blue;
-  width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .pr {
+  background-color: red;
+  border: 4px solid green;
  }
 </style>

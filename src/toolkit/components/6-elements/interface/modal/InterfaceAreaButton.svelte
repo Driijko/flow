@@ -11,7 +11,7 @@
 
   onMount(()=> {
     animation = (state,duration) => {
-      gsap.set(".interface-area-button svg", {transformOrigin: "50% 50%"});
+      gsap.set(".interface-area-button svg", {transformOrigin: "65% 50%"});
       if (state === "close") {
         gsap.to(".interface-area-button svg", {
           duration: duration,
@@ -38,7 +38,8 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////////// -->
-<button class="interface-area-button" type="button" 
+<button class="interface-area-button" type="button"
+class:open={$interfaceArea} 
   on:click={()=> modals.toggle("interfaceArea")}
 >
   <RightArrowIcon />
