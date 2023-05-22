@@ -1,8 +1,7 @@
 <!-- SCRIPTS /////////////////////////////////////////// -->
 <script>
-  import { layoutBreakpoint } 
-  from "../../toolkit/data/dynamic/layoutBreakpointStore";
-  import siteSettings from "../../toolkit/data/static/siteSettings";
+  import { layoutBreakpoint } from "../../data/dynamic/layoutBreakpointStore";
+  import siteSettings from "../../data/static/siteSettings";
 </script>
 
 <div class="vp" 

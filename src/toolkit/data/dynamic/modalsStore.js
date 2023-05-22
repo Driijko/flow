@@ -7,6 +7,7 @@ export const interfaceArea = writable(false);
 // MAP ------------------------------------
 const map = {
   siteMenu: siteMenuModal,
+  interfaceArea: interfaceArea,
 };
 
 // FUNCTIONS ---------------------------------
