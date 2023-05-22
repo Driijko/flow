@@ -5,11 +5,11 @@ function determineBreakpoint() {
   if (window.innerWidth <= window.innerHeight) {
     return "mobile";
   } else {
-    if ((window.innerWidth - siteSettings.maxLandscapeWidth) 
-      >= siteSettings.minPortraitWidth) {
-        return "4K";
+    if ((window.innerWidth - siteSettings.maxLandscape[0]) 
+      >= siteSettings.minInterfaceAreaWidth) {
+        return "large-desktop";
       } else {
-        return "HD";
+        return "small-desktop";
       };
   };
 };

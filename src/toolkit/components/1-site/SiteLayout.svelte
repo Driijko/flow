@@ -5,7 +5,7 @@
 </script>
 
 <div id="this" class="vp" 
-  class:center={$layoutBreakpoint !== "4K"}
+  class:center={$layoutBreakpoint !== "large-desktop"}
 >
   <!-- <slot name="vp" /> -->
 
@@ -13,16 +13,16 @@
     <div class="pr">
       <slot name="content" />
     </div>
-  {:else if $layoutBreakpoint === "HD"}
+  {:else if $layoutBreakpoint === "small-desktop"}
     <div class="elr">
       <slot name="content" />
     </div>
   {:else}
     <InterfaceArea />
-    <div class="content-area center">
+    <!-- <div class="content-area center">
       <div class="content-container">
       </div>
-    </div>
+    </div> -->
   {/if}
 
 </div>
@@ -37,7 +37,6 @@
   }
   #this :global(.interface-area) {
     flex: 2;
-    border: 4px solid blue;
   }
   .content-area {
     flex: 1;
@@ -46,7 +45,6 @@
   .content-container {
     width: 100%;
     max-width: 1920px;
-    border: 4px solid blue;
     padding-bottom: 56.25%;
     border: 4px solid green;
   }

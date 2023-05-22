@@ -9,13 +9,16 @@
 <!-- MARKUP //////////////////////////////////// -->
 <InterfaceAreaButton />
 <div class="interface-area center"
-class:open={$interfaceArea}
-  style="
-  min-width:{$interfaceArea ? siteSettings.minPortraitWidth: 0}px;
-  max-width:{$interfaceArea ? siteSettings.maxPortraitWidth: 0}px;
-  "
->
-
+class:open={$interfaceArea}>
+  <!-- <div style="
+  min-width:{siteSettings.minInterfaceAreaWidth}px;
+  max-width:{siteSettings.maxInterfaceAreaWidth}px;
+  ">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, exercitationem? Inventore labore perspiciatis, iste optio dignissimos unde odio vitae, in quisquam provident dolores veritatis earum quam vel architecto enim cumque?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque eos veniam rerum consequatur nisi. Quos iure rem architecto doloribus odit impedit voluptas tenetur. Illum, quae ipsa. Eos veritatis totam sed!
+    </p>
+  </div> -->
 </div>
 
 <!-- STYLES ////////////////////////////////////// -->
@@ -33,8 +36,15 @@ class:open={$interfaceArea}
   top: 20px;
 }
 .interface-area {
-  transition-property: min-width, max-width;
+  transition-property: max-width;
   transition-timing-function: ease-out;
   transition-duration: 0.5s;
+  overflow:hidden;
+  max-width: 0;
+  background-color: blue;
 }
+.interface-area.open {
+  max-width: var(--interface-area-width);
+}
+
 </style>
