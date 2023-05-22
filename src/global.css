@@ -151,6 +151,19 @@ a, button, label, input {
   height: var(--lh);
 }
 
+@media screen and (max-width: 1920px) {
+  .elr {
+    width: var(--lw);
+    height: var(--lh);
+  }
+}
+@media screen and (min-width: 1921px) {
+  .elr {
+    width: 1920px;
+    height: 1080px;
+  }
+}
+
 /* PORTRAIT / LANDSCAPE DUALISM ///////////////////////////// */
 @media screen and (orientation: portrait) {
   .landscape {
