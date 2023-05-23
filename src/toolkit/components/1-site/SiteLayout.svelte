@@ -13,7 +13,14 @@
   class:center={$layoutBreakpoint !== "large-desktop"}
 >
   {#if $currentPageLayout === "layout1"}
-    <slot />
+    <slot name="vp" />
+
+  {:else if $currentPageLayout === "layout2"}
+    <slot name="vp" />
+    
+    <div class="pr">
+      <slot name="pr" />
+    </div>
   {/if}
   <!-- <slot name="squishy" />
 

@@ -11,11 +11,11 @@
     fade = true;
   }
 
-  // setPageExit(pageExit, 2000);
+  setPageExit(pageExit, 2000);
 
   // EVENT HANDLERS --------------------------
   function handleLoad() {
-    // newPage("opening-prompt");
+    newPage("opening-prompt");
   };
   
   // LOAD EVENT ----------------------------------
@@ -29,7 +29,7 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////////////////////////////// -->
-<div class="loading-page vp" class:fade>
+<div class="loading-page vp center" class:fade>
   <div></div>
   <div></div>
   <p>Loading...</p>
@@ -38,23 +38,22 @@
 <!-- STYLES ///////////////////////////////////////////////////////// -->
 <style>
 .loading-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: opacity 2s ease-out;
 }
+
 .fade {
   opacity: 0;
 }
+
 p {
   z-index: 1;
 }
+
 .loading-page div {
   position: absolute;
   border-radius: 50%;
   border-style: solid;
   border-color: black;
-  border-width: 1vw;
 }
 
 .loading-page div:nth-of-type(1) {
@@ -63,6 +62,7 @@ p {
 .loading-page div:nth-of-type(2) {
   animation: rotateCounterClockwise 4s ease-in-out infinite;
 }
+
 /* PORTRAIT -------------------------------- */
 @media screen and (orientation: portrait) {
   p {
@@ -82,7 +82,7 @@ p {
   .loading-page div {
     width: 50%;
     height: 40%;
-    border-width: calc(var(--lh)/100);
+    border-width: calc(var(--lw)/200);
   }
 }
 </style>
