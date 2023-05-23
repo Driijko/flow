@@ -1,10 +1,16 @@
 <!-- SCRIPTS /////////////////////////////////////////// -->
 <script>
   // IMPORTS ------------------------------------------
+  import { onMount } from "svelte";
   import { layoutBreakpoint } 
   from "../../data/dynamic/layoutBreakpointStore";
-  import { currentPageLayout } from "../../data/dynamic/currentPageStore";
   import InterfaceArea from "./InterfaceArea.svelte";
+
+  // ELEMENTS ----------------------------------------
+  let mobileContainer;
+  let smallDesktopContainer;
+  let largeDesktopContainer;
+
 
 </script>
 
@@ -17,20 +23,20 @@
 
   {#if $layoutBreakpoint === "mobile"}
 
-    <div class="pr">
+    <div bind:this={mobileContainer} class="pr">
       <slot name="uarr" />
     </div>
 
   {:else if $layoutBreakpoint === "small-desktop"}
     
-    <div class="lr">
+    <div bind:this={smallDesktopContainer} class="elr">
       <slot name="uarr" />
     </div>
 
   {:else}
     <InterfaceArea />
     <div class="content-area center">
-      <div class="content-container elr">
+      <div bind:this={largeDesktopContainer} class="content-container elr">
         <slot name="uarr" />
       </div>
 

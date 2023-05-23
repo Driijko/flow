@@ -9,39 +9,39 @@
     import siteSettings from "../../data/static/siteSettings";
 
   // ELEMENT REFERENCE -----------------------------
-  let stableOverflowElement;
+  // let stableOverflowElement;
 
   // INTERFACE CONTAINER SIZE -----------------------
-  const interfaceContainerSize = {
-    width: 0,
-    height: 0,
-  };
+  // const interfaceContainerSize = {
+  //   width: 0,
+  //   height: 0,
+  // };
   
-  function calcContainerSize() {
-    const calc = calcUARR(
-      stableOverflowElement.offsetWidth 
-      - (siteSettings.interfaceAreaPadding * 2), 
-      stableOverflowElement.offsetHeight,
-      siteSettings.portraitUARR[0],
-      siteSettings.portraitUARR[1]
-    );
-    interfaceContainerSize.width = calc.width;
-    interfaceContainerSize.height = calc.height;
-  }
+  // function calcContainerSize() {
+  //   const calc = calcUARR(
+  //     stableOverflowElement.offsetWidth 
+  //     - (siteSettings.interfaceAreaPadding * 2), 
+  //     stableOverflowElement.offsetHeight,
+  //     siteSettings.portraitUARR[0],
+  //     siteSettings.portraitUARR[1]
+  //   );
+  //   interfaceContainerSize.width = calc.width;
+  //   interfaceContainerSize.height = calc.height;
+  // }
 
-  onMount(calcContainerSize);
+  // onMount(calcContainerSize);
 
   // EVENT LISTENERS -----------------------------
-  onMount(()=> {
-    const observer = new ResizeObserver(calcContainerSize);
-    observer.observe(stableOverflowElement);
-    return ()=> observer.unobserve(stableOverflowElement);
-  });
+  // onMount(()=> {
+  //   const observer = new ResizeObserver(calcContainerSize);
+  //   observer.observe(stableOverflowElement);
+  //   return ()=> observer.unobserve(stableOverflowElement);
+  // });
 
 </script>
 
 <!-- MARKUP //////////////////////////////////// -->
-<InterfaceAreaButton />
+<!-- <InterfaceAreaButton />
 <div class="interface-area center" class:open={$interfaceArea}>
   
   <div bind:this={stableOverflowElement} class="stable-overflow center">
@@ -53,6 +53,15 @@
     >
     </div>
   </div>
+</div> -->
+<InterfaceAreaButton />
+<div class="interface-area center" class:open={$interfaceArea}>
+  
+  <div class="stable-overflow center">
+
+    <div class="interface-container">
+    </div>
+  </div>
 </div>
 
 <!-- STYLES ////////////////////////////////////// -->
@@ -62,9 +71,6 @@
   width: 25px;
   height: 25px;
   top: calc((var(--vph)/2) - 25px);
-  transition-property: top;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-out;
   z-index: 1;
 }
 .interface-area {
@@ -85,6 +91,8 @@
   height: var(--vph);
 }
 .interface-container {
+  width: var(--iw);
+  height: var(--ih);
   background-color: red;
 }
 </style>

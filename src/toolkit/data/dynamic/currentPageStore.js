@@ -2,24 +2,17 @@ import { writable } from "svelte/store";
 import siteSettings from "../static/siteSettings";
 
 // STATE ----------------------------------------
-export const currentPageName = writable(siteSettings.startingPageName);
-export const currentPageLayout = writable("layout1");
+export const currentPage = writable(siteSettings.startingPageName);
 const currentPageExit = {
   exitMethod: ()=> null,
   duration: 0,
-};
-
-// MAP: name to layout -----------------------------
-const map = {
-  loading: "layout1",
 };
 
 // FUNCTIONS -----------------------------------
 export function newPage(pageName) {
   currentPageExit.exitMethod();
   const timerId = setTimeout(()=> {
-    currentPageName.set(pageName);
-    currentPageLayout.set(map[pageName]);
+    currentPage.set(pageName);
     clearTimeout(timerId);
   },currentPageExit.duration);
 };
