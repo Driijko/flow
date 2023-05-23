@@ -3,6 +3,11 @@ import calcUARR from "../utils/calcUARR";
 
 export default function viewportCSS() {
 
+  // ACTUAL VIEWPORT HEIGHT ------------
+  document.documentElement.style.setProperty(
+    "--vph", `${window.innerHeight}px`
+  );
+
   // PORTRAIT UARR ---------------------
   const portraitUARR = calcUARR(
     window.innerWidth, window.innerHeight,
@@ -18,8 +23,7 @@ export default function viewportCSS() {
   // LANDSCAPE UARR ---------------------
   const landscapeUARR = calcUARR(
     window.innerWidth, window.innerHeight,
-    siteSettings.landscapeUARR[0], siteSettings.landscapeUARR[1],
-    siteSettings.maxLandscape[0], siteSettings.maxLandscape[1]
+    siteSettings.landscapeUARR[0], siteSettings.landscapeUARR[1]
   );
   document.documentElement.style.setProperty(
     "--lw", `${landscapeUARR.width}px`
@@ -28,11 +32,20 @@ export default function viewportCSS() {
     "--lh", `${landscapeUARR.height}px`
   );
 
-  // ACTUAL VIEWPORT HEIGHT ------------
+  // EMBEDDED LANDSCAPE UARR ---------------------
+  const embeddedLandscapeUARR = calcUARR(
+    window.innerWidth, window.innerHeight,
+    siteSettings.landscapeUARR[0], siteSettings.landscapeUARR[1],
+    siteSettings.maxLandscape[0], siteSettings.maxLandscape[1]
+  );
   document.documentElement.style.setProperty(
-    "--vph", `${window.innerHeight}px`
+    "--elw", `${embeddedLandscapeUARR.width}px`
+  );
+  document.documentElement.style.setProperty(
+    "--elh", `${embeddedLandscapeUARR.height}px`
   );
 
+  // INTERFACE AREA WIDTH -----------------------------------
   const availableWidth = window.innerWidth - siteSettings.maxLandscape[0];
   if (availableWidth >= siteSettings.minInterfaceAreaWidth) {
     if (availableWidth >= siteSettings.maxInterfaceAreaWidth) {
