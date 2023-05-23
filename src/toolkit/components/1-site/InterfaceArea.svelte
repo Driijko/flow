@@ -22,7 +22,8 @@
       stableOverflowElement.offsetWidth 
       - (siteSettings.interfaceAreaPadding * 2), 
       stableOverflowElement.offsetHeight,
-      9, 16
+      siteSettings.portraitUARR[0],
+      siteSettings.portraitUARR[1]
     );
     interfaceContainerSize.width = calc.width;
     interfaceContainerSize.height = calc.height;
@@ -41,9 +42,10 @@
 
 <!-- MARKUP //////////////////////////////////// -->
 <InterfaceAreaButton />
-<div class="interface-area center"
-class:open={$interfaceArea}>
+<div class="interface-area center" class:open={$interfaceArea}>
+  
   <div bind:this={stableOverflowElement} class="stable-overflow center">
+
     <div class="interface-container" style="
       width:{interfaceContainerSize.width}px;
       height:{interfaceContainerSize.height}px;

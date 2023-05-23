@@ -142,26 +142,17 @@ a, button, label, input {
 }
 
 .pr {
+  position: relative;
   width: var(--pw);
   height: var(--ph);
+  background-color: blue;
 }
 
 .lr {
+  position: relative;
   width: var(--lw);
   height: var(--lh);
-}
-
-@media screen and (max-width: 1920px) {
-  .elr {
-    width: var(--lw);
-    height: var(--lh);
-  }
-}
-@media screen and (min-width: 1921px) {
-  .elr {
-    width: 1920px;
-    height: 1080px;
-  }
+  background-color: red;
 }
 
 /* PORTRAIT / LANDSCAPE DUALISM ///////////////////////////// */
