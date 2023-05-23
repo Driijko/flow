@@ -3,13 +3,18 @@
   // IMPORTS -----------------------------------
   import { currentPageName } from "../../data/dynamic/currentPageStore";
   import LoadingPage from "../2-pages/LoadingPage.svelte";
-  import TestPage from "../2-pages/TestPage.svelte";
+  import SiteLayout from "./SiteLayout.svelte";
+  import SplashPage from "../2-pages/SplashPage.svelte";
 
 </script>
 
 <!-- MARKUP ////////////////////////////////////////////// -->
 {#if $currentPageName === "loading"}
   <LoadingPage />
-{:else if $currentPageName === "test"}
-  <TestPage />
+{:else}
+  <SiteLayout>
+    {#if $currentPageName === "splash"}
+      <SplashPage />
+    {/if}
+  </SiteLayout>
 {/if}

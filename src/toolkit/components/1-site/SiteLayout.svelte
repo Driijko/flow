@@ -12,17 +12,8 @@
 <div id="this" class="vp" 
   class:center={$layoutBreakpoint !== "large-desktop"}
 >
-  {#if $currentPageLayout === "layout1"}
-    <slot name="vp" />
 
-  {:else if $currentPageLayout === "layout2"}
-    <slot name="vp" />
-    
-    <div class="pr">
-      <slot name="pr" />
-    </div>
-  {/if}
-  <!-- <slot name="squishy" />
+  <slot name="vp" />
 
   {#if $layoutBreakpoint === "mobile"}
 
@@ -39,12 +30,12 @@
   {:else}
     <InterfaceArea />
     <div class="content-area center">
-      <div class="content-container lr">
+      <div class="content-container elr">
         <slot name="uarr" />
       </div>
 
     </div>
-  {/if} -->
+  {/if}
 
 </div>
 

@@ -5,7 +5,7 @@ const siteSettings = {
   minInterfaceAreaWidth: 400,
   maxInterfaceAreaWidth: 780,
   interfaceAreaPadding: 40,
-  startingPageName: "test",
+  startingPageName: "loading",
 }
 
 export default siteSettings;
