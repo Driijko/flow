@@ -3,6 +3,7 @@
   // IMPORTS ------------------------------------------
   import { layoutBreakpoint } 
   from "../../data/dynamic/layoutBreakpointStore";
+  import { currentPageLayout } from "../../data/dynamic/currentPageStore";
   import InterfaceArea from "./InterfaceArea.svelte";
 
 </script>
@@ -11,23 +12,23 @@
 <div id="this" class="vp" 
   class:center={$layoutBreakpoint !== "large-desktop"}
 >
-  <slot name="squishy" />
+  {#if $currentPageLayout === "layout1"}
+    <slot />
+  {/if}
+  <!-- <slot name="squishy" />
 
-  <!-- MOBILE/PORTRAIT ----------------------- -->
   {#if $layoutBreakpoint === "mobile"}
 
     <div class="pr">
       <slot name="uarr" />
     </div>
 
-  <!-- SMALL DESKTOP ----------------------- -->
   {:else if $layoutBreakpoint === "small-desktop"}
     
     <div class="lr">
       <slot name="uarr" />
     </div>
 
-  <!-- LARGE DESKTOP ----------------------- -->
   {:else}
     <InterfaceArea />
     <div class="content-area center">
@@ -36,7 +37,7 @@
       </div>
 
     </div>
-  {/if}
+  {/if} -->
 
 </div>
 
