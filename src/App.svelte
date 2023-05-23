@@ -8,12 +8,14 @@
 </script>
 
 <!-- MARKUP ///////////////////////////////////// -->
-<Router />
-
-
-
+<!-- <Router /> -->
+<div class="vp center">
+  <div class="elr"></div>
+</div>
 
 <!-- STYLES ///////////////////////////////////// -->
 <style>
-
+.elr {
+  border: 4px solid blue;
+}
 </style>

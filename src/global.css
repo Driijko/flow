@@ -145,14 +145,18 @@ a, button, label, input {
   position: relative;
   width: var(--pw);
   height: var(--ph);
-  background-color: blue;
 }
 
 .lr {
   position: relative;
   width: var(--lw);
   height: var(--lh);
-  background-color: red;
+}
+
+.elr {
+  position: relative;
+  width: var(--elw);
+  height: var(--elh);
 }
 
 /* PORTRAIT / LANDSCAPE DUALISM ///////////////////////////// */
