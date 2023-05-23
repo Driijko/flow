@@ -39,7 +39,6 @@
 
 <!-- MARKUP ///////////////////////////////////////// -->
 <button class="interface-area-button" type="button"
-class:open={$interfaceArea} 
   on:click={()=> modals.toggle("interfaceArea")}
 >
   <RightArrowIcon />

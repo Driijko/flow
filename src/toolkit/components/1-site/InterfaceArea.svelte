@@ -4,9 +4,9 @@
   import { onMount } from "svelte";
   import calcUARR from "../../scripts/utils/calcUARR";
   import { interfaceArea } from "../../data/dynamic/modalsStore";
-  import siteSettings from "../../data/static/siteSettings";
   import InterfaceAreaButton 
   from "../6-elements/interface/modal/InterfaceAreaButton.svelte";
+    import siteSettings from "../../data/static/siteSettings";
 
   // ELEMENT REFERENCE -----------------------------
   let stableOverflowElement;
@@ -19,7 +19,9 @@
   
   function calcContainerSize() {
     const calc = calcUARR(
-      stableOverflowElement.offsetWidth, stableOverflowElement.offsetHeight,
+      stableOverflowElement.offsetWidth 
+      - (siteSettings.interfaceAreaPadding * 2), 
+      stableOverflowElement.offsetHeight,
       9, 16
     );
     interfaceContainerSize.width = calc.width;
@@ -27,6 +29,13 @@
   }
 
   onMount(calcContainerSize);
+
+  // EVENT LISTENERS -----------------------------
+  onMount(()=> {
+    const observer = new ResizeObserver(calcContainerSize);
+    observer.observe(stableOverflowElement);
+    return ()=> observer.unobserve(stableOverflowElement);
+  });
 
 </script>
 
@@ -40,7 +49,6 @@ class:open={$interfaceArea}>
       height:{interfaceContainerSize.height}px;
       "
     >
-
     </div>
   </div>
 </div>
@@ -56,9 +64,6 @@ class:open={$interfaceArea}>
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
   z-index: 1;
-}
-:global(.interface-area-button.open) {
-  top: 20px;
 }
 .interface-area {
   position: relative;

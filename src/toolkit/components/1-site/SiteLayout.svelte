@@ -14,38 +14,34 @@
       <slot name="content" />
     </div>
   {:else if $layoutBreakpoint === "small-desktop"}
-    <div class="elr">
+    <div class="lr">
       <slot name="content" />
     </div>
   {:else}
     <InterfaceArea />
-    <!-- <div class="content-area center">
-      <div class="content-container">
+    <div class="content-area center">
+      <div class="content-container lr">
+        <slot />
       </div>
-    </div> -->
+    </div>
   {/if}
 
 </div>
 
 <style>
-  .vp {
-    display: flex;
-  }
-  .interface-area, .content-area {
-    height: 100%;
-    
-  }
-  #this :global(.interface-area) {
-    flex: 2;
-  }
-  .content-area {
-    flex: 1;
-    border: 4px solid red;
-  }
-  .content-container {
-    width: 100%;
-    max-width: 1920px;
-    padding-bottom: 56.25%;
-    border: 4px solid green;
-  }
+.vp {
+  display: flex;
+}
+#this :global(.interface-area) {
+  flex: 2;
+}
+.content-area {
+  flex: 1;
+}
+.content-area {
+  background-color: skyblue;
+}
+.content-container {
+  background-color: white;
+}
 </style>

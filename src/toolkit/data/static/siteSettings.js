@@ -1,9 +1,10 @@
 const siteSettings = {
   portraitUARR: [9,16],
   landscapeUARR: [16,9],
-  maxLandscape: [1920,1080],
-  minInterfaceAreaWidth: 320,
-  maxInterfaceAreaWidth: 600,
+  maxLandscape: [1600,900],
+  minInterfaceAreaWidth: 400,
+  maxInterfaceAreaWidth: 780,
+  interfaceAreaPadding: 40,
   startingPageName: "loading",
 }
 
