@@ -5,6 +5,10 @@
 </svg>
 
 <style>
+svg {
+  width: 100%;
+  height: 100%;
+}
 line {
   stroke-width: 20;
   stroke-linecap: round;

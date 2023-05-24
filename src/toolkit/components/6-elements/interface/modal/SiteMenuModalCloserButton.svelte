@@ -2,13 +2,13 @@
 <script>
   // IMPORTS ----------------------------------------------------
   import { modals } from "../../../../data/dynamic/modalsStore";
-  import MenuIcon from "../../icons/interface/MenuIcon.svelte";
+  import XIcon from "../../icons/interface/XIcon.svelte";
 
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
 <button type="button" class="site-menu-modal-button" 
-  on:click={()=>modals.open("siteMenu")}
+  on:click={()=>modals.close("siteMenu")}
 >
-  <MenuIcon />
+  <XIcon />
 </button>
