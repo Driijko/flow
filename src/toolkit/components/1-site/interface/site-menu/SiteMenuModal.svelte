@@ -1,25 +1,24 @@
 <!-- SCRIPTS /////////////////////////////////// -->
 <script>
   // IMPORTS -----------------------------
-  import { layoutBreakpoint } from "../../../../data/dynamic/layoutBreakpointStore";
   import { siteMenuModal } from "../../../../data/dynamic/modalsStore";
   import shift from "../../../../scripts/transitions/shift";
   
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
-<div class="site-menu" >
-  <header>
-    <h1>FLOW</h1>
-    <h2>A front-end web-development framework</h2>
-  </header>
-</div>
+{#if $siteMenuModal}
+  <div class="site-menu-modal" 
+    transition:shift="{{y:window.innerHeight,duration:1000}}"
+  >
+    <slot />
+  </div>
+{/if}
 
 <!-- STYLES ///////////////////////////////////// -->
 <style>
-.site-menu {
+.site-menu-modal {
   position: absolute;
-  pointer-events: initial;
   width: 100%;
   height: 100%;
   background-color: pink;

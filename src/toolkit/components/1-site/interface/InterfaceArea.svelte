@@ -4,6 +4,7 @@
   import { interfaceArea } from "../../../data/dynamic/modalsStore";
   import InterfaceAreaButton 
   from "../../6-elements/interface/modal/InterfaceAreaButton.svelte";
+  import SiteMenu from "./site-menu/SiteMenu.svelte";
 
 </script>
 
@@ -14,7 +15,7 @@
   <div class="stable-overflow center">
 
     <div class="interface-container">
-
+      <SiteMenu />
     </div>
   </div>
 </div>

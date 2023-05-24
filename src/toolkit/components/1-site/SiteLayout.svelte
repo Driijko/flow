@@ -5,6 +5,9 @@
   from "../../data/dynamic/layoutBreakpointStore";
   import InterfaceArea from "./interface/InterfaceArea.svelte";
   import SiteInterface from "./interface/SiteInterface.svelte";
+  import SiteToolbar from "./interface/SiteToolbar.svelte";
+  import SiteMenuModal from "./interface/site-menu/SiteMenuModal.svelte";
+  import SiteMenu from "./interface/site-menu/SiteMenu.svelte";
 
 </script>
 
@@ -15,7 +18,7 @@
 
   <slot name="background" />
 
-  {#if $layoutBreakpoint === "mobile"}
+  {#if $layoutBreakpoint !== "large-desktop"}
 
     <div class="content-container">
       <slot name="content" />
@@ -23,19 +26,10 @@
 
     <div class="interface-vp">
       <div class="interface-container">
-        <SiteInterface />
-      </div>
-    </div>
-
-  {:else if $layoutBreakpoint === "small-desktop"}
-    
-    <div class="content-container">
-      <slot name="content" />
-    </div>
-
-    <div class="interface-vp">
-      <div class="interface-container">
-        <SiteInterface />
+        <SiteToolbar />
+        <SiteMenuModal>
+          <SiteMenu />
+        </SiteMenuModal>
       </div>
     </div>
 
