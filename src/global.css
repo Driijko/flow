@@ -147,8 +147,18 @@ a, button, label, input {
   height: var(--ch);
 }
 
+.interface-vp {
+  position: absolute;
+  width: 100vw;
+  height: var(--vph);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
 .interface-container {
-  position: relative;
+  position: absolute;
   width: var(--iw);
   height: var(--ih);
 }

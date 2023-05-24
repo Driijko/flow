@@ -14,7 +14,7 @@
   <LoadingPage />
 {:else}
   <SiteLayout>
-    <BackgroundRouter slot="vp" />
-    <ContentRouter slot="uarr" />
+    <BackgroundRouter slot="background" />
+    <ContentRouter slot="content" />
   </SiteLayout>
 {/if}

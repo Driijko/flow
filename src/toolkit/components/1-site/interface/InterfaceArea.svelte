@@ -1,9 +1,9 @@
 <!-- SCRIPTS ////////////////////////////////////// -->
 <script>
   // IMPORTS --------------------------------------------------
-  import { interfaceArea } from "../../data/dynamic/modalsStore";
+  import { interfaceArea } from "../../../data/dynamic/modalsStore";
   import InterfaceAreaButton 
-  from "../6-elements/interface/modal/InterfaceAreaButton.svelte";
+  from "../../6-elements/interface/modal/InterfaceAreaButton.svelte";
 
 </script>
 
