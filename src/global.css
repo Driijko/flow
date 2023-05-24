@@ -141,22 +141,16 @@ a, button, label, input {
   height: var(--vph);
 }
 
-.pr {
+.content-container {
   position: relative;
-  width: var(--pw);
-  height: var(--ph);
+  width: var(--cw);
+  height: var(--ch);
 }
 
-.lr {
+.interface-container {
   position: relative;
-  width: var(--lw);
-  height: var(--lh);
-}
-
-.elr {
-  position: relative;
-  width: var(--elw);
-  height: var(--elh);
+  width: var(--iw);
+  height: var(--ih);
 }
 
 /* PORTRAIT / LANDSCAPE DUALISM ///////////////////////////// */

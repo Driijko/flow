@@ -1,8 +1,8 @@
 import { writable } from "svelte/store";
-import siteSettings from "../static/siteSettings";
+import { startingPageName } from "../static/siteSettings";
 
 // STATE ----------------------------------------
-export const currentPage = writable(siteSettings.startingPageName);
+export const currentPage = writable(startingPageName);
 const currentPageExit = {
   exitMethod: ()=> null,
   duration: 0,

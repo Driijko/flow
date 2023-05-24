@@ -23,13 +23,13 @@
 
   {#if $layoutBreakpoint === "mobile"}
 
-    <div bind:this={mobileContainer} class="pr">
+    <div bind:this={mobileContainer} class="content-container">
       <slot name="uarr" />
     </div>
 
   {:else if $layoutBreakpoint === "small-desktop"}
     
-    <div bind:this={smallDesktopContainer} class="elr">
+    <div bind:this={smallDesktopContainer} class="content-container">
       <slot name="uarr" />
     </div>
 
