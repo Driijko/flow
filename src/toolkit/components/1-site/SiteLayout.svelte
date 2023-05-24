@@ -4,7 +4,6 @@
   import { layoutBreakpoint } 
   from "../../data/dynamic/layoutBreakpointStore";
   import InterfaceArea from "./interface/InterfaceArea.svelte";
-  import SiteInterface from "./interface/SiteInterface.svelte";
   import SiteToolbar from "./interface/SiteToolbar.svelte";
   import SiteMenuModal from "./interface/site-menu/SiteMenuModal.svelte";
   import SiteMenu from "./interface/site-menu/SiteMenu.svelte";

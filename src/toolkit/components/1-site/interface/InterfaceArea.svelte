@@ -1,7 +1,7 @@
 <!-- SCRIPTS ////////////////////////////////////// -->
 <script>
   // IMPORTS --------------------------------------------------
-  import { interfaceArea } from "../../../data/dynamic/modalsStore";
+  import { siteMenuModal } from "../../../data/dynamic/modalsStore";
   import InterfaceAreaButton 
   from "../../6-elements/interface/modal/InterfaceAreaButton.svelte";
   import SiteMenu from "./site-menu/SiteMenu.svelte";
@@ -10,7 +10,7 @@
 
 <!-- MARKUP //////////////////////////////////// -->
 <InterfaceAreaButton />
-<div class="interface-area center" class:open={$interfaceArea}>
+<div class="interface-area center" class:open={$siteMenuModal}>
   
   <div class="stable-overflow center">
 
