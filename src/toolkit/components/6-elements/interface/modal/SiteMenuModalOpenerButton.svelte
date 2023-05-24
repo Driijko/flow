@@ -7,7 +7,7 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
-<button type="button" class="site-menu-modal-button" 
+<button type="button" class="site-menu-modal-opener-button" 
   on:click={()=>modals.open("siteMenu")}
 >
   <MenuIcon />

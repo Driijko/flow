@@ -4,3 +4,6 @@
   import SiteToolbar from "./SiteToolbar.svelte";
   
 </script>
+
+<!-- MARKUP ///////////////////////////////// -->
+<SiteToolbar />

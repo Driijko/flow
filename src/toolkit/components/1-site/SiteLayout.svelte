@@ -4,6 +4,7 @@
   import { layoutBreakpoint } 
   from "../../data/dynamic/layoutBreakpointStore";
   import InterfaceArea from "./interface/InterfaceArea.svelte";
+  import SiteInterface from "./interface/SiteInterface.svelte";
 
 </script>
 
@@ -22,7 +23,7 @@
 
     <div class="interface-vp">
       <div class="interface-container">
-
+        <SiteInterface />
       </div>
     </div>
 
@@ -34,7 +35,7 @@
 
     <div class="interface-vp">
       <div class="interface-container">
-      
+        <SiteInterface />
       </div>
     </div>
 
@@ -54,8 +55,14 @@
 
 <!-- STYLES //////////////////////////////////////////// -->
 <style>
-.vp {
+#this {
   display: flex;
+}
+.interface-vp {
+  background-color: red;
+}
+.interface-container {
+  background-color: pink;
 }
 #this :global(.interface-area) {
   flex: 2;

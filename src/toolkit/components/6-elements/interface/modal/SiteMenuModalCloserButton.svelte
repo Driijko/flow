@@ -7,7 +7,7 @@
 </script>
 
 <!-- MARKUP /////////////////////////////////////////// -->
-<button type="button" class="site-menu-modal-button" 
+<button type="button" class="site-menu-modal-closer-button" 
   on:click={()=>modals.close("siteMenu")}
 >
   <XIcon />
