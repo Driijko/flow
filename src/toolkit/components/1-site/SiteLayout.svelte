@@ -58,12 +58,6 @@
 #this {
   display: flex;
 }
-.interface-vp {
-  background-color: red;
-}
-.interface-container {
-  background-color: pink;
-}
 #this :global(.interface-area) {
   flex: 2;
 }

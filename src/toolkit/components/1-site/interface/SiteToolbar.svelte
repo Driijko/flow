@@ -34,7 +34,7 @@
   justify-content: center;
   align-items: center;
 }
-.site-toolbar.mobile :global(.site-menu-modal-opener-button) {
+.site-toolbar.mobile :global(button) {
   width: 15%;
   height: 60%;
 }
@@ -43,10 +43,25 @@
   top: 0%;
   right: 0%;
 }
-.site-toolbar.desktop :global(.site-menu-modal-opener-button) {
+.site-toolbar.desktop :global(button) {
   background-color: black;
   width: calc(var(--iw) * 0.05);
   height: calc(var(--iw) * 0.05);
   padding: calc(var(--iw) * 0.012);
+}
+/* HOVER/FOCUS TRANSITIONS ----------------------------- */
+@media (hover:hover) {
+  .site-toolbar :global(svg) {
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+  .site-toolbar :global(button:hover svg),
+  .site-toolbar :global(button:focus-visible svg) {
+    transform: scale(1.3);
+  }
+  .site-toolbar :global(button:focus-visible) {
+    outline: calc(var(--iw) * 0.01) solid hsla(0, 0%, 50%, 0.5);
+  }
 }
 </style>
