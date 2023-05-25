@@ -31,13 +31,13 @@
   >
 
     <!-- BOTTOM LEVEL NAV LIST -------------------------------->
-    <ul>
+    <ul class="primary-nav">
       {#each navigationData.navigation.list as listItem}
         <li>
           <a href={listItem}
             on:click|preventDefault={()=> handleBranchClick(listItem, 1)}
           >
-            {navigationData[listItem].text}
+            {@html navigationData[listItem].text}
           </a>
         </li>
       {/each}

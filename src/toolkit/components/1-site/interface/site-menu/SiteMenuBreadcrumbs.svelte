@@ -58,12 +58,8 @@
   }
   li {
     color: hsl(0, 0%, 70%);
-    padding-right: 2%;
   }
   li.current {
     color: white;
-  }
-  li.last {
-    padding-right: 5%;
   }
 </style>

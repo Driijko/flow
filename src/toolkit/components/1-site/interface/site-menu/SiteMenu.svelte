@@ -80,8 +80,19 @@ header {
   height: 3.2%;
   font-size: calc(var(--iw)/19.3);
 }
+.site-menu.portrait :global(.site-menu-breadcrumbs li) {
+  padding-right: calc(var(--iw) * 0.02);
+}
 .site-menu.portrait :global(nav) {
   height: 78.8%;
+}
+.site-menu.portrait :global(.primary-nav) {
+  padding-left: calc(var(--iw) * 0.03);
+  font-size: calc(var(--iw) * 0.06);
+  line-height: 1.5;
+}
+.site-menu.portrait :global(.primary-nav li) {
+  margin-top: calc(var(--ih) * 0.02);
 }
 .site-menu.portrait :global(.site-menu-modal-closer-button) {
   width: 100%;
@@ -109,8 +120,27 @@ header {
   font-size: calc(var(--iw)/80);
   letter-spacing: calc(var(--iw)/1000);
 }
+.site-menu.landscape :global(.site-menu-breadcrumbs li) {
+  padding-right: calc(var(--iw) * 0.005);
+}
 .site-menu.landscape :global(nav) {
   height: 87%;
+  display: flex;
+}
+.site-menu.landscape :global(.primary-nav) {
+  padding-left: calc(var(--iw) * 0.02);
+  width: 32%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: calc(var(--ih) * 0.05);
+  font-size: calc(var(--iw) * 0.016);
+}
+.site-menu.landscape :global(.preview) {
+  background-color: pink;
+  width: 68%;
+  height: 100%;
 }
 .site-menu.landscape :global(.site-menu-modal-closer-button) {
   position: absolute;

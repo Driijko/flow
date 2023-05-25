@@ -21,39 +21,39 @@ const navigationData = {
     type: "page-link", text: "Introduction"
   },
   "chapter-1": {
-    type: "preview", text: "Chapter 1: Beginnings",
+    type: "preview", text: "1: Beginnings",
     component: Chapter1Preview,
   },
   "chapter-2": {
-    type: "preview", text: "Chapter 2: Breakthrough",
+    type: "preview", text: "2: Breakthrough",
     component: Chapter2Preview,
   },
   "chapter-3": {
-    type: "preview", text: "Chapter 3: Jazzy Nina",
+    type: "preview", text: "3: Jazzy Nina",
     component: null,
   },
   "chapter-4": {
-    type: "preview", text: "Chapter 4: Folksy Nina",
+    type: "preview", text: "4: Folksy Nina",
     component: null,
   },
   "chapter-5": {
-    type: "preview", text: "Chapter 5: Civil Rights",
+    type: "preview", text: "5: Civil Rights",
     component: null,
   },
   "chapter-6": {
-    type: "preview", text: "Chapter 6: Black Power",
+    type: "preview", text: "6: Black Power",
     component: null,
   },
   "chapter-7": {
-    type: "preview", text: "Chapter 7: Exile",
+    type: "preview", text: "7: Exile",
     component: null,
   },
   "chapter-8": {
-    type: "preview", text: "Chapter 8: The Later Years",
+    type: "preview", text: "8: The Later Years",
     component: null,
   },
   "appendix": {
-    type: "page-link", text: "Appendix: Listening to Nina Simone",
+    type: "page-link", text: "Appendix:<br/> Listening to Nina Simone",
   }
 }
 
