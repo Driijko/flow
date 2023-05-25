@@ -36,7 +36,7 @@
       </li>
     {/each}
   </ul>
-  <section class="preview">
+  <section class="preview-section">
     {#if $navigationLevels[0]}
       <svelte:component this={navigationData[$navigationLevels[0]].component} />
     {/if}

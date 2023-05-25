@@ -137,7 +137,7 @@ header {
   gap: calc(var(--ih) * 0.05);
   font-size: calc(var(--iw) * 0.016);
 }
-.site-menu.landscape :global(.preview) {
+.site-menu.landscape :global(.preview-section) {
   background-color: pink;
   width: 68%;
   height: 100%;
