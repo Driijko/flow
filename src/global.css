@@ -165,13 +165,13 @@ a, button, label, input {
 
 /* PORTRAIT / LANDSCAPE DUALISM ///////////////////////////// */
 @media screen and (orientation: portrait) {
-  .landscape {
+  .landscape-only {
     display: none;
   }
 }
 
 @media screen and (orientation: landscape) {
-  .portrait {
+  .portrait-only {
     display: none;
   }
 }

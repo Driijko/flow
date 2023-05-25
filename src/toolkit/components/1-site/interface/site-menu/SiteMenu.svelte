@@ -5,6 +5,7 @@
   import Navigation from "./navigation/Navigation.svelte";
   import SiteMenuModalCloserButton 
   from "../../../6-elements/interface/modal/SiteMenuModalCloserButton.svelte";
+  import SiteMenuBreadcrumbs from "./SiteMenuBreadcrumbs.svelte";
   
 </script>
 
@@ -17,12 +18,16 @@
     <h2>A front-end web-development framework</h2>
   </header>
 
-  <div class="site-menu-breadcrumbs">navigation</div>
+  <SiteMenuBreadcrumbs />
 
   <Navigation />
 
-  <SiteMenuModalCloserButton />
+  {#if $layoutBreakpoint !== "large-desktop"}
+    <SiteMenuModalCloserButton />
+  {/if}
 </div>
+
+
 
 <!-- STYLES ///////////////////////////////////// -->
 <style>
@@ -31,6 +36,8 @@
   pointer-events: initial;
   width: 100%;
   height: 100%;
+  top: 0%;
+  left: 0%;
   background-color: white;
 }
 
@@ -41,7 +48,7 @@ header {
   background-color: grey;
   padding-left: 1%;
 }
-.site-menu-breadcrumbs {
+.site-menu :global(.site-menu-breadcrumbs) {
   background-color: hsl(0, 0%, 20%);
   color: white;
   padding-left: 1%;
@@ -69,7 +76,7 @@ header {
 .site-menu.portrait h2 {
   font-size: calc(var(--iw)/24);
 }
-.site-menu.portrait .site-menu-breadcrumbs {
+.site-menu.portrait :global(.site-menu-breadcrumbs) {
   height: 3.2%;
   font-size: calc(var(--iw)/19.3);
 }
@@ -95,7 +102,7 @@ header {
 .site-menu.landscape h2 {
   font-size: calc(var(--iw)/60);
 }
-.site-menu.landscape .site-menu-breadcrumbs {
+.site-menu.landscape :global(.site-menu-breadcrumbs) {
   display: flex;
   align-items: center;
   height: 3%;
