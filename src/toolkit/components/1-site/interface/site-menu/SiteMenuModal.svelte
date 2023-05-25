@@ -8,11 +8,11 @@
 
 <!-- MARKUP /////////////////////////////////// -->
 {#if $siteMenuModal}
-  <div class="site-menu-modal" 
+  <dialog class="site-menu-modal" open
     transition:shift="{{y:window.innerHeight,duration:1000}}"
   >
     <slot />
-  </div>
+  </dialog>
 {/if}
 
 <!-- STYLES ///////////////////////////////////// -->
@@ -21,6 +21,5 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: pink;
 }
 </style>

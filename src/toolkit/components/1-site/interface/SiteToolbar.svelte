@@ -4,12 +4,14 @@
   import { layoutBreakpoint } from "../../../data/dynamic/layoutBreakpointStore";
   import SiteMenuModalOpenerButton 
   from "../../6-elements/interface/modal/SiteMenuModalOpenerButton.svelte";
+  import { siteMenuModal } from "../../../data/dynamic/modalsStore";
 </script>
 
 <!-- MARKUP /////////////////////////////////////// -->
 {#if $layoutBreakpoint !== "large-desktop"}
   <div class="site-toolbar" class:mobile={$layoutBreakpoint === "mobile"}
     class:desktop={$layoutBreakpoint === "small-desktop"}
+    inert={$siteMenuModal}
   >
     <SiteMenuModalOpenerButton />
   </div>

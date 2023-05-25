@@ -3,6 +3,7 @@
   // IMPORTS ------------------------------------------
   import { layoutBreakpoint } 
   from "../../data/dynamic/layoutBreakpointStore";
+  import { siteMenuModal } from "../../data/dynamic/modalsStore";
   import InterfaceArea from "./interface/InterfaceArea.svelte";
   import SiteToolbar from "./interface/SiteToolbar.svelte";
   import SiteMenuModal from "./interface/site-menu/SiteMenuModal.svelte";
@@ -19,7 +20,7 @@
 
   {#if $layoutBreakpoint !== "large-desktop"}
 
-    <div class="content-container">
+    <div class="content-container" inert={$siteMenuModal}>
       <slot name="content" />
     </div>
 
