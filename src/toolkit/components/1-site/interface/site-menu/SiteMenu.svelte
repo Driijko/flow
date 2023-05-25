@@ -46,7 +46,7 @@ header {
   color: white;
   padding-left: 1%;
 }
-.site-menu :global(.navigation) {
+.site-menu :global(nav) {
   width: 100%;
   background-color: green;
 }
@@ -73,7 +73,7 @@ header {
   height: 3.2%;
   font-size: calc(var(--iw)/19.3);
 }
-.site-menu.portrait :global(.navigation) {
+.site-menu.portrait :global(nav) {
   height: 78.8%;
 }
 .site-menu.portrait :global(.site-menu-modal-closer-button) {
@@ -102,7 +102,7 @@ header {
   font-size: calc(var(--iw)/80);
   letter-spacing: calc(var(--iw)/1000);
 }
-.site-menu.landscape :global(.navigation) {
+.site-menu.landscape :global(nav) {
   height: 87%;
 }
 .site-menu.landscape :global(.site-menu-modal-closer-button) {
