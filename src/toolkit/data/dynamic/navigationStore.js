@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable, get } from "svelte/store";
 
 // STATE -------------------------------------
 export const navigationLevels = writable([]);
