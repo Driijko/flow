@@ -4,12 +4,10 @@
   import shift from "../../../../../../scripts/transitions/shift";
   import { layoutBreakpoint } 
   from "../../../../../../data/dynamic/layoutBreakpointStore";
-  import { navigationLevels } from "../../../../../../data/dynamic/navigationStore";
 
-  // PROPS ------------------------------------------
-  export let chapter = "chapter-1";
 </script>
 
+<!-- MARKUP /////////////////////////// -->
 {#if $layoutBreakpoint === "small-desktop"}
   <div class="preview"
     in:shift="{{x: window.innerWidth, duration: 500, delay: 500}}"

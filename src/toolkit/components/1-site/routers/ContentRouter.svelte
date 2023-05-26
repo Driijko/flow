@@ -1,14 +1,13 @@
 <!-- SCRIPTS ////////////////////////////////// -->
 <script>
   import { currentPage } from "../../../data/dynamic/currentPageStore";
+  import IntroductionPage from "../../2-pages/introduction/IntroductionPage.svelte";
 
 </script>
 
 <!-- MARKUP /////////////////////////////////// -->
 {#if $currentPage === "splash"}
-<div>
- content
-</div>
+  <IntroductionPage />
 {/if}
 
 <!-- STYLES /////////////////////////////// -->

@@ -3,11 +3,13 @@
   // IMPORTS ------------------------------------------
   import { gsap } from "gsap";
   import { onMount } from "svelte";
+  import { viewportOrientation } from "../../data/dynamic/viewportOrientationStore";
+    import { snap } from "gsap/gsap-core";
 
   // PROPS --------------------------------------
   export let axis = "vertical";
   export let trackPosition = 0;
-  export let handleScroll;
+  export let handleScroll = null;
   export let dynamic = false;
 
   // STATE ------------------------------------------
@@ -33,14 +35,14 @@
     };
 
     if (axis === "vertical") {
-      gsap.to(".snap-scroll", {
+      gsap.to(snapScroll, {
         duration: 0.5,
         ease: "circ.out",
         scrollTop: Math.round(0 + (snapScroll.clientHeight * newPosition)),
       });
     } 
     else {
-      gsap.to(".snap-scroll", {
+      gsap.to(snapScroll, {
         duration: 0.5,
         ease: "circ.out",
         scrollLeft: Math.round(0 + (snapScroll.clientWidth * newPosition)),
@@ -140,13 +142,25 @@
     };
   };
 
+  // We need this for crunchers, as they alter the number of children
+  function handleMutation(mutationsList) {
+    for (let mutation of mutationsList) {
+      if (mutation.type === "childList") {
+        numPositions = snapScroll.childElementCount;
+        scroll(0);
+      }
+    }
+  }
+
   // UPDATE STATE ON MOUNT ----------------------------------
   onMount(()=> {
-    numPositions = snapScroll.childElementCount;  
+    numPositions = snapScroll.childElementCount; 
   });
 
   // EVENT LISTENERS -----------------------------------
   onMount(()=> {
+    const mutationObserver = new MutationObserver(handleMutation);
+    mutationObserver.observe(snapScroll, {childList: true});
     window.addEventListener("keydown", handleKeyDown);
     snapScroll.addEventListener("wheel", handleWheel);
     snapScroll.addEventListener("touchstart",handleTouchStart,{passive:false});
@@ -154,6 +168,7 @@
     snapScroll.addEventListener("touchend", handleTouchEnd,{passive:false});
 
     return () => {
+      mutationObserver.disconnect();
       window.removeEventListener("keydown", handleKeyDown);
       snapScroll.removeEventListener("wheel", handleWheel);
       snapScroll.removeEventListener("touchstart",handleTouchStart,{passive:false});

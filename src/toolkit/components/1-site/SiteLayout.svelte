@@ -8,6 +8,7 @@
   import SiteToolbar from "./interface/SiteToolbar.svelte";
   import SiteMenuModal from "./interface/site-menu/SiteMenuModal.svelte";
   import SiteMenu from "./interface/site-menu/SiteMenu.svelte";
+  import SnapScroll from "../4-layouts/SnapScroll.svelte";
 
 </script>
 
@@ -21,7 +22,9 @@
   {#if $layoutBreakpoint !== "large-desktop"}
 
     <div class="content-container" inert={$siteMenuModal}>
-      <slot name="content" />
+      <SnapScroll axis="vertical" >
+        <slot name="content" />
+      </SnapScroll>
     </div>
 
     <div class="interface-vp">
@@ -33,13 +36,15 @@
       </div>
     </div>
 
-  {:else}
+  {:else if $layoutBreakpoint === "large-desktop"}
 
     <InterfaceArea />
 
     <div class="content-area center">
       <div class="content-container">
-        <slot name="content" />
+        <SnapScroll axis="vertical" >
+          <slot name="content" />
+        </SnapScroll>
       </div>
 
     </div>
@@ -63,5 +68,8 @@
 }
 .content-container {
   background-color: white;
+}
+.content-container :global(.snap-scroll) {
+  height: var(--ch);
 }
 </style>
